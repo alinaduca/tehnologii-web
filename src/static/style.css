@@ -1,3 +1,50 @@
 * {
 	margin: 0;
 }
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	margin-top: auto;
+	height: 100px;
+	display: flex;
+	background-color: #231942;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.left-footer {
+	font-size: 22px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: white;
+	padding-left: 10px;
+}
+
+.center-footer {
+}
+
+.right-footer {
+	padding-right: 10px;
+}
+
+
+
+.right-footer,.center-footer p {
+	font-size: 20px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: #bba4da;
+	margin: auto 0;
+}
+
+#nume-echipa{
+	display: inline;
+	
+	font-size: 24px;
+	background: -webkit-linear-gradient(#eee, rgb(62, 4, 125));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
