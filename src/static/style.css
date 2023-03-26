@@ -10,41 +10,92 @@ body {
 
 footer {
 	margin-top: auto;
-	height: 100px;
+	min-height: 15vh;
 	display: flex;
 	background-color: #231942;
 	align-items: center;
 	justify-content: space-between;
+	padding: 0 30px;
 }
 
 .left-footer {
-	font-size: 22px;
+	font-size: 30px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	color: white;
-	padding-left: 10px;
+	color: #eee;
 }
 
 .center-footer {
+	font-size: 22px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #bba4da;
+	margin: auto 0;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .right-footer {
-	padding-right: 10px;
-}
-
-
-
-.right-footer,.center-footer p {
-	font-size: 20px;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	color: #bba4da;
+	max-width: 30%;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #c6b6d6;
+	justify-content:right;
 	margin: auto 0;
 }
 
-#nume-echipa{
+#about-us {
+	font-size: 20px;
+	color:rgb(255, 255, 255);
+	padding-bottom: 5px;
+}
+
+#nume-echipa {
 	display: inline;
-	
-	font-size: 24px;
+	font-size: 32px;
 	background: -webkit-linear-gradient(#eee, rgb(62, 4, 125));
-	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+#copyright {
+	padding-top: 5px;
+	font-size: 16px;
+	color:#b1b1b1;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#location {
+	display: flex;
+	align-items: center;
+	padding-bottom: 5px;
+	padding-right: 5vh;
+}
+
+.name {
+	display: flex;
+	align-items: center;
+}
+
+#loc {
+	padding-left: 10px;
+}
+
+#city {
+	font-size: 20px;
+}
+
+.name > p {
+	padding-left: 10px;
+	font-size: 18px;
+}
+
+.center-footer > div{
+	padding: 0 5px;
+}
+
+.center-footer > div > i, .center-footer > div > div > i {
+	color: white;
+}
+
+.center-footer > div > div > p {
+	color: #c6b6d6;
 }
