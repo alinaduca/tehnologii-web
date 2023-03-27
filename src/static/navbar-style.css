@@ -1,0 +1,21 @@
+a {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    text-decoration: none;
+    background-color: rgb(220, 215, 215);
+}
+
+a:active {
+    text-decoration: none;
+}
