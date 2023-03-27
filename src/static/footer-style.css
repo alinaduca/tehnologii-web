@@ -61,6 +61,16 @@ footer {
 	padding-right: 4vh;
 }
 
+.circle {
+	background-color: #140d2a;
+	border-radius: 20px;
+	min-width: 40px;
+	height: 40px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .name {
 	display: flex;
 	align-items: center;
@@ -79,11 +89,11 @@ footer {
 	font-size: 18px;
 }
 
-.center-footer > div{
+.center-footer > div {
 	padding: 0 5px;
 }
 
-.center-footer > div > i, .center-footer > div > div > i {
+.center-footer > div > div > div > i, .center-footer > div > div > i {
 	color: white;
 }
 
