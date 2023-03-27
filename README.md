@@ -1,11 +1,11 @@
 AcVis
 
-Nume echipa: FireStream
+Nume echipă: FireStream
 
-Componenta echipei:
+Componența echipei:
     
-    * Chichirău Claudiu
+    - Chichirău Claudiu
     
-    * Duca Alina
+    - Duca Alina
     
-    * Renghiuc Bianca
+    - Renghiuc Bianca
