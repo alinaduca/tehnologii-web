@@ -1,0 +1,275 @@
+/*asezare in box imagini si text*/
+* {
+    box-sizing: border-box;
+    transition: ease all 0.5s;
+}
+
+/*background*/
+body {
+    background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
+}
+
+/*link like, comment*/
+a {
+    color: #1f1f1f;
+    text-decoration: none;
+    outline: none;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: 0;
+    font-weight: normal;
+    position: relative;
+    padding: 0 0 10px 0;
+    font-weight: normal;
+    line-height: normal;
+    color: #111111;
+    margin: 0
+}
+
+h1 {
+    font-size: 24px
+}
+
+h2 {
+    font-size: 22px
+}
+
+h3 {
+    font-size: 18px
+}
+
+h4 {
+    font-size: 16px
+}
+
+h5 {
+    font-size: 14px
+}
+
+h6 {
+    font-size: 13px
+}
+
+p {
+    margin: 20px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+/*format imagine*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*pagina*/
+.news_section {
+    width: 100%;
+    float: left;
+}
+
+/*sectiune stire*/
+.news_section_2 {
+    width: 100%;
+    background-color: #d4adc6;
+    height: auto;
+    padding: 0px 50px 50px 0px;
+    box-shadow: 0px 0px 60px 4px #eeeeef;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/*format text data*/
+.date_text {
+    width: 60px;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #f9be1c;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+/*format imagine stire stanga*/
+.image_left {
+    width: 100%;
+    float: left;
+    position: relative;
+    top: -10px;
+    padding-left: 50px;
+}
+
+/*format imagine stire dreapta*/
+.image_right {
+    width: 100%;
+    float: left;
+    padding-top: 50px;
+}
+
+/*titlu stire dreapta*/
+.titlu_stire_rigth {
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    color: #252525;
+    font-weight: bold;
+    padding-top: 40px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*format text stire*/
+.detalii_stire {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #202020;
+    margin: 0px;
+    padding-top: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*aliniere butoane*/
+.butoane {
+    width: 100%;
+    display: flex;
+    padding-top: 57px;
+}
+
+/*aliniere buton like*/
+.like_bt {
+    width: 50px;
+    float: left;
+}
+
+/*format buton like*/
+.like_bt a {
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+}
+
+/*schimba culoare buton like*/
+.like_bt a:hover {
+    color: #f9be1c;
+}
+
+/*aliniere comment button*/
+.comment_bt {
+    width: 100px;
+    float: left;
+    margin-left: 20px;
+}
+
+/*format comment botton*/
+.comment_bt a {
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/*culoare buton comment*/
+.comment_bt.col a {
+    color: #f9be1c;
+}
+
+/*aliniere box stire*/
+.box_text {
+    width: 100%;
+    float: left;
+    padding: 0px 0px 0px 50px;
+}
+
+/*titlu stire stanga*/
+.titlu_stire_left {
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    color: #252525;
+    font-weight: bold;
+    padding-top: 35px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto
+  }
+  
+  @media (min-width:576px) {
+    .container {
+      max-width: 540px
+    }
+  }
+  
+  @media (min-width:768px) {
+    .container {
+      max-width: 720px
+    }
+  }
+  
+  @media (min-width:992px) {
+    .container {
+      max-width: 960px
+    }
+  }
+  
+  @media (min-width:1200px) {
+    .container {
+      max-width: 1140px
+    }
+  }
+
+  
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px
+  }
+
+  
+  .box
+ {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px
+  }
+
+
+  @media (min-width:768px) {
+    .box {
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%
+    }
+  }

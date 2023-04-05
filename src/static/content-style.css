@@ -1,0 +1,128 @@
+/*imagine fundal*/
+body {
+  background-image: url('https://i.postimg.cc/XYnsW7PM/R2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition: background-image 1s ease-in-out;
+}
+
+
+.box {
+  background-color: rgba(194, 145, 226, 0.3);
+  background-attachment: fixed;
+  background-size: cover;
+  border-radius: 5px;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 1;
+ -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 75px;
+  flex: 50%;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  min-height: 100%;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+
+
+@media only screen and (max-width: 2000px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  #logo-content {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  #logo-content {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  #logo-content {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  #logo-content {
+
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  #logo-content {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+@media only screen and (max-width: 750px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  #logo-content {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-size: 100% 100%;
+    width: 100%;
+  }
+
+  #logo-content {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  #logo-content {
+    max-width: 100%;
+    height: auto;
+  }
+}
