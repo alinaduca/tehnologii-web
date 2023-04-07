@@ -69,7 +69,7 @@ p {
 }
 
 /*format imagine*/
-img {
+img.news-img {
     max-width: 100%;
     height: auto;
 }
@@ -87,8 +87,8 @@ img {
     height: auto;
     padding: 0px 50px 50px 0px;
     box-shadow: 0px 0px 60px 4px #eeeeef;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 110px;
+    margin-bottom: 25px;
 }
 
 /*format text data*/
