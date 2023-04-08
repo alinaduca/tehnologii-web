@@ -1,0 +1,29 @@
+body {
+    background-image: url('https://i.postimg.cc/XYnsW7PM/R2.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    transition: background-image 1s ease-in-out;
+  }
+
+  .box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background-color: rgba(194, 145, 226, 0.3);
+    background-attachment: fixed;
+    background-size: cover;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 1;
+   -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }

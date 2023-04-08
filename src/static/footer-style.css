@@ -1,4 +1,5 @@
 footer {
+	z-index:2;
 	margin-top: auto;
 	min-height: 15vh;
 	display: flex;
