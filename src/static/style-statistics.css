@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    transition: ease all 0.5s;
+}
+
+body {
+    background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
+}
+
+.year a:hover {
+    background-color: #e8c4e5;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #1f1c1f;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto
+  }
+
+.content {
+    margin-top: 100px;
+}
+
+canvas {
+    max-height: 70%;
+    max-width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8c4e5;
+    display: block;
+    margin: 20px;
+}
+
+.years {
+    display: flex;
+}
+
+.year {
+    cursor: pointer;
+    margin: 5px;
+    background-color: #462760;
+    border-radius: 20px;
+    color: #f6f0f6;
+    height: 30px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-body {
+    margin: 0 10%;
+    margin-top: 1%;
+}
+
+.diagrams {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: normal;
+}

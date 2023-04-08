@@ -71,7 +71,7 @@ li{
   background-color: white;
 }
 
-a:hover {
+header a:hover{
     background-color: #441d3e;
     font-weight: bolder;
     border-radius: 5px;
