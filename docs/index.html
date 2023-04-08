@@ -1,184 +1,244 @@
 <!DOCTYPE html>
 <html lang="ro">
 
-<head>
-    <meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="schema:accessibilityFeature" content="alternativeText">
-  <meta property="schema:accessibilityFeature" content="MathML">
-  <meta property="schema:accessibilityHazard" content="noFlashingHazard">
-  <meta property="schema:copyrightHolder" content="Chichirau Claudiu Constantin & Duca Alina & Renghiuc Bianca Elena">
-    <title>FireStream</title>
-    <link rel="stylesheet" href="scholarly.css" />
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="schema:accessibilityFeature" content="alternativeText">
+        <meta property="schema:accessibilityFeature" content="MathML">
+        <meta property="schema:accessibilityHazard" content="noFlashingHazard">
+        <meta property="schema:copyrightHolder" content="Chichirau Claudiu Constantin & Duca Alina & Renghiuc Bianca Elena">
+        <title>FireStream</title>
+        <link rel="stylesheet" href="scholarly.css" />
+    </head>
 
-<body prefix="schema: http://schema.org">
-<article resource="#" typeof="schema:ScholarlyArticle">
-    <header>
-        <h1 property="schema:name">FireStream</h1>
-        <h2 id="h2_in_h1" role="doc-subtitle" property="schema:alternateName">
-            Exploreaza actorii de top prin cifre
-        </h2>
-      
-    </header>
-    <section class="content">
-    <OL>
-        <LI><a href="#abstract">Rezumat</a></LI>
-        <LI><a href="#introduction">Introducere</a></LI>
-        <LI><a href="#descriere">Descriere generala</a></LI>
-        <LI><a href="#interfata">Interfata aplicatiei</a></LI>
-        <LI><a href="#caracteristici">Caracteristicile sistemului</a></LI>
-        <LI><a href="#cerinte">Cerinte nefunctionale</a></LI>
-        <LI><a href="#referinte">Referinte</a></LI>
-    </OL>
-    
-    <div role="contentinfo">
-        <section typeof="sa:AuthorsList">
-            <h2>Autori</h2>
-            <ul>
-              <li typeof="sa:ContributorRole" property="schema:author">
-                <span typeof="schema:Person">
-                  <meta property="schema:familyName" content="Chichirau">
-                  <meta property="schema:givenName" content="Cladiu">
-                  <meta property="schema:additionalName" content="Constantin">
-                  <span property="schema:name">Chichirau Claudiu Constantin</span>
-                </span>
-              </li>
-              <li typeof="sa:ContributorRole" property="schema:author">
-                <span typeof="schema:Person">
-                  <meta property="schema:familyName" content="Duca">
-                  <meta property="schema:givenName" content="Alina">
-                  <span property="schema:name">Duca Alina</span>
-                </span>
-              </li>
-              <li typeof="sa:ContributorRole" property="schema:author">
-                <span typeof="schema:Person">
-                  <meta property="schema:familyName" content="Renghiuc">
-                  <meta property="schema:givenName" content="Bianca">
-                  <meta property="schema:additionalName" content="Elena">
-                  <span property="schema:name">Renghiuc Bianca Elena</span>
-                </span>
-              </li>
-            </ul>
-          </section>
-    </div>
+    <body prefix="schema: http://schema.org">
+        <article resource="#" typeof="schema:ScholarlyArticle">
+            <header>
+                <h1 property="schema:name">FireStream</h1>
+                <h2 id="h2_in_h1" role="doc-subtitle" property="schema:alternateName">
+                    Explorează actorii de top prin cifre.
+                </h2>
+            </header>
 
+            <section class="content">
+                <OL>
+                    <LI><a href="#abstract">Rezumat</a></LI>
+                    <LI><a href="#introduction">Introducere</a></LI>
+                    <LI><a href="#descriere">Descriere generală</a></LI>
+                    <LI><a href="#interfata">Interfața aplicației</a></LI>
+                    <LI><a href="#caracteristici">Caracteristicile sistemului</a></LI>
+                    <LI><a href="#cerinte">Cerințe nefuncționale</a></LI>
+                    <LI><a href="#referinte">Referințe</a></LI>
+                </OL>
+            
+                <div role="contentinfo">
+                    <section typeof="sa:AuthorsList">
+                        <h2>Autori</h2>
+                        <ul>
+                            <li typeof="sa:ContributorRole" property="schema:author">
+                                <span typeof="schema:Person">
+                                <meta property="schema:familyName" content="Chichirau">
+                                <meta property="schema:givenName" content="Cladiu">
+                                <meta property="schema:additionalName" content="Constantin">
+                                <span property="schema:name">Chichirău Claudiu Constantin</span>
+                                </span>
+                            </li>
+                            <li typeof="sa:ContributorRole" property="schema:author">
+                                <span typeof="schema:Person">
+                                <meta property="schema:familyName" content="Duca">
+                                <meta property="schema:givenName" content="Alina">
+                                <span property="schema:name">Duca Alina</span>
+                                </span>
+                            </li>
+                            <li typeof="sa:ContributorRole" property="schema:author">
+                                <span typeof="schema:Person">
+                                <meta property="schema:familyName" content="Renghiuc">
+                                <meta property="schema:givenName" content="Bianca">
+                                <meta property="schema:additionalName" content="Elena">
+                                <span property="schema:name">Renghiuc Bianca Elena</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
 
+            <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+                <h2>1. Rezumat</h2>
+                <p id="p_in_h2">
+                    Proiectul nostru reprezintă un instrument Web de vizualizare flexibilă a datelor referitoare
+                    la nominalizările actorilor la Screen Actors Guid (SAG) Awards. Utilizatorii pot vedea și accesa
+                    datele referitoare la parcursul acestora în funcție de nominalizări, de filmele în care au jucat
+                    și de fanii pe care îi are fiecare actor. Pentru a obține informații suplimentare despre fiecare 
+                    actor și producție cinematografică, se va utiliza The Movie Database (TMDb) și se va dezvolta un 
+                    API REST/GraphQL propriu. Utilizatorii vor putea exporta statisticile și vizualizările generate 
+                    în formatele CSV, WebP și SVG, iar sistemul va oferi suport pentru redarea de știri despre fiecare 
+                    nominalizat în parte, pe baza unor surse externe configurabile în cadrul aplicației. 
+                </p>
+            </section>
 
-    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
-        <h2>1. Rezumat</h2>
-        <p id="p_in_h2">
-            ceva ceva ceva 
-        </p>
-    </section>
-    <section id="introduction" role="doc-introduction">
-        <h2>2. Introducere</h2>
-            <h3> 2.1  Scop </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 2.2  Conventiile documentului </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 2.3  Publicul vizat si sugestii de lectura </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 2.4  Domeniul de aplicare al produsului </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-    </section>
-    <section id="descriere">
-        <h2>3. Descriere generala</h2>
-            <h3> 3.1  Perspectiva produsului </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 3.2  Functiile produsului </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 3.3  Clasele si caracteristicile utilizatorilor </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 3.4  Mediul de operare </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 3.5  Constrangeri de proiectare si implementare </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 3.6 Documentatia utilizatorului </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-    </section>
-    <section id="interfata">
-        <h2>4. Interfata aplicatiei</h2>
-            <h3> 4.1  Interfata cu utilizatorul </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 4.2  Interfata hardware </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 4.3  Interfata software </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-            <h3> 4.4  Interfata de comunicatii </h3>
-            <p id="p_in_h3">
-                ceva ceva ceva 
-            </p>
-    </section>
+            <section id="introduction" role="doc-introduction">
+                <h2>2. Introducere</h2>
+                <h3> 2.1 Scop </h3>
+                <p id="p_in_h3">
+                    Scopul acestui proiect este de a crea un instrument web care să ofere utilizatorilor o modalitatea 
+                    ușoară și flexibilă de a vizualiza și analiza datele legate de nominalizările actorilor la SAG Awards,
+                    de a obține statisticile relevante și informațiile suplimentare pentru fiecare nominalizat. 
+                </p>
+                <h3> 2.2 Convențiile documentului </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+                <h3> 2.3 Publicul vizat și sugestii de lectură </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+                <h3> 2.4 Domeniul de aplicare al produsului </h3>
+                <p id="p_in_h3">
+                    <!-- beneficii, scopuri, obiective  -->
+                    <ul role="list">
+                        <li>Crearea unui instrument web de vizualizare flexibilă a datelor referitoare la nominalizările actorilor la premiile <i style="font-weight: none;">Screen Actors Guid (SAG) Awards</i>.</li>
+                        <li>Furnizarea de informații suplimentare despre actori și producțiile lor cinematografice.</li>
+                        <li>Oferirea unei interfețe ușor de utilizat și a unor modalități variate de vizualizare a datelor.</li>
+                        <li>Generarea de statistici și vizualizări personalizate, în cel puțin trei moduri diferite, care permit utilizatorilor să interpreteze datele într-un mod mai intuitiv și accesibil.</li>
+                        <li>Permiterea exportului statisticilor în formatele CSV, WebP și SVG și vizualizărilor în formate ușor de prelucrat și de utilizat în alte aplicații.</li>
+                        <li>Suport pentru redarea de știri privitoare la fiecare nominalizat în parte, bazată pe surse externe de date configurabile în cadrul aplicației dezvoltate, astfel încât utilizatorii să fie la curent cu cele mai noi informații despre actori și producțiile lor.</li>
+                    </ul>
+                </p>
+            </section>
 
-    <section id="caracteristici">
-        <h2>5. Caracteristicile sistemului</h2>
-        <p id="p_in_h2">
-            ceva ceva ceva 
-        </p>
-    </section>
+            <section id="descriere">
+                <h2> 3. Descriere generală </h2>
+                <h3> 3.1 Perspectiva produsului </h3>
+                <p id="p_in_h3">
+                    Perspectiva proiectului este de a dezvolta un instrument web util și ușor de utilizat 
+                    pentru vizualizarea datelor referitoare la nominalizările actorilor la premiile SAG, 
+                    oferind utilizatorilor posibilitatea de a explora aceste date în mod flexibil și interactiv.
 
-    <section id="cerinte">
-        <h2>6. Cerinte nefunctionale</h2>
-        <p id="p_in_h2">
-            ceva ceva ceva 
-        </p>
-    </section>
+                    Următoarea diagramă prezintă componentele majore ale sistemului aplicației:
+                    <img src="diagram1.png" typeof="sa:image">
+                    <!-- diagrama -->
+                    <ul role="list">
+                        <li>Frontend - reprezintă partea vizibilă a aplicației pentru utilizator, care include interfața grafică de utilizator (User Interface), dezvoltată cu ajutorul unor tehnologii web precum HTML, CSS și JavaScript.</li>
+                        <li>API REST/GraphQL - reprezintă partea de interacțiune între frontend și backend, oferind o interfață de programare a aplicației (API) pentru accesul la date și servicii.
+                            API-ul poate fi implementat cu ajutorul protocolului REST sau GraphQL.</li>
+                        <li>Backend - reprezintă partea de procesare și stocare a datelor din aplicație, și include servicii ale aplicației și gestionarea datelor din baze de date.</li>
+                        <li>Database & Storage - reprezintă componenta de stocare a datelor utilizate de aplicație, care include baze de date relaționale și servicii de stocare în cloud.</li>
+                    </ul>
+                    Aceste componente colaborează împreună pentru a oferi utilizatorilor un instrument web puternic și flexibil de vizualizare a datelor.
+                </p>
+                <h3> 3.2 Funcțiile produsului </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+                <h3> 3.3 Clasele și caracteristicile utilizatorilor </h3>
+                <p id="p_in_h3">
+                    Clasele și caracteristicile utilizatorilor care vor folosi aplicația AcVis (Actors Smart Visualizer) sunt:
+                    <ul role="list">
+                        <li><b>Cercetători și analiști de date</b> - Acești utilizatori vor fi interesați de vizualizările statisticelor și de 
+                            exportul de date în formatele CSV, WebP și SVG. Vor fi interesați de instrumentul web ca o modalitate de a 
+                            analiza și interpreta datele referitoare la nominalizările actorilor la SAG Awards.</li>
+                        <li><b>Jurnaliști și scriitori de film</b> - Acești utilizatori vor fi interesați de funcția de redare de știri 
+                            privitoare la fiecare nominalizat în parte, pe baza unor surse externe de date configurabile în cadrul
+                             aplicației dezvoltate. Acești utilizatori ar putea să folosească aplicația pentru a obține informații 
+                             suplimentare despre nominalizații la SAG Awards pentru a scrie articole de știri pentru propriile publicații.</li>
+                        <li><b>Studenți și cercetători</b> - Acești utilizatori pot folosi aplicația pentru a obține informații și date 
+                            despre nominalizările la SAG Awards în scopuri academice sau de cercetare. Instrumentul web poate fi util 
+                            pentru a obține datele necesare și pentru a le analiza în mod eficient.</li>
+                        <li><b>Pasionați de film</b> - Acești utilizatori vor fi interesați de a explora nominalizările la SAG Awards și de a 
+                            afla mai multe despre actorii și producțiile cinematografice nominalizate. Funcția de redare de știri poate 
+                            oferi informații interesante și de fundal despre nominalizații și producțiile lor.</li>
+                        <li><b>Publicul larg</b> - Aplicația poate fi utilizată de publicul larg pentru a explora și înțelege mai bine 
+                            nominalizările actorilor la SAG Awards. Interfața intuitivă și ușor de utilizat, precum și vizualizările 
+                            grafice complexe, vor face ca informațiile să fie accesibile și ușor de înțeles pentru toți utilizatorii.</li>
+                    </ul>
+                </p>
+                <h3> 3.4 Mediul de operare </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+                <h3> 3.5 Constrângeri de proiectare și implementare </h3>
+                <p id="p_in_h3">
+                    Constrangerile de proiectare si implementare pentru proiectul FireStream sunt urmatoarele:
+                    <ul role="list">
+                        <li><b>Limitări hardware</b>: Este necesară o capacitate de stocare suficientă și o viteză adecvată a serverelor
+                            pentru a prelua și prelucra datele de la TMDb și pentru a oferi vizualizări rapide și eficiente. Aceasta 
+                            poate necesita resurse hardware suplimentare.</li>
 
-    <section id="referinte" role="doc-bibliography">
-   
-        <h2>7. Referinte</h2>
-        <div role="list"></div>
-        <li typeof="schema:WebPage" resource="http://semver.org/" property="schema:citation">
-            <cite property="schema:name">
-            <a href="http://semver.org/">Semantic Versioning 2.0.0</a>
-            </cite>, by <span property="schema:author" typeof="schema:Person">
-                <span property="schema:givenName">Tom</span>
-                <span property="schema:familyName">Preston-Werner</span>
-            </span>; published in
-            <time property="schema:datePublished" datatype="xsd:gYear" datetime="2014">2014</time>
-            <span property="schema:potentialAction" typeof="schema:ReadAction">
-            <meta property="schema:actionStatus" content="CompletedActionStatus">
-            (accessed on
-            <time property="schema:endTime" datatype="xsd:date" datetime="2016-02-01">01 Feb 2016</time>)
- </span>.
-</li>
+                        <li><b>Interfețe cu alte aplicații</b>: Pentru a prelua informații despre actori și producții cinematografice 
+                            de la TMDb și pentru a oferi suport pentru redarea de știri, trebuie să se integreze cu alte aplicații. 
+                            Acest lucru poate necesita un timp suplimentar pentru dezvoltarea interfețelor de programare a aplicațiilor 
+                            (API) și pentru testare.</li>
 
-    </div>
-    </section>
-    </section>
-    <footer>
-        <!-- footer -->
-    </footer>
+                        <li><b>Tehnologii, instrumente si baze de date specifice</b>: Pentru a dezvolta aplicația, sunt necesare cunoștințe 
+                            și experiența în utilizarea anumitor tehnologii, instrumente și baze de date, cum ar fi GraphQL, TMDb API și 
+                            alte tehnologii web.</li>
 
-</article>
-</body>
+                        <li><b>Considerente de securitate</b>: Deoarece aplicatia va prelua și va prelucra date sensibile, trebuie luate 
+                            în considerare măsuri suplimentare pentru a se asigura securitatea datelor și a aplicației. Acest lucru poate 
+                            include criptarea datelor, autentificarea și autorizarea utilizatorilor și testarea securității aplicației.</li>
 
+                        <li><b>Politici corporative sau de reglementare</b>: Se va lua în considerare politica de confidențialitate și 
+                            de securitate a datelor pentru a se asigura că aplicația dezvoltată respectă standardele legale și de afaceri.</li>
+                    </ul>
+                </p>
+                <h3> 3.6 Documentația utilizatorului </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+            </section>
+            
+            <section id="interfata">
+                <h2> 4. Interfața aplicației </h2>
+                <h3> 4.1 Interfața cu utilizatorul </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+                <h3> 4.2 Interfața software </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+                <h3> 4.3 Interfața de comunicații </h3>
+                <p id="p_in_h3">
+                    <!-- ceva ceva ceva  -->
+                </p>
+            </section>
+
+            <section id="caracteristici">
+                <h2> 5. Caracteristicile sistemului </h2>
+                <p id="p_in_h2">
+                    <!-- ceva ceva ceva  -->
+                </p>
+            </section>
+
+            <section id="cerinte">
+                <h2> 6. Cerințe nefuncționale </h2>
+                <p id="p_in_h2">
+                    <!-- ceva ceva ceva  -->
+                </p>
+            </section>
+
+            <section id="referinte" role="doc-bibliography">
+                <h2> 7. Referințe </h2>
+                <div role="list"> </div>
+                <li typeof="schema:WebPage" resource="http://semver.org/" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="http://semver.org/">Semantic Versioning 2.0.0</a>
+                    </cite>, by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Tom</span>
+                        <span property="schema:familyName">Preston-Werner</span>
+                    </span>; published in
+                    <time property="schema:datePublished" datatype="xsd:gYear" datetime="2014">2014</time>
+                    <span property="schema:potentialAction" typeof="schema:ReadAction">
+                        <meta property="schema:actionStatus" content="CompletedActionStatus">
+                        (accessed on
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2016-02-01">01 Feb 2016</time>)
+                    </span>.
+                </li>
+            </section>
+            <!-- <footer>
+            </footer> -->
+        </article>
+    </body>
 </html>
