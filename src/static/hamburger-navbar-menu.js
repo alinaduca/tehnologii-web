@@ -11,3 +11,16 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
   navMenu.classList.remove("active");
 }))
 
+// var prevScrollpos = window.pageYOffset;
+
+// window.onscroll = function() {
+//   var currentScrollPos = window.pageYOffset;
+
+//   if (prevScrollpos > currentScrollPos) {
+//     document.getElementById("main-header").classList.remove("hidden");
+//   } else {
+//     document.getElementById("main-header").classList.add("hidden");
+//   }
+
+//   prevScrollpos = currentScrollPos;
+// }

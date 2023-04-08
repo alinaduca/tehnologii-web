@@ -9,10 +9,11 @@
 		<link rel="stylesheet" type="text/css" href="header-style.css">
 		<link rel="stylesheet" type="text/css" href="footer-style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="style-news.css">
-    </head>
+    <link rel="stylesheet" type="text/css" href="style-nominations.css">
+  </head>
    <body>
-    <header>
+    <!-- HEADER -->
+    <header id="main-header">
         <div class="container-header">
             <div class="subcontainer-header">
               <nav class="navbar">
@@ -21,9 +22,6 @@
                       <img class="logo-img" href="index.html" src="../view/logo.png" alt="" title="Explorează lumea actorilor prin cifre">
                     </a>
                 </div>
-                <!-- <a href="#" class="nav-branding">
-                  <img src="../view/logo.png" alt="" title="Explorează lumea actorilor prin cifre">
-                </a> -->
                 <ul class="nav-menu">
                   <li class="nav-item">
                      <a href="index.html" class="nav-link">Home</a>
@@ -32,7 +30,7 @@
                      <a href="statistics.html" class="nav-link">Statistics</a>
                   </li>    
                   <li class="nav-item">
-                     <a href="nominalizations.html" class="nav-link">Nominalizations</a>
+                     <a href="nominalizations.html" class="nav-link">Nominations</a>
                   </li>    
                   <li class="nav-item">
                      <a href="news.html" class="nav-link">News</a>
@@ -53,11 +51,184 @@
         </div> 
      </header>
 
+     <!-- CONTENT -->
 
+     <!-- Slideshow container -->
+	  <div class="slideshow-container fade">
+
+		    <!-- Full images with numbers and message Info -->
+        <div class="Containers">
+          <img src="../view/nominalizations-images/image2.jpg" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+
+        <div class="Containers">
+          <img src="../view/nominalizations-images/image9.png" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+
+        <div class="Containers">
+          <img src="../view/nominalizations-images/image6.png" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+
+        <div class="Containers">
+          <img src="../view/nominalizations-images/image4.png" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+
+        <div class="Containers">
+          <img src="../view/nominalizations-images/image3.png" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+
+        <div class="Containers">
+          <img src="../view/nominalizations-images/image5.png" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+
+		    <div class="Containers">
+			    <img src="../view/nominalizations-images/image1.png" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+
+        <div class="Containers">
+          <img src="../view/nominalizations-images/image7.png" style="width:100%">
+          <div class="text-container">
+            <h2>Nominations's History</h2>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+          </div>
+        </div>
+        
+	  </div>
+	  <br>
+
+	  <!-- The circles/dots -->
+	  <div style="text-align:center">
+		  <span class="dots" onclick="currentSlide(1)"></span>
+		  <span class="dots" onclick="currentSlide(2)"></span>
+		  <span class="dots" onclick="currentSlide(3)"></span>
+	  </div>
+
+
+  <section id="nominalizations">
+      <!-- The target section you want to scroll to -->
       <!-- blog section end -->
+      <section id="nominalizari">
+        <div class="top-nominalizari">
+          <h2>Topul nominalizărilor</h2>
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrare după an:
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+               <a class="dropdown-item" href="#">2023</a>
+               <a class="dropdown-item" href="#">2022</a>
+               <a class="dropdown-item" href="#">2021</a>
+               <a class="dropdown-item" href="#">2020</a>
+               <a class="dropdown-item" href="#">2019</a>
+               <a class="dropdown-item" href="#">2018</a>
+               <a class="dropdown-item" href="#">2017</a>
+               <a class="dropdown-item" href="#">2016</a>
+               <a class="dropdown-item" href="#">2015</a>
+               <a class="dropdown-item" href="#">2014</a>
+               <a class="dropdown-item" href="#">2013</a>
+               <a class="dropdown-item" href="#">2012</a>
+               <a class="dropdown-item" href="#">2011</a>
+               <a class="dropdown-item" href="#">2010</a>
+            </div>
+
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrare după gen:
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+               <a class="dropdown-item" href="#">Masculin</a>
+               <a class="dropdown-item" href="#">Feminin</a>
+            </div>
+
+         </div>
+
+          <!-- <div class="filters">
+            <label for="an-select">Filtrare după an:</label>
+            <select id="an-select">
+              <option value="toate">Toate</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+            </select>
+            <label for="gen-select">Filtrare după gen:</label>
+            <select id="gen-select">
+              <option value="toate">Toate</option>
+              <option value="masculin">Masculin</option>
+              <option value="feminin">Feminin</option>
+            </select>
+          </div> -->
+
+          <div class="top-lista">
+            <div class="top-element">
+              <img src="https://via.placeholder.com/150" alt="Statistica">
+              <div class="top-informatii">
+                <h3>Nume Actor/Actrita</h3>
+                <p>Anul: 2022</p>
+                <p>Gen: Masculin/Feminin</p>
+                <p>Numar nominalizari: 5</p>
+              </div>
+            </div>
+            <div class="top-element">
+              <img src="https://via.placeholder.com/150" alt="Statistica">
+              <div class="top-informatii">
+                <h3>Nume Actor/Actrita</h3>
+                <p>Anul: 2022</p>
+                <p>Gen: Masculin/Feminin</p>
+                <p>Numar nominalizari: 5</p>
+              </div>
+            </div>
+            <div class="top-element">
+              <img src="https://via.placeholder.com/150" alt="Statistica">
+              <div class="top-informatii">
+                <h3>Nume Actor/Actrita</h3>
+                <p>Anul: 2021</p>
+                <p>Gen: Masculin/Feminin</p>
+                <p>Numar nominalizari: 3</p>
+              </div>
+            </div>
+            <div class="top-element">
+              <img src="https://via.placeholder.com/150" alt="Statistica">
+              <div class="top-informatii">
+                <h3>Nume Actor/Actrita</h3>
+                <p>Anul: 2020</p>
+                <p>Gen: Masculin/Feminin</p>
+                <p>Numar nominalizari: 2</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+      
+
       <!-- footer end -->
-
-
       <footer>
         <div class="left-footer">
             <p>
@@ -107,5 +278,6 @@
     </footer>
 
     <script src="hamburger-navbar-menu.js"></script>
+    <script src="js-nominalizations.js"></script>
    </body>
 </html>
