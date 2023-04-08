@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="footer-style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="style-nominations.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
    <body>
     <!-- HEADER -->
@@ -61,7 +62,7 @@
           <img src="../view/nominalizations-images/image2.jpg" style="width:100%">
           <div class="text-container">
             <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
           </div>
         </div>
 
@@ -69,7 +70,7 @@
           <img src="../view/nominalizations-images/image9.png" style="width:100%">
           <div class="text-container">
             <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
           </div>
         </div>
 
@@ -77,7 +78,7 @@
           <img src="../view/nominalizations-images/image6.png" style="width:100%">
           <div class="text-container">
             <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
           </div>
         </div>
 
@@ -85,7 +86,7 @@
           <img src="../view/nominalizations-images/image4.png" style="width:100%">
           <div class="text-container">
             <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
           </div>
         </div>
 
@@ -93,7 +94,7 @@
           <img src="../view/nominalizations-images/image3.png" style="width:100%">
           <div class="text-container">
             <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
           </div>
         </div>
 
@@ -101,7 +102,7 @@
           <img src="../view/nominalizations-images/image5.png" style="width:100%">
           <div class="text-container">
             <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
           </div>
         </div>
 
@@ -109,28 +110,13 @@
 			    <img src="../view/nominalizations-images/image1.png" style="width:100%">
           <div class="text-container">
             <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
-          </div>
-        </div>
-
-        <div class="Containers">
-          <img src="../view/nominalizations-images/image7.png" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominalizations!</a></button>
+            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
           </div>
         </div>
         
 	  </div>
-	  <br>
 
-	  <!-- The circles/dots -->
-	  <div style="text-align:center">
-		  <span class="dots" onclick="currentSlide(1)"></span>
-		  <span class="dots" onclick="currentSlide(2)"></span>
-		  <span class="dots" onclick="currentSlide(3)"></span>
-	  </div>
-
+    <!-- FILTRARE AN NOMINALIZARI -->
 
   <section id="nominalizations">
       <!-- The target section you want to scroll to -->
@@ -159,73 +145,126 @@
                <a class="dropdown-item" href="#">2010</a>
             </div>
 
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrare după gen:
+            <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrare după gen:
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                <a class="dropdown-item" href="#">Masculin</a>
                <a class="dropdown-item" href="#">Feminin</a>
-            </div>
+            </div> -->
 
          </div>
-
-          <!-- <div class="filters">
-            <label for="an-select">Filtrare după an:</label>
-            <select id="an-select">
-              <option value="toate">Toate</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-            </select>
-            <label for="gen-select">Filtrare după gen:</label>
-            <select id="gen-select">
-              <option value="toate">Toate</option>
-              <option value="masculin">Masculin</option>
-              <option value="feminin">Feminin</option>
-            </select>
-          </div> -->
-
-          <div class="top-lista">
-            <div class="top-element">
-              <img src="https://via.placeholder.com/150" alt="Statistica">
-              <div class="top-informatii">
-                <h3>Nume Actor/Actrita</h3>
-                <p>Anul: 2022</p>
-                <p>Gen: Masculin/Feminin</p>
-                <p>Numar nominalizari: 5</p>
-              </div>
-            </div>
-            <div class="top-element">
-              <img src="https://via.placeholder.com/150" alt="Statistica">
-              <div class="top-informatii">
-                <h3>Nume Actor/Actrita</h3>
-                <p>Anul: 2022</p>
-                <p>Gen: Masculin/Feminin</p>
-                <p>Numar nominalizari: 5</p>
-              </div>
-            </div>
-            <div class="top-element">
-              <img src="https://via.placeholder.com/150" alt="Statistica">
-              <div class="top-informatii">
-                <h3>Nume Actor/Actrita</h3>
-                <p>Anul: 2021</p>
-                <p>Gen: Masculin/Feminin</p>
-                <p>Numar nominalizari: 3</p>
-              </div>
-            </div>
-            <div class="top-element">
-              <img src="https://via.placeholder.com/150" alt="Statistica">
-              <div class="top-informatii">
-                <h3>Nume Actor/Actrita</h3>
-                <p>Anul: 2020</p>
-                <p>Gen: Masculin/Feminin</p>
-                <p>Numar nominalizari: 2</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
-
     </section>
+
+    <!-- AFISARE NOMINALIZARI -->
+
+    <!-- Slideshow container -->
+	<div class="slideshow-container-nominalizari">
+
+		<!-- Full-width slides/quotes -->
+		<div class="mySlides">
+			<h3 class="nomination-type">Best Movie</h3>
+      <a class="winner">
+        <li class="principal-name">Everything Everywhere All at Once</li>
+        <li class="secundar-name">Daniel Kwan, Daniel Scheinert, Jonathan Wang</li>
+        <li class="nominalizare">Winner</li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Top Gun 2</li>
+        <li class="secundar-name">Tom Cruise, Jerry Bruckheimer, Christopher McQuarrie</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Women Talking</li>
+        <li class="secundar-name">Frances McDormand, Dede Gardner, Jeremy Kleiner</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">The Banshees of Inisherin</li>
+        <li class="secundar-name">Martin McDonagh, Graham Broadbent, Peter Czernin</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Triunghiul tristeții</li>
+        <li class="secundar-name">Erik Hemmendorff, Philippe Bober</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">The Fabelmans</li>
+        <li class="secundar-name">Steven Spielberg, Tony Kushner, Kristie Macosko Krieger</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Nimic nou pe frontul de vest</li>
+        <li class="secundar-name">Malte Grunert</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Avatar 2</li>
+        <li class="secundar-name">James Cameron, Jon Landau</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Elvis</li>
+        <li class="secundar-name">Baz Luhrmann, Catherine Martin, Gail Berman</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Tár</li>
+        <li class="secundar-name">Todd Field, Alexandra Milchan, Scott Lambert</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+		</div>
+
+    <!---->
+
+		<div class="mySlides">
+			<h3 class="nomination-type">Best Actress</h3>
+      <a class="winner">
+        <li class="principal-name">Brendan Fraser</li>
+        <li class="secundar-name">The Whale</li>
+        <li class="nominalizare">Winner</li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Austin Butler</li>
+        <li class="secundar-name">Elvis</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Colin Farrell</li>
+        <li class="secundar-name">The Banshees of Inisherin</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Bill Nighy</li>
+        <li class="secundar-name">Living</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+
+      <a class="nominee">
+        <li class="principal-name">Paul Mescal</li>
+        <li class="secundar-name">Aftersun</li>
+        <li class="nominalizare">Nominated </li>
+      </a>
+		</div>
+
+		<!-- Next/prev buttons -->
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	</div>
       
 
       <!-- footer end -->

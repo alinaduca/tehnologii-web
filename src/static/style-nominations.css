@@ -224,3 +224,53 @@
   opacity: 1;
   visibility: visible;
 }
+
+
+/* */
+
+
+/*Stilizare pentru containerul de slideshow*/
+.slideshow-container-nominalizari {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/*Stilizare pentru slide-uri*/
+.mySlides {
+  display: none;
+}
+
+.nomination-type {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.nominee, .winner {
+  display: block;
+  border-bottom: 1px solid black;
+  padding: 20px 0;
+}
+
+.principal-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.secundar-name {
+  font-size: 16px;
+}
+
+.nominalizare {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.winner .principal-name {
+  color: green;
+}
+
+.nominee .principal-name {
+  color: black;
+}
