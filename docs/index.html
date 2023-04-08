@@ -3,15 +3,24 @@
 
 <head>
     <meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="schema:accessibilityFeature" content="alternativeText">
+  <meta property="schema:accessibilityFeature" content="MathML">
+  <meta property="schema:accessibilityHazard" content="noFlashingHazard">
+  <meta property="schema:copyrightHolder" content="Chichirau Claudiu Constantin & Duca Alina & Renghiuc Bianca Elena">
     <title>FireStream</title>
     <link rel="stylesheet" href="scholarly.css" />
 </head>
 
 <body prefix="schema: http://schema.org">
+<article resource="#" typeof="schema:ScholarlyArticle">
     <header>
-        <h1>FireStream</h1>
+        <h1 property="schema:name">FireStream</h1>
+        <h2 id="h2_in_h1" role="doc-subtitle" property="schema:alternateName">
+            Exploreaza actorii de top prin cifre
+        </h2>
+      
     </header>
     <section class="content">
     <OL>
@@ -25,8 +34,34 @@
     </OL>
     
     <div role="contentinfo">
-        <h2>Autori</h2>
-        <p id="p_in_h2">Chichirau Claudiu &amp; Duca Alina &amp; Renghiuc Bianca</p>
+        <section typeof="sa:AuthorsList">
+            <h2>Autori</h2>
+            <ul>
+              <li typeof="sa:ContributorRole" property="schema:author">
+                <span typeof="schema:Person">
+                  <meta property="schema:familyName" content="Chichirau">
+                  <meta property="schema:givenName" content="Cladiu">
+                  <meta property="schema:additionalName" content="Constantin">
+                  <span property="schema:name">Chichirau Claudiu Constantin</span>
+                </span>
+              </li>
+              <li typeof="sa:ContributorRole" property="schema:author">
+                <span typeof="schema:Person">
+                  <meta property="schema:familyName" content="Duca">
+                  <meta property="schema:givenName" content="Alina">
+                  <span property="schema:name">Duca Alina</span>
+                </span>
+              </li>
+              <li typeof="sa:ContributorRole" property="schema:author">
+                <span typeof="schema:Person">
+                  <meta property="schema:familyName" content="Renghiuc">
+                  <meta property="schema:givenName" content="Bianca">
+                  <meta property="schema:additionalName" content="Elena">
+                  <span property="schema:name">Renghiuc Bianca Elena</span>
+                </span>
+              </li>
+            </ul>
+          </section>
     </div>
 
 
@@ -121,36 +156,29 @@
    
         <h2>7. Referinte</h2>
         <div role="list"></div>
-        <dl>
-            <dt id="ref-HTML">HTML</dt>
-            <dd property="schema:citation" typeof="schema:WebPage" resource="https://en.wikipedia.org/wiki/HTML">
-                <cite property="schema:name">
-                                <a href="https://en.wikipedia.org/wiki/HTML">HTML Specifications</a>
-                            </cite>.
-            </dd>
-        </dl>
-        <dl>
-            <dt id="ref-CSS">CSS</dt>
-            <dd property="schema:citation" typeof="schema:WebPage" resource="https://en.wikipedia.org/wiki/CSS">
-                <cite property="schema:name">
-                                <a href="https://en.wikipedia.org/wiki/CSS">CSS Specifications</a>
-                            </cite>.
-            </dd>
-        </dl>
-        <dl>
-            <dt id="ref-other">Other</dt>
-            <dd property="schema:citation" typeof="schema:WebPage" resource="https://www.w3schools.com/">
-                <cite property="schema:name">
-                                <a href="https://www.w3schools.com/">Other Specifications</a>
-                            </cite>.
-            </dd>
-        </dl>
+        <li typeof="schema:WebPage" resource="http://semver.org/" property="schema:citation">
+            <cite property="schema:name">
+            <a href="http://semver.org/">Semantic Versioning 2.0.0</a>
+            </cite>, by <span property="schema:author" typeof="schema:Person">
+                <span property="schema:givenName">Tom</span>
+                <span property="schema:familyName">Preston-Werner</span>
+            </span>; published in
+            <time property="schema:datePublished" datatype="xsd:gYear" datetime="2014">2014</time>
+            <span property="schema:potentialAction" typeof="schema:ReadAction">
+            <meta property="schema:actionStatus" content="CompletedActionStatus">
+            (accessed on
+            <time property="schema:endTime" datatype="xsd:date" datetime="2016-02-01">01 Feb 2016</time>)
+ </span>.
+</li>
+
     </div>
     </section>
     </section>
     <footer>
         <!-- footer -->
     </footer>
+
+</article>
 </body>
 
 </html>
