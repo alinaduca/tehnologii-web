@@ -46,9 +46,6 @@ footer {
 	/* background: -webkit-linear-gradient(#eee, rgb(62, 4, 125));
 	background-clip: text;
 	-webkit-text-fill-color: transparent; */
-	background-color: #f3ec78;
-    background-image: linear-gradient(#f3ec78, #af4261);
-    background-image: conic-gradient(#f3ec78, #af4261);
 }
 
 #copyright {

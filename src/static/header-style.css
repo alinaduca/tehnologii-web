@@ -14,7 +14,7 @@
   display: block;
 }  
 
-header{
+header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -27,11 +27,11 @@ header{
   z-index: 100;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.nav-menu a{
+.nav-menu a {
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: bold;
@@ -41,7 +41,7 @@ li{
   font-size: 20px;
 }
 
-.navbar{
+.navbar {
   display: flex;
   width: 100%;
   min-height: 70px;
@@ -50,19 +50,19 @@ li{
   align-items:center;
 }
 
-.nav-menu{
+.nav-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
 }
 
-.hamburger{
+.hamburger {
   display: none;
   cursor: pointer;
 }
 
-.bar{
+.bar {
   display: block;
   width: 25px;
   height: 3px;
@@ -71,7 +71,7 @@ li{
   background-color: white;
 }
 
-header a:hover{
+header a:hover {
     background-color: #441d3e;
     font-weight: bolder;
     border-radius: 5px;
@@ -80,13 +80,21 @@ header a:hover{
     right: auto;
 }
 
-.container-header{
+header a {
+  font-weight: bolder;
+  border-radius: 5px;
+  padding: 5px 10px;
+  left: auto;
+  right: auto;
+}
+
+.container-header {
   width: 1600px;
   margin: auto;
   z-index: 100;
 }
 
-.subcontainer-header{
+.subcontainer-header {
   width: 85%;
   margin:auto;
 }
@@ -112,30 +120,30 @@ header a:hover{
 }
 
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1600px) {
   .container-header{
     width: 100%;
   }
 } 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
   .hamburger{
     display:block;
   }
   
-  .hamburger.active .bar:nth-child(2){
+  .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
   
-  .hamburger.active .bar:nth-child(1){
+  .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
   
-  .hamburger.active .bar:nth-child(3){
+  .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
   
-  .nav-menu{
+  .nav-menu {
     position: fixed;
     left: -100%;
     top: 70px;
@@ -147,13 +155,11 @@ header a:hover{
     transition: 0.3s;
   }
   
-  .nav-item{
+  .nav-item {
     margin: 16px 0;
   }
   
-  .nav-menu.active{
+  .nav-menu.active {
     left: 0;
   }
 }
-
-
