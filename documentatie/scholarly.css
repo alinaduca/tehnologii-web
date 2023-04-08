@@ -1,6 +1,7 @@
 
 html {
     font-family: sans-serif;
+    background-color: #dfc9dd;
   }
   
   body {
@@ -8,13 +9,15 @@ html {
     margin: auto;
     line-height: 1.6;
     font-weight: 300;
-    font-family: Roboto, sans-serif
+    font-family: Roboto, sans-serif;
+    padding-bottom: 2%; 
   }
   
   header>h1 {
     margin: 0;
     font-size: 3em;
-    padding-top: 4em
+    padding-top: 3em;
+    padding-left: 1.5em;
   }
   
   h1,
@@ -57,3 +60,7 @@ html {
     margin-left: 3em;
   }
 
+  #h2_in_h1 {
+    margin-left: 0.5em;
+    margin-top: 0em;
+  }
