@@ -33,7 +33,7 @@ Chichirau Claudiu & Duca Alina & Renghiuc Bianca
 //aici cred ca putem face o diagrama simpla care sa arate componentele majore ale sistemului
 
 	3.2 Functiile produsului
-//ce functiisunt permise utilizatorului(doar la mod general, pentru ca detaliem la punctul 4), de exemplu cu marcatori. putem pune o diagrama de flux sau o diagrama de clasa
+//ce functii sunt permise utilizatorului (doar la mod general, pentru ca detaliem la punctul 4), de exemplu cu marcatori. putem pune o diagrama de flux sau o diagrama de clasa
 
 	3.3 Clasele si caracteristicile utilizatorilor
 //identificare clase de utilizatori care vor folosi aplicatia si caracteristicile lor 
