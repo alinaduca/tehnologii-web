@@ -88,11 +88,17 @@
                 </p>
                 <h3> 2.2 Convențiile documentului </h3>
                 <p id="p_in_h3">
-                    <!-- ceva ceva ceva  -->
+                    Fontul utilizat în acest document este sans-serif, cu dimensiunea 16px.
+                    În cazul în care dorim să evidențiem anumite elemente, vom folosi <b>bold</b>.
+                    Fiecare punct va fi detaliat în mai multe subpuncte, numerotate sau cu marcatori, în funcție de caz.
                 </p>
                 <h3> 2.3 Publicul vizat și sugestii de lectură </h3>
                 <p id="p_in_h3">
-                    <!-- ceva ceva ceva  -->
+                    <ul role="list">
+                        <li>Pentru dezvoltatori și testeri, secțiunile relevante pot include 3.1 <i>Perspectiva produsulu</i>, 3.2 <i>Funcțiile produsului</i> (care include o diagramă de clasă), 4.2 <i>Interfața Hardware</i> și 4.4 <i>Interfața de Comunicații.</i></li>
+                        <li>Managerii de proiect și personalul de marketing ar putea fi mai interesați de secțiunile referitoare la 2.1 <i>Scop</i>, 2.4 <i>Domeniul de aplicare al produsului</i> și 3.2 <i>Funcțiile Produsului</i>.</li>
+                        <li>Utilizatorii pot găsi secțiunea 3.5 <i>Documentația utilizatorului</i> ca fiind cea mai utilă, în timp ce scriitorii de documentație ar putea dori să consulte 2.2 <i>Convențiile Documentului</i>.</li>
+                    </ul>
                 </p>
                 <h3> 2.4 Domeniul de aplicare al produsului </h3>
                 <p id="p_in_h3">
@@ -132,8 +138,14 @@
                 </p>
                 <h3> 3.2 Funcțiile produsului </h3>
                 <p id="p_in_h3">
+                    Utilizatorul poate accesa paginile Statistics, News, Nominations și Register:
                     <div class="imag">
-                        <img class="uml" src="umldiagramsag.png" typeof="sa:image">
+                        <img class="uml" src="umldiagramsag.png" typeof="sa:image" />
+                    </div>
+                    În cadrul acestora, ne vom folosi de două baze de date pentru preluarea datelor despre actori, filme și
+                    nominalizările lor (SAG Awards și TheMovieDB) și o bază de date pentru memorarea utilizatorilor: 
+                    <div class="imag">
+                        <img class="uml" src="databaseUml.png" typeof="sa:image" />
                     </div>
                 </p>
                 <h3> 3.3 Clasele și caracteristicile utilizatorilor </h3>
@@ -158,11 +170,7 @@
                             grafice complexe, vor face ca informațiile să fie accesibile și ușor de înțeles pentru toți utilizatorii.</li>
                     </ul>
                 </p>
-                <h3> 3.4 Mediul de operare </h3>
-                <p id="p_in_h3">
-                    <!-- ceva ceva ceva  -->
-                </p>
-                <h3> 3.5 Constrângeri de proiectare și implementare </h3>
+                <h3> 3.4 Constrângeri de proiectare și implementare </h3>
                 <p id="p_in_h3">
                     Constrangerile de proiectare si implementare pentru proiectul FireStream sunt urmatoarele:
                     <ul role="list">
@@ -187,9 +195,22 @@
                             de securitate a datelor pentru a se asigura că aplicația dezvoltată respectă standardele legale și de afaceri.</li>
                     </ul>
                 </p>
-                <h3> 3.6 Documentația utilizatorului </h3>
+                <h3> 3.5 Documentația utilizatorului </h3>
                 <p id="p_in_h3">
-                    <!-- ceva ceva ceva  -->
+                    Pagina principală va fi afișată, cu secțiunile de nominalizări, statistici, știri și înregistrare.
+                    Pentru a accesa funcționalitățile complete ale site-ului, utilizatorul va trebui să se înregistreze.
+                    În acest sens, utilizatorul va selecta butonul de înregistrare și va completa formularul cu informațiile necesare.
+                    După finalizarea înregistrării, utilizatorul putea accesa toate funcționalitățile site-ului.
+                    <ul role="list">
+                        <li>În secțiunea de nominalizări, puteți vizualiza lista completă a nominalizărilor la SAG Awards pentru un anumit an.
+                        Pentru a vizualiza nominalizările unui actor sau a unui film, selectați numele acestora din lista afișată.</li>
+
+                        <li>În secțiunea de statistici, puteți vizualiza diferite statistici referitoare la nominalizările la SAG Awards.
+                        Informațiile vor fi afișate sub formă de grafice sau tabele, în funcție de opțiunile selectate.</li>
+
+                        <li>În secțiunea de știri, puteți citi știri recente despre nominalizările la SAG Awards.
+                        Utilizatorul poate selecta numele unui actor sau al unui film pentru a citi știrea completă.</li>
+                    </ul>
                 </p>
             </section>
             
@@ -197,29 +218,135 @@
                 <h2> 4. Interfața aplicației </h2>
                 <h3> 4.1 Interfața cu utilizatorul </h3>
                 <p id="p_in_h3">
-                    <!-- ceva ceva ceva  -->
+                    Interactiunile și interfața utilizatorului pentru proiectul FireStream pentru vizualizare a datelor nominalizarilor actorilor la SAG Awards ar putea fi următoarele:
+                    <ul role="list">
+                        <li>Pagina "<b>Home</b>"</li>
+                        <li>Pagina "<b>Statistics</b>"</li>
+                        <ul role="list">
+                            <li>Ecranul principal trebuie să afiseze diverse statistici despre popularitatea actorilor, evoluția / involuția
+                                unor actori în funcție de producțiile de film în care au jucat și impactul acestora asupra publicului larg.</li>
+                            <li><i>Grafice și diagrame</i>: Utilizatorul va putea alege dintr-o varietate de grafice și diagrame pentru a 
+                                vizualiza datele. Acestea pot include grafice de bare, diagrame circulare, grafice de linie etc.</li>
+                            <li><i>Tabeluri</i>: Utilizatorul va putea vizualiza datele sub formă de tabel și va avea opțiunea de a sorta 
+                                datele în funcție de diferite coloane.</li>
+                            <li><i>Filtrare și sortare</i>: Utilizatorul va putea folosi diverse filtre pentru a personaliza vizualizarea 
+                                datelor. De exemplu, utilizatorul poate filtra nominalizările după an, categorie, gen, producător etc. De 
+                                asemenea, utilizatorul va avea opțiunea de a sorta nominalizările în funcție de diferite criterii, cum ar 
+                                fi numărul de nominalizări, numărul de premii câștigate etc.</li>
+                            <li>Pentru exportul statisticilor, utilizatorul va avea 3 formate diferite pentru a exporta fisierul in 
+                                formatele <i>CSV</i>, <i>WebP</i> sau <i>SVG</i>, astfel încât acestea să poată fi utilizate în alte aplicații.</li>                                
+                        </ul>
+                        <li>Pagina "<b>Nominatios</b>"</li>
+                        <ul role="list">
+                            <li>Pe ecranul principal ar trebui sa existe un meniu pentru a naviga prin categoriile de nominalizari, cum 
+                                ar fi cel mai bun actor sau cea mai buna actrita in rol principal, etc. In plus, trebuie sa existe un mod 
+                                de cautare pentru a gasi nominalizarile specifice.</li>
+                            <li>Dupa selectarea unei nominalizari, utilizatorul ar trebui sa poata vedea informatii detaliate despre actor 
+                                sau productia cinematografica, precum si posibilitatea de a accesa stiri referitoare la aceasta nominalizare. 
+                                De asemenea, ar trebui sa fie disponibila o optiune pentru a filtra informatiile dupa diverse criterii, cum ar 
+                                fi anul sau studio-ul.</li>
+                            <li>Selectarea unei nominalizări pentru a accesa pagina dedicată acelei nominalizări, unde utilizatorul poate 
+                                vedea mai multe detalii despre actor, producție și nominalizare.</li>
+                        </ul>
+                        <li>Pagina "<b>News</b>"</li>
+                        <ul role="list">
+                            <li>Căutarea de știri: utilizatorul poate introduce un nume de nominalizat în câmpul de căutare și apăsa 
+                                butonul de căutare pentru a căuta știrile care conțin numele respectivului nominalizat.</li>
+                            <li>Sortarea știrilor după data publicării sau popularitate: utilizatorul poate alege opțiunea de sortare și 
+                                paginile de știri se vor reîncărca pentru a reflecta sortarea aleasă.</li>
+                            <li>Vizualizarea detaliilor știrii: utilizatorul poate da click pe titlul știrii pentru a vedea detalii 
+                                suplimentare despre știre.</li>
+                        </ul>
+                        Un buton "<i>Ajutor</i>" va fi disponibil pe fiecare pagina, cu informatii despre utilizarea aplicatiei si cu raspunsuri la intrebari frecvente.
+                    </ul>
                 </p>
-                <h3> 4.2 Interfața software </h3>
+                <h3> 4.2 Interfața hardware </h3>
                 <p id="p_in_h3">
-                    <!-- ceva ceva ceva  -->
+                    Următoarele tipuri de dispozitive vor fi acceptate de proiectul FireStream:
+                    <ul role="list">
+                        <li><b>Laptop-uri și desktop-uri</b> care pot rula un browser web și au acces la internet.</li>
+                        <li><b>Tablete și telefoane mobile</b> care rulează un sistem de operare (cum ar fi iOS sau Android) și pot accesa internetul prin intermediul unui browser web.</li>
+                    </ul>
+                    Interacțiunile dintre software și hardware:
+                    <ul role="list">
+                        <li><b>Interacțiunea dintre utilizator și aplicație</b> se realizează prin intermediul unui browser web, care este software-ul utilizatorului.</li>
+                        <li>Utilizatorul poate interacționa cu aplicația prin intermediul mouse-ului și tastaturii, în cazul laptop-urilor și desktop-urilor, sau prin
+                            intermediul ecranului tactil, în cazul tabletelor și telefoanelor mobile.</li>
+                        <li>Datele sunt preluate și afișate în interfața aplicației web, care este o interfață software.</li>
+                    </ul>
+                    Protocoale de comunicare:
+                    <ul role="list">
+                        <li>Aplicația utilizează protocoalul de comunicare HTTP, pentru a asigura securitatea și integritatea comunicării dintre client și server.</li>
+                        <li>Interacțiunea dintre client și server are loc prin intermediul API-ului dezvoltat intern.</li>
+                    </ul>
                 </p>
-                <h3> 4.3 Interfața de comunicații </h3>
+                <h3> 4.3 Interfața software </h3>
                 <p id="p_in_h3">
-                    <!-- ceva ceva ceva  -->
+                    Interfețele software ale proiectului sunt:
+                    <ul role="list">
+                        <li><b>API-ul REST/GraphQL propriu dezvoltat</b>: Acesta va fi folosit pentru a prelua și trimite date între server 
+                            și client referitoare la nominalizările actorilor și filmelor la SAG Awards. Acesta va avea definiții clare pentru 
+                            endpoint-uri, verbe HTTP și tipuri de date acceptate și returnate.</li>
+
+                        <li><b>API-ul REST/GraphQL</b>: Acesta va fi folosit pentru a prelua și controla datele referitoare la redarea 
+                            știrilor privitoare la fiecare nominalizat în parte la SAG Awards. Acesta va avea definiții clare pentru 
+                            endpoint-uri, verbe HTTP și tipuri de date acceptate și returnate.</li>
+
+                        <li><b>API-ul TMDb (The Movie Database)</b>: Acesta va fi folosit pentru a prelua informații suplimentare despre 
+                            actori și producții cinematografice, care vor fi afișate pe site-ul web. Interacțiunea cu acest API va implica 
+                            cereri HTTP (de ex. GET) pentru a prelua datele necesare și procesarea răspunsurilor API.</li>
+
+                        <li><b>Baza de date pentru datele utilizatorilor</b>: Acesta va fi folosită pentru stocarea datelor utilizatorilor, 
+                            cum ar fi informațiile de autentificare, preferințele utilizatorilor. Această interfață software va implica conexiunea 
+                            cu o bază de date, definirea schemelor și operații CRUD (Create, Read, Update, Delete).</li>
+
+                        <li><b>Sistemele de operare și bibliotecile utilizate</b>: Acestea vor fi folosite pentru a asigura funcționarea 
+                            corectă a aplicației pe diferite platforme. De exemplu Node.js va fi folosit pentru a implementa serverul web.
+
+                        <li><b>Protocoale de comunicare</b>: Aplicația va utiliza protocoale de comunicare standard, cum ar fi HTTPS, pentru 
+                            a comunica cu API-urile și cu baza de date.</li>
+                    </ul>
+                </p>
+                <h3> 4.4 Interfața de comunicații </h3>
+                <p id="p_in_h3">
+                    Interfața de comunicare asociată proiectului include o serie de funcții de comunicare, cum ar fi:
+                    <ul role="list">
+                        <li>comunicare prin email, pentru trimiterea de notificări și mesaje</li>
+                        <li>comunicare prin browsere web, pentru accesarea și interacționarea cu interfața utilizatorului</li>
+                        <li>comunicare prin REST și GraphQL, pentru a interoga și accesa datele furnizate de API-ul propriu dezvoltat</li>
+                        <li>utilizarea formularelor pentru a colecta și procesa datele introduse de utilizator.</li>
+                    </ul>
+                    Standardul de comunicare utilizat pentru accesarea datelor este HTTP, prin intermediul căruia se trimit cereri și se primesc răspunsuri de la serverul web.
+                    În plus, se vor implementa mecanisme de securitate suplimentare, cum ar fi autentificarea și autorizarea utilizatorilor, pentru a proteja datele personale și a preveni accesul neautorizat la sistem.
                 </p>
             </section>
 
             <section id="caracteristici">
                 <h2> 5. Caracteristicile sistemului </h2>
                 <p id="p_in_h2">
-                    <!-- ceva ceva ceva  -->
+                    <ul role="list">
+                        <li>Vizualizarea și analiza datelor legate de nominalizări.</li>
+                        <li>Redarea știrilor despre nominalizați din surse externe configurabile.</li>
+                        <li>Înregistrarea de noi utilizatori prin intermediul unei interfețe de înregistrare.</li>
+                        <li>Încărcarea și descărcarea fișierelor de date în format CSV.</li>
+                        <li>Generarea de fișiere grafice în format SVG și imagini WebP pentru vizualizarea datelor.</li>
+                        <li>Sincronizarea datelor cu API-ul extern al serviciului de nominalizări.</li>
+                        <li>Afișarea statisticilor privind nominalizările în timp real.</li>
+                    </ul>
                 </p>
             </section>
 
             <section id="cerinte">
                 <h2> 6. Cerințe nefuncționale </h2>
                 <p id="p_in_h2">
-                    <!-- ceva ceva ceva  -->
+                    <ul role="list">
+                        <li>Securitate: sistemul trebuie sa fie securizat si sa protejeze datele utilizatorilor prin utilizarea de metode criptografice si autentificare a utilizatorilor.
+Performanta: sistemul trebuie sa fie capabil sa ofere o experienta fluida si rapida pentru utilizatori, chiar si in cazul in care baza de date se va mari.
+Fiabilitate: sistemul trebuie sa fie capabil sa gestioneze situatii de avarii si erori si sa isi revina rapid.
+Interoperabilitate: sistemul trebuie sa fie capabil sa se integreze cu alte aplicatii si servicii, cum ar fi API-uri de terta parte.
+Usability: interfata utilizatorului trebuie sa fie intuitiva si usor de folosit pentru a spori adoptarea de catre utilizatori.
+Documentatie: trebuie sa existe documentatie clara si accesibila pentru a ajuta utilizatorii sa inteleaga cum sa foloseasca si sa configureze sistemul.
+Scalabilitate: sistemul trebuie sa fie capabil sa suporte cresterea numarului de utilizatori si volumul de date fara a afecta performanta.
                 </p>
             </section>
 

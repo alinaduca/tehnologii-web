@@ -42,6 +42,10 @@ canvas {
     margin: 20px;
 }
 
+#myChart3 {
+    padding: 5%;
+}
+
 .years {
     display: flex;
 }
@@ -81,4 +85,25 @@ h1 {
     margin-top: 30px;
     width: 90%;
     padding: auto;
+}
+
+.export {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.item {
+    cursor: pointer;
+    margin: 5px;
+    background-color: #462760;
+    border-radius: 20px;
+    color: #f6f0f6;
+    height: 30px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    justify-content: center;
 }

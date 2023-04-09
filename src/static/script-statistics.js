@@ -88,3 +88,39 @@ var myChart2 = new Chart(
     document.getElementById('myChart2'),
     config2
 );
+
+
+
+// Data
+var data3 = {
+	labels: ["Titanic", "Avatar", "Frozen", "Avatar2"],
+	datasets: [{
+		label: "Nominations",
+		data: [15, 19, 27, 14],
+		backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f", "#ed6fe1"],
+        borderColor: "#000000s",
+        borderWidth: 1,
+        fontColor: "#000000"
+	}]
+};
+
+// Configuration
+var config3 = {
+	type: 'pie',
+	data: data3,
+	options: {
+		scales: {
+			yAxes: [{
+				ticks: {
+					beginAtZero: true
+				}
+			}]
+		}
+	}
+};
+
+// Create chart
+var myChart3 = new Chart(
+	document.getElementById('myChart3'),
+	config3
+);
