@@ -4,6 +4,11 @@
   box-sizing: border-box
 }
 
+body {
+  /* background-image: radial-gradient(ellipse at center bottom, #ffffff 10%, #ffffff 100%); */
+  background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
+}
+
 /* Slideshow container */
 .slideshow-container {
   max-width: auto;
@@ -115,32 +120,6 @@
     text-align: center;
     margin-bottom: 50px;
   }
-  
-  .filters {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    }
-    
-    .filter-select {
-    padding: 10px;
-    font-size: 16px;
-    }
-    
-    .filter-btn {
-    background-color: #8B3C7F;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    }
-    
-    .filter-btn:hover {
-    background-color: #6E2C64;
-    }
     
     .nominalizari-list {
     display: flex;
@@ -149,82 +128,123 @@
     }
     
     .nominalizare {
-    width: calc(33.33% - 20px);
-    margin-bottom: 40px;
-    text-align: center;
+    width: 800px;
+    /* margin-bottom: 40px; */
+    text-align: right;
+
+    font-size: 17px;
+    font-style: italic;
+    float: right;
+    }
+
+    @media screen and (max-width: 700px) {
+      .filter-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /* top: 10px;
+        bottom: 10px; */
+      }
+
+      .dropdown {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* dropdown menu*/
+    .filter-menu {
+      display: flex;
+      justify-content: space-around;
     }
     
-    .nominalizare img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      text-align: center;
     }
     
-    .nominalizare h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      background-color: white;
     }
     
-    .nominalizare p {
-    font-size: 16px;
-    margin-bottom: 5px;
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropbtn {
+      background-color: #8B3C7F;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .dropbtn:hover {
+      background-color: #3C1A37;
+      font-weight: bolder;
+      color: #ffffff;
+      border-radius: 5px;
+      padding: 10px 20px;
+    }
+    
+    .year-range {
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    
+    .range-label {
+      font-weight: bold;
+      margin-right: 16px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    
+    
+    .search-container input[type=text] {
+      width: 60%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .search-container button[type=submit] {
+      background-color: #8B3C7F;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .search-container button[type=submit]:hover {
+      background-color: #3C1A37;
     }
 
-    /* */
-
-    /* Stilizare buton */
-.btn-secondary {
-  background-color: #6c757d;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 30px;
-  align-items: center;
-}
-
-.btn-secondary:hover {
-  background-color: #495057;
-}
-
-/* Stilizare meniu dropdown */
-.dropdown-menu {
-  background-color: #fff;
-  border: none;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 0;
-  margin-top: 8px;
-  border-radius: 4px;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  z-index: 1;
-  min-width: 100%;
-}
-
-.dropdown-menu a {
-  color: #212529;
-  display: block;
-  padding: 8px 16px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-  background-color: #f2f2f2;
-}
-
-/* Stilizare meniu dropdown afișat la hover */
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-}
-
+    .search-container value{
+      color: #454545eb;
+    }
+    
 
 /* */
 
@@ -245,6 +265,8 @@
   text-align: center;
   font-size: 36px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .nominee, .winner {
@@ -253,24 +275,65 @@
   padding: 20px 0;
 }
 
+.final-nominee {
+  display: block;
+  padding: 20px 0;
+}
+
 .principal-name {
   font-size: 24px;
   font-weight: bold;
+  float: left;
 }
 
 .secundar-name {
   font-size: 16px;
-}
-
-.nominalizare {
-  font-size: 14px;
-  font-style: italic;
+  margin-top: 5px;
 }
 
 .winner .principal-name {
-  color: green;
+  color: #3C1A37;
 }
 
 .nominee .principal-name {
   color: black;
 }
+
+.prev-top, .next-top {
+  position: absolute;
+  top: 0%;
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0);
+}
+
+.prev-top {
+  left: 0;
+}
+
+.next-top {
+  right: 0;
+}
+
+.prev-bttm, .next-bttm {
+  position: absolute;
+  top: 103%;
+  transform: translateY(-50%);
+  color: black;
+}
+
+.prev-bttm {
+  left: 0;
+}
+
+.next-bttm {
+  right: 0;
+}
+
+.principal-name-containter {
+  display: flex;
+  align-items: center;
+}
+
+/* .secondary-name-container {
+  margin-top: 5px;
+} */

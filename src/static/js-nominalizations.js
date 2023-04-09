@@ -51,3 +51,25 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
   
+/* search button -> filtrare */
+
+// const searchBox = document.getElementById("search-box");
+// searchBox.addEventListener("focus", function() {
+//   if (this.value == "Search by the name of the actor / movie / director") {
+//     this.value = "";
+//   }
+// });
+
+// searchBox.addEventListener("blur", function() {
+//   if (this.value == "") {
+//     this.value = "Search by the name of the actor / movie / director";
+//   }
+// });
+
+var searchBox = document.getElementById("search-box");
+
+searchBox.addEventListener("click", function() {
+  if (this.value == "Search") {
+    this.value = "";
+  }
+});
