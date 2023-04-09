@@ -124,7 +124,7 @@
 
                     Următoarea diagramă prezintă componentele majore ale sistemului aplicației:
                     <div class="imag">
-                        <img src="diagram1.png" typeof="sa:image">
+                        <img src="view/diagram1.png" typeof="sa:image">
                     </div>
                     <!-- diagrama -->
                     <ul role="list">
@@ -140,12 +140,12 @@
                 <p id="p_in_h3">
                     Utilizatorul poate accesa paginile Statistics, News, Nominations și Register:
                     <div class="imag">
-                        <img class="uml" src="umldiagramsag.png" typeof="sa:image" />
+                        <img class="uml" src="view/umldiagramsag.png" typeof="sa:image" />
                     </div>
                     În cadrul acestora, ne vom folosi de două baze de date pentru preluarea datelor despre actori, filme și
                     nominalizările lor (SAG Awards și TheMovieDB) și o bază de date pentru memorarea utilizatorilor: 
                     <div class="imag">
-                        <img class="uml" src="databaseUml.png" typeof="sa:image" />
+                            <img class="uml" src="view/databaseUml.png" typeof="sa:image" />
                     </div>
                 </p>
                 <h3> 3.3 Clasele și caracteristicile utilizatorilor </h3>
@@ -218,12 +218,14 @@
                 <h2> 4. Interfața aplicației </h2>
                 <h3> 4.1 Interfața cu utilizatorul </h3>
                 <p id="p_in_h3">
-                    Interactiunile și interfața utilizatorului pentru proiectul FireStream pentru vizualizare a datelor nominalizarilor actorilor la SAG Awards ar putea fi următoarele:
+                    Interacțiunile și interfața utilizatorului pentru proiectul FireStream pentru vizualizare a datelor nominalizărilor actorilor la SAG Awards ar putea fi următoarele:
                     <ul role="list">
                         <li>Pagina "<b>Home</b>"</li>
+                        <img class="interface" src="view/index.png" typeof="sa:image" />
+                        <img class="interface" src="view/header.png" typeof="sa:image" />
                         <li>Pagina "<b>Statistics</b>"</li>
                         <ul role="list">
-                            <li>Ecranul principal trebuie să afiseze diverse statistici despre popularitatea actorilor, evoluția / involuția
+                            <li>Ecranul principal trebuie să afișeze diverse statistici despre popularitatea actorilor, evoluția / involuția
                                 unor actori în funcție de producțiile de film în care au jucat și impactul acestora asupra publicului larg.</li>
                             <li><i>Grafice și diagrame</i>: Utilizatorul va putea alege dintr-o varietate de grafice și diagrame pentru a 
                                 vizualiza datele. Acestea pot include grafice de bare, diagrame circulare, grafice de linie etc.</li>
@@ -233,21 +235,23 @@
                                 datelor. De exemplu, utilizatorul poate filtra nominalizările după an, categorie, gen, producător etc. De 
                                 asemenea, utilizatorul va avea opțiunea de a sorta nominalizările în funcție de diferite criterii, cum ar 
                                 fi numărul de nominalizări, numărul de premii câștigate etc.</li>
-                            <li>Pentru exportul statisticilor, utilizatorul va avea 3 formate diferite pentru a exporta fisierul in 
+                            <li>Pentru exportul statisticilor, utilizatorul va avea 3 formate diferite pentru a exporta fișierul în 
                                 formatele <i>CSV</i>, <i>WebP</i> sau <i>SVG</i>, astfel încât acestea să poată fi utilizate în alte aplicații.</li>                                
                         </ul>
+                        <img class="interface" src="view/statistics.png" typeof="sa:image" />
                         <li>Pagina "<b>Nominatios</b>"</li>
                         <ul role="list">
-                            <li>Pe ecranul principal ar trebui sa existe un meniu pentru a naviga prin categoriile de nominalizari, cum 
-                                ar fi cel mai bun actor sau cea mai buna actrita in rol principal, etc. In plus, trebuie sa existe un mod 
-                                de cautare pentru a gasi nominalizarile specifice.</li>
-                            <li>Dupa selectarea unei nominalizari, utilizatorul ar trebui sa poata vedea informatii detaliate despre actor 
-                                sau productia cinematografica, precum si posibilitatea de a accesa stiri referitoare la aceasta nominalizare. 
-                                De asemenea, ar trebui sa fie disponibila o optiune pentru a filtra informatiile dupa diverse criterii, cum ar 
+                            <li>Pe ecranul principal ar trebui să existe un meniu pentru a naviga prin categoriile de nominalizări, cum 
+                                ar fi cel mai bun actor sau cea mai bună actriță în rol principal, etc. În plus, trebuie să existe un mod 
+                                de căutare pentru a găsi nominalizările specifice.</li>
+                            <li>După selectarea unei nominalizări, utilizatorul ar trebui să poată vedea informații detaliate despre actor 
+                                sau producția cinematografică, precum și posibilitatea de a accesa știri referitoare la această nominalizare. 
+                                De asemenea, ar trebui să fie disponibilă o opțiune pentru a filtra informațiile după diverse criterii, cum ar 
                                 fi anul sau studio-ul.</li>
                             <li>Selectarea unei nominalizări pentru a accesa pagina dedicată acelei nominalizări, unde utilizatorul poate 
                                 vedea mai multe detalii despre actor, producție și nominalizare.</li>
                         </ul>
+                        <img class="interface" src="view/placeholder.png" typeof="sa:image" />
                         <li>Pagina "<b>News</b>"</li>
                         <ul role="list">
                             <li>Căutarea de știri: utilizatorul poate introduce un nume de nominalizat în câmpul de căutare și apăsa 
@@ -257,7 +261,9 @@
                             <li>Vizualizarea detaliilor știrii: utilizatorul poate da click pe titlul știrii pentru a vedea detalii 
                                 suplimentare despre știre.</li>
                         </ul>
-                        Un buton "<i>Ajutor</i>" va fi disponibil pe fiecare pagina, cu informatii despre utilizarea aplicatiei si cu raspunsuri la intrebari frecvente.
+                        <img class="interface" src="view/news1.png" typeof="sa:image" />
+                        <!-- <img class="interface" src="view/news2.png" typeof="sa:image" /> -->
+                        Un buton "<i>Ajutor</i>" va fi disponibil pe fiecare pagină, cu informații despre utilizarea aplicatieișsi cu răspunsuri la întrebări frecvente.
                     </ul>
                 </p>
                 <h3> 4.2 Interfața hardware </h3>
@@ -340,36 +346,81 @@
                 <h2> 6. Cerințe nefuncționale </h2>
                 <p id="p_in_h2">
                     <ul role="list">
-                        <li>Securitate: sistemul trebuie sa fie securizat si sa protejeze datele utilizatorilor prin utilizarea de metode criptografice si autentificare a utilizatorilor.
-Performanta: sistemul trebuie sa fie capabil sa ofere o experienta fluida si rapida pentru utilizatori, chiar si in cazul in care baza de date se va mari.
-Fiabilitate: sistemul trebuie sa fie capabil sa gestioneze situatii de avarii si erori si sa isi revina rapid.
-Interoperabilitate: sistemul trebuie sa fie capabil sa se integreze cu alte aplicatii si servicii, cum ar fi API-uri de terta parte.
-Usability: interfata utilizatorului trebuie sa fie intuitiva si usor de folosit pentru a spori adoptarea de catre utilizatori.
-Documentatie: trebuie sa existe documentatie clara si accesibila pentru a ajuta utilizatorii sa inteleaga cum sa foloseasca si sa configureze sistemul.
-Scalabilitate: sistemul trebuie sa fie capabil sa suporte cresterea numarului de utilizatori si volumul de date fara a afecta performanta.
+                        <li>Securitate: sistemul trebuie să fie securizat și să protejeze datele utilizatorilor.</li>
+                        <li>Performanță: sistemul trebuie să fie capabil să ofere o experiență rapidă pentru utilizatori, chiar și în cazul în care baza de date se va mări.</li>
+                        <li>Fiabilitate: sistemul trebuie să fie capabil să gestioneze situații de eroare și să își revină rapid.</li>
+                        <li>Interoperabilitate: sistemul trebuie sa fie capabil să se integreze cu alte aplicații și servicii, cum ar fi API-uri.</li>
+                        <li>Usability: interfața utilizatorului trebuie să fie intuitivă și ușor de folosit.</li>
+                        <li>Scalabilitate: sistemul trebuie să fie capabil să suporte creșterea numărului de utilizatori și volumul de date fără a afecta performanța.</li>
+                    </ul>
                 </p>
             </section>
 
             <section id="referinte" role="doc-bibliography">
                 <h2> 7. Referințe </h2>
                 <div role="list"> </div>
-                <li typeof="schema:WebPage" resource="http://semver.org/" property="schema:citation">
+                <li typeof="schema:WebPage" resource="https://w3c.github.io/scholarly-html/" property="schema:citation">
                     <cite property="schema:name">
-                    <a href="http://semver.org/">Semantic Versioning 2.0.0</a>
-                    </cite>, by <span property="schema:author" typeof="schema:Person">
-                        <span property="schema:givenName">Tom</span>
-                        <span property="schema:familyName">Preston-Werner</span>
-                    </span>; published in
-                    <time property="schema:datePublished" datatype="xsd:gYear" datetime="2014">2014</time>
-                    <span property="schema:potentialAction" typeof="schema:ReadAction">
-                        <meta property="schema:actionStatus" content="CompletedActionStatus">
+                    <a href="https://w3c.github.io/scholarly-html/">Formatul ScholarlyHTML</a>,
+                    </cite> by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Tzviya</span>
+                        <span property="schema:familyName">Siegman</span>
+                    </span>
+                    &amp;
+                    <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Robin</span>
+                        <span property="schema:familyName">Berjon</span>
+                    </span>
                         (accessed on
-                        <time property="schema:endTime" datatype="xsd:date" datetime="2016-02-01">01 Feb 2016</time>)
-                    </span>.
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2023-04-09">09 Apr 2023</time>).
+                    </span>
                 </li>
+
+                <li typeof="schema:WebPage" resource="https://github.com/rick4470/IEEE-SRS-Tempate#readme" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://github.com/rick4470/IEEE-SRS-Tempate#readme">IEEE System Requirements Specification Template</a>,
+                    </cite> by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName"><a href="https://github.com/rick4470">rick4470</a></span>
+                        (accessed on
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2023-04-09">09 Apr 2023</time>).
+                    </span>
+                </li>
+
+                <li typeof="schema:WebPage" resource="http://labs.cs.upt.ro/labs/so/html/so1.html" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="http://labs.cs.upt.ro/labs/so/html/so1.html">Interfete</a>,
+                    </cite> by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Dan</span>
+                        <span property="schema:familyName">Cosma</span>
+                        (accessed on
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2023-04-09">09 Apr 2023</time>).
+                    </span>
+                </li>
+
+                <li typeof="schema:WebPage" resource="https://profs.info.uaic.ro/~busaco/teach/courses/interfaces/interfaces01.html#:~:text=Interfata%20cu%20utilizatorul%20reprezinta%20o%20parte%20a%20aplicatiei,originile%20din%20anii%201970%20si%20provine%20din%20inginerie." property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://profs.info.uaic.ro/~busaco/teach/courses/interfaces/interfaces01.html#:~:text=Interfata%20cu%20utilizatorul%20reprezinta%20o%20parte%20a%20aplicatiei,originile%20din%20anii%201970%20si%20provine%20din%20inginerie.">Interacţiune om-calculator</a>,
+                    </cite> by <span property="schema:author" typeof="schema:Person">
+                        <span property="schema:givenName">Sabin-Corneliu</span>
+                        <span property="schema:familyName">Buraga</span>
+                        (accessed on
+                        <time property="schema:endTime" datatype="xsd:date" datetime="2023-04-09">09 Apr 2023</time>).
+                    </span>
+                </li>
+
+                <li typeof="schema:WebPage" resource="https://www.draw.io/index.html" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://www.draw.io/index.html">Creare diagrame draw.io</a>
+                </li>
+
+                <li typeof="schema:WebPage" resource="https://www.canva.com/" property="schema:citation">
+                    <cite property="schema:name">
+                    <a href="https://www.canva.com/">Creare diagrame Canva</a>
+                </li>
+
             </section>
-            <!-- <footer>
-            </footer> -->
+            <footer>
+            </footer>
         </article>
     </body>
 </html>
