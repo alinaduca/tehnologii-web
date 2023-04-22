@@ -1,7 +1,8 @@
 /* SLIDESHOW */
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
+  transition: ease all 0.5s;
 }
 
 body {
@@ -333,7 +334,3 @@ body {
   display: flex;
   align-items: center;
 }
-
-/* .secondary-name-container {
-  margin-top: 5px;
-} */

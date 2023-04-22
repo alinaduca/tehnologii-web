@@ -163,3 +163,21 @@ header a {
     left: 0;
   }
 }
+
+/* css for header hiding on scroll down & show on scroll up */
+
+#main-header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all .3s ease;
+  z-index: 100;
+}
+
+#main-header.hide{
+  top: -103px;
+}
+
+#main-header.hide:hover{
+  top: 0px;
+}
