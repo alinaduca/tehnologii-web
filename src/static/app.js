@@ -5,6 +5,8 @@ const { handleStatisticsRequest } = require('./controllers/statisticsController'
 const { handleNominationsRequest } = require('./controllers/nominationsController');
 const { handleNewsRequest } = require('./controllers/newsController');
 const { handleIndexRequest } = require('./controllers/indexController');
+const { handleLoginRequest } = require('./controllers/loginController');
+
 
 const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, req.url);
@@ -14,6 +16,8 @@ const server = http.createServer((req, res) => {
     handleStatisticsRequest(req, res);
   } else if (req.url === '/nominations' && req.method === 'GET') {
     handleNominationsRequest(req, res); 
+  } else if (req.url === '/login' && req.method === 'GET') {
+    handleLoginRequest(req, res); 
   } else if (req.url === '/news' && req.method === 'GET') {
     handleNewsRequest(req, res); 
   } else if (fileExtension === '.css') {
@@ -23,6 +27,16 @@ const server = http.createServer((req, res) => {
         res.end('404 Not Found');
       } else {
         res.writeHead(200, { 'Content-Type': 'text/css' });
+        res.end(data);
+      }
+    });
+  } else if (fileExtension === '.js') {
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        res.writeHead(404);
+        res.end('404 Not Found');
+      } else {
+        res.writeHead(200, { 'Content-Type': 'application/javascript' });
         res.end(data);
       }
     });

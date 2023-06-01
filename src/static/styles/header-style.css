@@ -105,20 +105,27 @@ header a {
     background-color: white;
     color: #8B3C7F;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
 }
-  
-.try-now-btn:hover {
-    background-color: #3C1A37;
-    font-weight: bolder;
-    color:#ffffff;
-    border-radius: 5px;
-    padding: 10px 20px;
+
+button.try-now-btn:hover {
+  background-color: #3C1A37;
+  font-weight: bolder;
+  color:#ffffff;
+  border-radius: 5px;
 }
 
+a.login {
+  color: #8B3C7F;
+  padding: 15px 25px;
+}
+
+a.login:hover {
+  color: white;
+  padding: 15px 25px;
+}
 
 @media screen and (max-width: 1600px) {
   .container-header{
