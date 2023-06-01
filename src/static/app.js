@@ -10,9 +10,7 @@ const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, req.url);
   const fileExtension = path.extname(filePath);
 
-  if (req.url === '' && req.method === 'GET') {
-    handleIndexRequest(req, res);
-  } else if (req.url === '/statistics' && req.method === 'GET') {
+  if (req.url === '/statistics' && req.method === 'GET') {
     handleStatisticsRequest(req, res);
   } else if (req.url === '/nominations' && req.method === 'GET') {
     handleNominationsRequest(req, res); 
