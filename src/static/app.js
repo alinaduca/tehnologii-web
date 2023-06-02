@@ -6,6 +6,7 @@ const { handleNominationsRequest } = require('./controllers/nominationsControlle
 const { handleNewsRequest } = require('./controllers/newsController');
 const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest } = require('./controllers/loginController');
+const { connectToDatabase } = require('./db'); 
 
 
 const server = http.createServer((req, res) => {
