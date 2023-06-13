@@ -15,5 +15,4 @@ function handleIndexRequest(req, res) {
     });
 }
 
-
 module.exports = { handleIndexRequest };
