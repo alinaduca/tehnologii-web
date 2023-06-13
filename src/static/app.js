@@ -1,11 +1,13 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const jwt = require('jsonwebtoken');
 const { handleStatisticsRequest } = require('./controllers/statisticsController');
 const { handleNominationsRequest } = require('./controllers/nominationsController');
 const { handleNewsRequest } = require('./controllers/newsController');
 const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest } = require('./controllers/loginController');
+const { handleCreateAccountRequest } = require('./controllers/createAccountController');
 const { connectToDatabase } = require('./db'); 
 
 
@@ -17,10 +19,12 @@ const server = http.createServer((req, res) => {
     handleStatisticsRequest(req, res);
   } else if (req.url === '/nominations' && req.method === 'GET') {
     handleNominationsRequest(req, res); 
-  } else if (req.url === '/login' && req.method === 'GET') {
-    handleLoginRequest(req, res); 
   } else if (req.url === '/news' && req.method === 'GET') {
     handleNewsRequest(req, res); 
+  } else if (req.url === '/login' && req.method === 'GET') {
+    handleLoginRequest(req, res); 
+  } else if (req.url === '/createAccount' && req.method === 'GET') {
+    handleCreateAccountRequest(req, res); 
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {
