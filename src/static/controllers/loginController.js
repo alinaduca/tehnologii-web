@@ -33,6 +33,8 @@ function handleLoginSubmission(req, res) {
 
     if (email === 'alina_duca@yahoo.com' && password === '12345678') {
       // Autentificare reușită
+      var loginButton = document.getElementById("loginButton");
+      loginButton.style.display="none";
       res.writeHead(302, { 'Location': '/' });
       // res.write('<h1>Autentificare reușită!</h1>');
       res.end();
