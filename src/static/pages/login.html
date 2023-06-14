@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -58,6 +58,7 @@
 				<div class="form-element"><label for="password">Password: </label><input type="password" id="password" name="password" required></div><br><br>
 				<a class="forgot-password" href="#" onclick="showForgotPasswordForm()">Forgot your password?</a>
 				<button type="submit" class="login-button">Login</button>
+				<div class="form-element forgot-password">You don't have any account? <a class="forgot-password" href="#" onclick="showCreateAccountForm()">Create account</a></div>
 			</form>
 
 			<form class="login-content" id="forgotPasswordForm" style="display: none;">
@@ -66,7 +67,27 @@
 					<input type="email" id="forgotEmail" name="forgotEmail" required>
 				</div><br>
 				<button type="submit" class="forgot-password-button">Reset Password</button>
-				<button type="button" class="forgot-password-button" onclick="hideForgotPasswordForm()">Cancel</button>
+				<button type="button" class="forgot-password-button" onclick="showLoginForm()">Cancel</button>
+			</form>
+
+			<form class="login-content" id="createAccountForm" style="display: none;">
+				<div class="form-element">
+					<label for="username"> &emsp; &emsp; &ensp; Username: </label>
+					<input type="text" id="username" name="username" required>
+				</div><br>
+				<div class="form-element">
+					<label for="forgotEmail"> &emsp; &emsp; &emsp; &emsp;&ensp;Email: </label>
+					<input type="email" id="forgotEmail" name="forgotEmail" required>
+				</div><br>
+				<div class="form-element">
+					<label for="password"> &emsp; &emsp; &ensp; &nbsp;Password: </label>
+					<input type="password" id="password" name="password" required>
+				</div><br>
+				<div class="form-element">
+					<label for="confirmPassword">Confirm password: </label>
+					<input type="confirmPassword" id="confirmPassword" name="confirmPassword" required>
+				</div><br>
+				<button type="submit" class="forgot-password-button" onclick="showLoginForm()">Create account</button>
 			</form>
 		</section>
 
@@ -121,4 +142,4 @@
 		<script src="../utils/hamburger-navbar-menu.js"></script>
 		<script src="../utils/forgot-password-form.js"></script>
 	</body>
-</html>
+</html> -->
