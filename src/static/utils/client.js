@@ -1,3 +1,34 @@
+function fetchActorNews(actorName) {
+  const apiKey = '409e91ad98dc47919d456b7b91b91e5a'; // Înlocuiește cu cheia ta de API pentru știri
+  const apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(actorName)}&apiKey=${apiKey}`;
+
+  return fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error retrieving actor news');
+      }
+      return response.json();
+    })
+    .then(data => data.articles)
+    .catch(error => {
+      console.error(error);
+      throw new Error('Failed to retrieve actor news');
+    });
+}
+
+// Exemplu de utilizare
+const actorName = 'John Doe'; // Înlocuiește cu numele actorului dorit
+
+fetchActorNews(actorName)
+  .then(news => {
+    // Utilizează rezultatele primite
+    console.log(news);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
 var searchForm = document.getElementById("searchForm");
 var actorNameInput = document.getElementById("actorName");
 var articleList = document.getElementById("articleList");
