@@ -36,7 +36,7 @@
 						   <a href="/news" class="nav-link">News</a>
 						</li>    
 						<li class="nav-item">
-						  <button class="try-now-btn"><a class="login" href="/login">Login</a></button>
+						  <button class="try-now-btn"><a class="login" href="#">Login</a></button>
 						</li>
 					  </ul>
 					
@@ -52,10 +52,11 @@
 		 </header>
 		 	
 		 <section class="content">
-			<div>
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			</div>
-			
+			 <form class="login-content" id="loginForm" action="/login" method="POST">
+				<div class="form-element"><label for="email">Email: </label><input type="email" id="email" name="email" required></div><br>
+				<div class="form-element"><label for="password">Password: </label><input type="password" id="password" name="password" required></div><br><br>
+				<button type="submit" class="login-button">Login</button>
+			</form>
 		</section>
 
 		<footer>
@@ -105,7 +106,7 @@
 				</p>
 			</div>
 		</footer>
-		<script src="../hide-header.js"></script>
-		<script src="../hamburger-navbar-menu.js"></script>
+		<script src="../utils/hide-header.js"></script>
+		<script src="../utils/hamburger-navbar-menu.js"></script>
 	</body>
 </html>
