@@ -47,6 +47,16 @@ const server = http.createServer((req, res) => {
         res.end(data);
       }
     });
+  } else if(fileExtension === '.png') {
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        res.writeHead(404);
+        res.end('404 Not Found');
+      } else {
+        res.writeHead(200, { 'Content-Type': 'image/png' });
+        res.end(data);
+      }
+    });
   } else {
     fs.readFile('index.html', (err, data) => {
       if (err) {
