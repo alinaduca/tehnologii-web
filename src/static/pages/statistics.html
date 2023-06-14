@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title> Statistics </title>
+        <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
 		<link rel="stylesheet" type="text/css" href="../styles/style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="../styles/style-statistics.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="../utils/hamburger-navbar-menu.js"></script>
-        <script src="../utils/hide-header.js"></script>
-        <script src="script-statistics.js"></script>
+        <!-- <script src="../utils/script-statistics.js"></script> -->
     </head>
    <body>
     <!-- HEADER -->
@@ -40,7 +39,7 @@
                      <a href="/news" class="nav-link">News</a>
                   </li>    
                   <li class="nav-item">
-                    <button class="try-now-btn"><a class="login" href="/login">Login</a></button>
+                    <button class="try-now-btn loginButton"><a class="login" href="/login">Login</a></button>
                   </li>
                 </ul>
                 
@@ -80,7 +79,7 @@
             </div>
             <div class="diagrams">
                 <div class="text"> Number of nominations for each actor:</div>
-                <canvas id='myChart'></canvas>
+                <!-- <canvas id='myChart'></canvas> -->
                 <div class="export">
                     <div class="item">
                         CSV
@@ -93,7 +92,7 @@
                     </div>
                 </div>
                 <div class="text"> Popularity of actors by their number of fans:</div>
-                <canvas id='myChart2'></canvas>
+                <!-- <canvas id='myChart2'></canvas> -->
                 <div class="export">
                     <div class="item">
                         CSV
@@ -106,7 +105,7 @@
                     </div>
                 </div>
                 <div class="text"> Nominations per movies:</div>
-                <canvas id='myChart3'></canvas>
+                <!-- <canvas id='myChart3'></canvas> -->
                 <div class="export">
                     <div class="item">
                         CSV
@@ -123,7 +122,7 @@
         </div>
     </section>
 
-      <footer>
+    <footer>
         <div class="left-footer">
             <p>
                 FireStream 
@@ -137,8 +136,8 @@
                     <i class="fa fa-map-marker-alt fa-lg"></i>
                 </div>
                 <div id="loc">
-                    <p id="city">Iasi</p>
-                    <p id="country">Romania</p>
+                    <p id="city">Iași</p>
+                    <p id="country">România</p>
                 </div>
             </div>
             <div id="echipa">
@@ -170,6 +169,7 @@
             </p>
         </div>
     </footer>
-    
+    <script src="../utils/hamburger-navbar-menu.js"></script>
+    <script src="../utils/hide-header.js"></script>
    </body>
 </html>

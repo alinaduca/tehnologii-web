@@ -2,7 +2,6 @@ const MongoClient = require('mongodb').MongoClient;
 
 const uri = 'mongodb+srv://authenticationDB:iAlwqAFcb3usmiMh@cluster0.kn9hbrl.mongodb.net/';
 
-
 async function connectToDatabase() {
   try {
     const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });

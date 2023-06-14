@@ -16,6 +16,37 @@ function handleLoginRequest(req, res) {
   });
 }
 
+// handleLoginSubmission pentru cererea POST
+function handleLoginSubmission(req, res) {
+  let body = '';
+  req.on('data', chunk => {
+    body += chunk.toString();
+  });
+  req.on('end', () => {
+    const formData = new URLSearchParams(body);
+    const email = formData.get('email');
+    const password = formData.get('password');
+    
+    // Verificare și validare autentificare
+    // Verificați dacă emailul și parola sunt valide
+    // Poate fi adăugată validare în funcție de nevoile dvs.
+
+    if (email === 'alina_duca@yahoo.com' && password === '12345678') {
+      // Autentificare reușită
+      var loginButton = document.getElementById("loginButton");
+      loginButton.style.display="none";
+      res.writeHead(302, { 'Location': '/' });
+      // res.write('<h1>Autentificare reușită!</h1>');
+      res.end();
+    } else {
+      // Autentificare eșuată
+      res.writeHead(401, { 'Content-Type': 'text/html' });
+      res.write('<h1>Autentificare eșuată. Vă rugăm să verificați emailul și parola.</h1>');
+      res.end();
+    }
+  });
+}
+
 function handleLoginSubmit(req, res) {
   const { email, password } = req.body;
 
@@ -36,4 +67,4 @@ function handleLoginSubmit(req, res) {
 }
 
 
-module.exports = { handleLoginRequest, handleLoginSubmit };
+module.exports = { handleLoginRequest, handleLoginSubmission };

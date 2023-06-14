@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title> Nominations </title>
+    <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
 		<link rel="stylesheet" type="text/css" href="../styles/style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/style-nominations.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../utils/nominationsTMDb.js"></script>
   </head>
    <body>
     <!-- HEADER -->
@@ -37,7 +39,7 @@
                    <a href="/news" class="nav-link">News</a>
                 </li>    
                 <li class="nav-item">
-                  <button class="try-now-btn"><a class="login" href="/login">Login</a></button>
+                  <button class="try-now-btn loginButton"><a class="login" href="/login">Login</a></button>
                   </li>
               </ul>
               
@@ -56,70 +58,73 @@
      <!-- CONTENT -->
 
      <!-- Slideshow container -->
-	  <div class="slideshow-container fade">
+     <div class="slideshow-container fade">
 
-		    <!-- Full images with numbers and message Info -->
-        <div class="Containers">
-          <img src="https://i.postimg.cc/WzphBHzt/image7.png" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-          </div>
+      <!-- Full images with numbers and message Info -->
+      <div class="Containers">
+        <img src="https://i.postimg.cc/WzphBHzt/image7.png" style="width:100%">
+        <div class="text-container">
+          <h2>Nominations's History</h2>
+          <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
         </div>
+      </div>
 
-        <div class="Containers">
-          <img src="https://i.postimg.cc/023fPYsc/image1.png" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-          </div>
+      <div class="Containers">
+        <img src="https://i.postimg.cc/023fPYsc/image1.png" style="width:100%">
+        <div class="text-container">
+          <h2>Nominations's History</h2>
+          <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
         </div>
+      </div>
 
-        <div class="Containers">
-          <img src="https://i.postimg.cc/qq23r3XZ/image2.jpg" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-          </div>
+      <div class="Containers">
+        <img src="https://i.postimg.cc/qq23r3XZ/image2.jpg" style="width:100%">
+        <div class="text-container">
+          <h2>Nominations's History</h2>
+          <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
         </div>
+      </div>
 
-        <div class="Containers">
-          <img src="https://i.postimg.cc/52y2qzQd/image3.png" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-          </div>
+      <div class="Containers">
+        <img src="https://i.postimg.cc/52y2qzQd/image3.png" style="width:100%">
+        <div class="text-container">
+          <h2>Nominations's History</h2>
+          <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
         </div>
+      </div>
 
-        <div class="Containers">
-          <img src="https://i.postimg.cc/J002dRNn/image4.png" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-          </div>
+      <div class="Containers">
+        <img src="https://i.postimg.cc/J002dRNn/image4.png" style="width:100%">
+        <div class="text-container">
+          <h2>Nominations's History</h2>
+          <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
         </div>
+      </div>
 
-        <div class="Containers">
-          <img src="https://i.postimg.cc/XvNmyKrd/image5.png" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-          </div>
+      <div class="Containers">
+        <img src="https://i.postimg.cc/XvNmyKrd/image5.png" style="width:100%">
+        <div class="text-container">
+          <h2>Nominations's History</h2>
+          <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
         </div>
+      </div>
 
-		    <div class="Containers">
-			    <img src="https://i.postimg.cc/L6dWVFqH/image6.png" style="width:100%">
-          <div class="text-container">
-            <h2>Nominations's History</h2>
-            <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-          </div>
+      <div class="Containers">
+        <img src="https://i.postimg.cc/L6dWVFqH/image6.png" style="width:100%">
+        <div class="text-container">
+          <h2>Nominations's History</h2>
+          <button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
         </div>
-        
-	  </div>
+      </div>
+      
+  </div>
+
+     <ul id="actor-list"></ul>
+
 
     <!-- FILTRARE AN NOMINALIZARI -->
 
-  <section id="nominalizations">
+    <section id="nominalizations">
       <!-- The target section you want to scroll to -->
       <!-- blog section end -->
 
@@ -444,7 +449,6 @@
         </div>
       </section>
     </section> 
-      
 
       <!-- footer end -->
       <footer>
@@ -461,8 +465,8 @@
                     <i class="fa fa-map-marker-alt fa-lg"></i>
                 </div>
                 <div id="loc">
-                    <p id="city">Iasi</p>
-                    <p id="country">Romania</p>
+                    <p id="city">Iași</p>
+                    <p id="country">România</p>
                 </div>
             </div>
             <div id="echipa">

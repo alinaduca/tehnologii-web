@@ -4,7 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title> Proiect </title>
+		<title> Login </title>
+		<link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
 		<link rel="stylesheet" type="text/css" href="../styles/style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/content-style1.css">
@@ -36,7 +37,7 @@
 						   <a href="/news" class="nav-link">News</a>
 						</li>    
 						<li class="nav-item">
-						  <button class="try-now-btn"><a class="login" href="/login">Login</a></button>
+						  <button class="try-now-btn"><a class="login" href="#">Login</a></button>
 						</li>
 					  </ul>
 					
@@ -51,11 +52,22 @@
 			</div> 
 		 </header>
 		 	
-		 <section class="content">
-			<div>
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			</div>
-			
+		<section class="content">
+			<form class="login-content" id="loginForm" action="/login" method="POST">
+				<div class="form-element"><label for="email"> &emsp; &ensp;Email: </label><input type="email" id="email" name="email" required></div><br>
+				<div class="form-element"><label for="password">Password: </label><input type="password" id="password" name="password" required></div><br><br>
+				<a class="forgot-password" href="#" onclick="showForgotPasswordForm()">Forgot your password?</a>
+				<button type="submit" class="login-button">Login</button>
+			</form>
+
+			<form class="login-content" id="forgotPasswordForm" style="display: none;">
+				<div class="form-element">
+					<label for="forgotEmail">Email:</label>
+					<input type="email" id="forgotEmail" name="forgotEmail" required>
+				</div><br>
+				<button type="submit" class="forgot-password-button">Reset Password</button>
+				<button type="button" class="forgot-password-button" onclick="hideForgotPasswordForm()">Cancel</button>
+			</form>
 		</section>
 
 		<footer>
@@ -72,8 +84,8 @@
 						<i class="fa fa-map-marker-alt fa-lg"></i>
 					</div>
 					<div id="loc">
-						<p id="city">Iasi</p>
-						<p id="country">Romania</p>
+						<p id="city">Iași</p>
+						<p id="country">România</p>
 					</div>
 				</div>
 				<div id="echipa">
@@ -105,7 +117,8 @@
 				</p>
 			</div>
 		</footer>
-		<script src="../hide-header.js"></script>
-		<script src="../hamburger-navbar-menu.js"></script>
+		<script src="../utils/hide-header.js"></script>
+		<script src="../utils/hamburger-navbar-menu.js"></script>
+		<script src="../utils/forgot-password-form.js"></script>
 	</body>
 </html>
