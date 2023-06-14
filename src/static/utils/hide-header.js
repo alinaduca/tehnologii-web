@@ -28,13 +28,17 @@
     };
 
     var toggleHeader = function() {
-        toggled = true;
-       if(curDirection === 2 && curScroll > threshold)
-         header.classList.add('hide');
-       else if (curDirection === 1)
-         header.classList.remove('hide');
-       else
-         toggled = false;
+      toggled = true;
+      try {
+        if(curDirection === 2 && curScroll > threshold)
+          header.classList.add('hide');
+        else if (curDirection === 1)
+          header.classList.remove('hide');
+        else
+          toggled = false;
+      } catch(error) {
+        console.log();
+      }
        return toggled;
     };
 
