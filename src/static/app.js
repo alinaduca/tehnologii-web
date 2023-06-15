@@ -9,6 +9,7 @@ const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
 const { handleCreateAccountSubmit } = require('./controllers/createAccountController');
 const { connectToDatabase } = require('./db'); 
+const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 
 
 const server = http.createServer((req, res) => {
@@ -20,7 +21,9 @@ const server = http.createServer((req, res) => {
   } else if (req.url === '/nominations' && req.method === 'GET') {
     handleNominationsRequest(req, res); 
   } else if (req.url === '/news' && req.method === 'GET') {
-    handleNewsRequest(req, res); 
+    handleNewsRequest(req, res);
+  } else if (req.url === '/all-users' && req.method === 'GET') {
+    handleAllUsersRequest(req, res); 
   } else if (req.url === '/login' && req.method === 'GET') {
     handleLoginRequest(req, res); 
   } else if (req.url === '/login' && req.method === 'POST') {

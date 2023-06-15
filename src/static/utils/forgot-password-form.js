@@ -1,6 +1,6 @@
 function showForgotPasswordForm() {
     document.getElementById("loginForm").style.display = "none";
-    // document.getElementById("createAccountForm").style.display = "none";
+    document.getElementById("createAccountForm").style.display = "none";
     document.getElementById("forgotPasswordForm").style.display = "flex";
 }
 

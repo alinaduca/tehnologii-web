@@ -37,7 +37,7 @@ function handleLoginSubmission(req, res) {
       isLoggedIn = true;
       // var loginButton = document.getElementById("loginButton");
       // loginButton.style.display="none";
-      res.writeHead(302, { 'Location': '/' });
+      res.writeHead(302, { 'Location': '/all-users' });
       // res.write('<h1>Autentificare reușită!</h1>');
       res.end();
     } else {
