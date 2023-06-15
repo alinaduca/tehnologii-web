@@ -20,26 +20,26 @@
 				  <nav class="navbar">
 					<div class="logo">
 						<a href="index.html">
-						  <img class="logo-img" href="index.html" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
+							<img class="logo-img" href="index.html" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
 						</a>
 					</div>
 					<ul class="nav-menu">
 						<li class="nav-item">
-						   <a href="../index.html" class="nav-link">Home</a>
+							<a href="../index.html" class="nav-link">Home</a>
 						</li>    
 						<li class="nav-item">
-						   <a href="/statistics" class="nav-link">Statistics</a>
+							<a href="/statistics" class="nav-link">Statistics</a>
 						</li>    
 						<li class="nav-item">
-						   <a href="/nominations" class="nav-link">Nominations</a>
+							<a href="/nominations" class="nav-link">Nominations</a>
 						</li>    
 						<li class="nav-item">
-						   <a href="/news" class="nav-link">News</a>
+							<a href="/news" class="nav-link">News</a>
 						</li>    
-						<li class="nav-item">
-						  <button class="try-now-btn"><a class="login" href="#">Login</a></button>
-						</li>
-					  </ul>
+						<!-- <li class="nav-item">
+							<button class="try-now-btn"><a class="login" href="#">Login</a></button>
+						</li> -->
+					</ul>
 					
 					<div class="hamburger">
 					  <span class="bar"></span>    
@@ -50,7 +50,7 @@
 				  </nav>
 				</div>
 			</div> 
-		 </header>
+		</header>
 		 	
 		<section class="content">
 			<form class="login-content" id="loginForm" action="/login" method="POST">
@@ -59,6 +59,7 @@
 				<a class="forgot-password" href="#" onclick="showForgotPasswordForm()">Forgot your password?</a>
 				<button type="submit" class="login-button">Login</button>
 				<div class="form-element forgot-password">You don't have any account? <a class="forgot-password" href="#" onclick="showCreateAccountForm()">Create account</a></div>
+				<input type="hidden" id="isLoggedIn" name="isLoggedIn" value="">
 			</form>
 
 			<form class="login-content" id="forgotPasswordForm" style="display: none;">
@@ -143,4 +144,8 @@
 		<script src="../utils/hamburger-navbar-menu.js"></script>
 		<script src="../utils/forgot-password-form.js"></script>
 	</body>
+<<<<<<< HEAD
 </html> 
+=======
+</html>
+>>>>>>> eaaaaa2 (modif)
