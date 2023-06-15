@@ -6,24 +6,15 @@ function showForgotPasswordForm() {
 
 function showLoginForm() {
     document.getElementById("loginForm").style.display = "flex";
-    // document.getElementById("createAccountForm").style.display = "none";
+    document.getElementById("createAccountForm").style.display = "none";
     document.getElementById("forgotPasswordForm").style.display = "none";
 }
-<<<<<<< HEAD
 
 function showCreateAccountForm() {
     document.getElementById("loginForm").style.display = "none";
     document.getElementById("createAccountForm").style.display = "flex";
     document.getElementById("forgotPasswordForm").style.display = "none";
 }
-=======
-
-// function showCreateAccountForm() {
-//     document.getElementById("loginForm").style.display = "none";
-//     document.getElementById("createAccountForm").style.display = "flex";
-//     document.getElementById("forgotPasswordForm").style.display = "none";
-// }
-
 
 // Create a container div element
 var containerLi = document.createElement("li");
@@ -55,4 +46,3 @@ console.log("hello");
 
 // // Assign the container div to the 'comp' variable
 // var comp = containerDiv;
->>>>>>> eaaaaa2 (modif)
