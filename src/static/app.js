@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
     handleLoginRequest(req, res); 
   } else if (req.url === '/login' && req.method === 'POST') {
     handleLoginSubmission(req, res); 
-  } else if (req.url === '/createAccount' && req.method === 'GET') {
+  } else if (req.url === '/create-account' && req.method === 'POST') {
     handleCreateAccountSubmit(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {

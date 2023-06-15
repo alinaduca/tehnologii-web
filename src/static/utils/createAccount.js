@@ -16,6 +16,13 @@ function handleCreateAccountSubmit(event) {
       confirmPassword: confirmPassword
     };
   
+    console.log(data);
+
+    if (password !== confirmPassword) {
+      console.log('parole diferite');
+    }
+    else {
+      console.log('parole identice');
     fetch('/create-account', {
       method: 'POST',
       headers: {
@@ -30,5 +37,6 @@ function handleCreateAccountSubmit(event) {
       .catch(error => {
         console.error('Eroare la trimiterea datelor:', error);
       });
+    }
   }
   

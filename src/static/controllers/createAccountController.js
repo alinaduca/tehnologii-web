@@ -4,24 +4,64 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 // const { connectToDatabase, getClient } = require('./database/dbManager');
 
-function handleCreateAccountSubmit(event) {
-  event.preventDefault(); // Previne comportamentul implicit de reîncărcare a paginii
+function handleCreateAccountSubmit(req, res) {
+  if (req.method === 'POST' && req.url === '/create-account') {
+    let body = '';
 
-  const form = document.getElementById('createAccountForm');
-  const formData = new FormData(form);
+    req.on('data', (chunk) => {
+      body += chunk;
+    });
 
-  const username = formData.get('username');
-  console.log(username); // Afișează valoarea introdusă în câmpul "username"
+    req.on('end', () => {
+      const data = JSON.parse(body);
+      console.log(data); // Afișează datele primite în terminal
 
-  const forgotEmail = formData.get('forgotEmail');
-  console.log(forgotEmail); // Afișează valoarea introdusă în câmpul "username"
+      const { username, forgotEmail, password, confirmPassword } = data;
 
-  const password = formData.get('password');
-  console.log(password); // Afișează valoarea introdusă în câmpul "username"
+      if (password !== confirmPassword) {
+        console.log('parole diferite');
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'text/html');
+        res.end('<h1>Passwords do not match</h1><script>window.location.href = "/login";</script>');
+      } else {
 
-  const confirmPassword = formData.get('confirmPassword');
-  console.log(confirmPassword); // Afișează valoarea introdusă în câmpul "username"
+      http
+          .createServer(function (req, res) {
+          res.writeHead(301, { Location: "http://localhost:3000/statistics" });
+          res.end();
+          })
+        .listen(8888);
+      }
+    });
+  } else {
+    res.statusCode = 404;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('404 Not Found');
+  }
 }
+
+
+module.exports = { handleCreateAccountSubmit };
+
+
+// function handleCreateAccountSubmit(event) {
+//   event.preventDefault(); // Previne comportamentul implicit de reîncărcare a paginii
+
+//   const form = document.getElementById('createAccountForm');
+//   const formData = new FormData(form);
+
+//   const username = formData.get('username');
+//   console.log(username); // Afișează valoarea introdusă în câmpul "username"
+
+//   const forgotEmail = formData.get('forgotEmail');
+//   console.log(forgotEmail); // Afișează valoarea introdusă în câmpul "username"
+
+//   const password = formData.get('password');
+//   console.log(password); // Afișează valoarea introdusă în câmpul "username"
+
+//   const confirmPassword = formData.get('confirmPassword');
+//   console.log(confirmPassword); // Afișează valoarea introdusă în câmpul "username"
+// }
 
 // fetch('/create-account', {
 //   method: 'POST',
@@ -70,5 +110,4 @@ function handleCreateAccountSubmit(event) {
 //   }
 // }
 
-module.exports = { handleCreateAccountSubmit };
  
