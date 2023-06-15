@@ -11,7 +11,7 @@ const { handleCreateAccountSubmit } = require('./controllers/createAccountContro
 const { connectToDatabase } = require('./db'); 
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 
-
+connectToDatabase();
 const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, req.url);
   const fileExtension = path.extname(filePath);
@@ -72,7 +72,6 @@ const server = http.createServer((req, res) => {
     });
   }
 });
-
 
 
 const port = 3000;
