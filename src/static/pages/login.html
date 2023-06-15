@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -70,7 +70,7 @@
 				<button type="button" class="forgot-password-button" onclick="showLoginForm()">Cancel</button>
 			</form>
 
-			<form class="login-content" id="createAccountForm" style="display: none;">
+			<form class="login-content" id="createAccountForm" style="display: none;" action="/create-account" method="POST" onsubmit="handleCreateAccountSubmit(event)">
 				<div class="form-element">
 					<label for="username"> &emsp; &emsp; &ensp; Username: </label>
 					<input type="text" id="username" name="username" required>
@@ -138,8 +138,9 @@
 				</p>
 			</div>
 		</footer>
+		<script src="../utils/createAccount.js"></script>
 		<script src="../utils/hide-header.js"></script>
 		<script src="../utils/hamburger-navbar-menu.js"></script>
 		<script src="../utils/forgot-password-form.js"></script>
 	</body>
-</html> -->
+</html> 
