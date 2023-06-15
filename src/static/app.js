@@ -7,7 +7,7 @@ const { handleNominationsRequest } = require('./controllers/nominationsControlle
 const { handleNewsRequest } = require('./controllers/newsController');
 const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
-const { handleCreateAccountRequest } = require('./controllers/createAccountController');
+const { handleCreateAccountSubmit } = require('./controllers/createAccountController');
 const { connectToDatabase } = require('./db'); 
 
 
@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
   } else if (req.url === '/login' && req.method === 'POST') {
     handleLoginSubmission(req, res); 
   } else if (req.url === '/createAccount' && req.method === 'GET') {
-    handleCreateAccountRequest(req, res);
+    handleCreateAccountSubmit(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {

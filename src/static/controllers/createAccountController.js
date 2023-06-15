@@ -70,5 +70,5 @@ function handleCreateAccountSubmit(event) {
 //   }
 // }
 
-module.exports = { handleCreateAccountRequest, handleCreateAccountSubmit };
+module.exports = { handleCreateAccountSubmit };
  

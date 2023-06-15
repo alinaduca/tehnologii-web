@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
+// const { handleCreateAccountSubmit } = require('createAccountController');
 
 function handleLoginRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/login.html');
