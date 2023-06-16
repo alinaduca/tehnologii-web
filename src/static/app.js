@@ -7,26 +7,37 @@ const { handleNominationsRequest } = require('./controllers/nominationsControlle
 const { handleNewsRequest } = require('./controllers/newsController');
 const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
-const { handleCreateAccountRequest } = require('./controllers/createAccountController');
-const { connectToDatabase } = require('./db'); 
+const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
+const { handleForgotPswdRequest } = require('./controllers/forgotPswdController');
+// const { connectToDatabase } = require('./db'); 
+const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
+const getData = require('../api/allUsersAPI');
+const { connectToDatabase } = require('./database/dbManager');
 
-
+connectToDatabase();
 const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, req.url);
   const fileExtension = path.extname(filePath);
-
   if (req.url === '/statistics' && req.method === 'GET') {
     handleStatisticsRequest(req, res);
   } else if (req.url === '/nominations' && req.method === 'GET') {
     handleNominationsRequest(req, res); 
   } else if (req.url === '/news' && req.method === 'GET') {
-    handleNewsRequest(req, res); 
+    handleNewsRequest(req, res);
+  } else if (req.url === '/all-users' && req.method === 'GET') {
+    handleAllUsersRequest(req, res); 
   } else if (req.url === '/login' && req.method === 'GET') {
     handleLoginRequest(req, res); 
   } else if (req.url === '/login' && req.method === 'POST') {
     handleLoginSubmission(req, res); 
-  } else if (req.url === '/createAccount' && req.method === 'GET') {
+  } else if (req.url === '/create-account' && req.method === 'GET') {
     handleCreateAccountRequest(req, res);
+  } else if (req.url === '/create-account' && req.method === 'POST') {
+    handleCreateAccountSubmit(req, res);
+  } else if (req.url === '/forgot-password' && req.method === 'GET') {
+    handleForgotPswdRequest(req, res);
+  } else if (req.url === '/api/all-users' && req.method === 'GET') {
+    getData(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {
@@ -69,7 +80,6 @@ const server = http.createServer((req, res) => {
     });
   }
 });
-
 
 
 const port = 3000;

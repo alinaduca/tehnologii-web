@@ -53,13 +53,26 @@
 		</header>
 		 	
 		<section class="content">
-			<form class="login-content" id="loginForm" action="/login" method="POST">
-				<div class="form-element"><label for="email"> &emsp; &ensp;Email: </label><input type="email" id="email" name="email" required></div><br>
-				<div class="form-element"><label for="password">Password: </label><input type="password" id="password" name="password" required></div><br><br>
-				<a class="forgot-password" href="/forgot-password">Forgot your password?</a>
-				<button type="submit" class="login-button">Login</button>
-				<div class="form-element forgot-password">You don't have any account? <a class="forgot-password" href="/create-account">Create account</a></div>
-				<input type="hidden" id="isLoggedIn" name="isLoggedIn" value="">
+			<form class="login-content" id="createAccountForm" action="/create-account" method="POST">
+				<div class="form-element">
+					<label for="username"> &emsp; &emsp; &ensp; Username: </label>
+					<input type="text" id="username" name="username" required>
+				</div><br>
+				<div class="form-element">
+					<label for="forgotEmail"> &emsp; &emsp; &emsp; &emsp;&ensp;Email: </label>
+					<input type="email" id="forgotEmail" name="forgotEmail" required>
+				</div><br>
+				<div class="form-element">
+					<label for="password"> &emsp; &emsp; &ensp; &nbsp;Password: </label>
+					<input type="password" id="password" name="password" required>
+				</div><br>
+				<div class="form-element">
+					<label for="confirmPassword">Confirm password:</label>
+					<input type="password" id="confirmPassword" name="confirmPassword" required>
+				</div><br>			
+				<div id="errorContainer"></div>	  
+				<button type="submit" class="forgot-password-button">Create account</button> 
+				<!-- <button type="submit" class="forgot-password-button" onclick="showLoginForm()">Create account</button>  -->
 			</form>
 		</section>
 

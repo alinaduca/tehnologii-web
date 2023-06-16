@@ -2,55 +2,81 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
-// const { connectToDatabase, getClient } = require('./database/dbManager');
+const { connectToDatabase, getAuthentication } = require('../db');
 
 function handleCreateAccountRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/createAccount.html');
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.statusCode = 404;
+      res.writeHead(404);
       res.end('404 Not Found');
     } else {
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'text/html');
+      res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(data);
     }
   });
 }
 
 async function handleCreateAccountSubmit(req, res) {
-  try {
-    const { email, password } = req.body;
+  let body = '';
+  req.on('data', chunk => {
+    body += chunk.toString();
+  });
+  req.on('end', async () => {
+    const formData = new URLSearchParams(body);
+    const username = formData.get('username');
+    const forgotEmail = formData.get('forgotEmail');
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirmPassword');
 
-    // Generarea saltului
-    const salt = await bcrypt.genSalt(10);
+    console.log(formData);
 
-    // Criptarea parolei utilizând saltul generat
-    const hashedPassword = await bcrypt.hash(password + salt, 10);
+    if (password !== confirmPassword) {
+      console.log('parole diferite');
+      res.statusCode = 400;
+      res.setHeader('Content-Type', 'text/html');
+      res.end('<h1>Passwords do not match</h1><script>window.location.href = "/login";</script>');
+    } else {
+      console.log('parole identice');
 
-    // Obținerea clientului MongoDB din DBManager
-    const client = getClient();
+      let db = await connectToDatabase();
+      const users = db.collection('users');
+      const authentication = db.collection('Authentication');
 
-    // Selectați baza de date
-    const database = client.db('Authentication');
+      // Generăm saltul utilizând bcrypt
+      const salt = await bcrypt.genSalt(10);
 
-    // Selectați colecția utilizatori
-    const collection = database.collection('users');
+      // Adăugăm saltul și emailul în colecția "Authentication"
+      const authData = {
+        email: forgotEmail,
+        salt: salt
+      };
+      await authentication.insertOne(authData);
 
-    // Inserați detaliile utilizatorului în baza de date
-    await collection.insertOne({ email, password: hashedPassword, salt });
+      // Modificăm parola în "password+salt"
+      const saltedPassword = password + salt;
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ message: 'Contul a fost creat cu succes' }));
-  } catch (error) {
-    console.error('Eroare la crearea contului:', error);
-    res.statusCode = 500;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ message: 'A apărut o eroare la crearea contului' }));
-  }
+      // Hashuim parola modificată utilizând bcrypt
+      const hashedPassword = await bcrypt.hash(saltedPassword, 10);
+
+      // Creăm obiectul utilizatorului
+      const newUser = {
+        username: username,
+        email: forgotEmail,
+        password: hashedPassword,
+        type: 'user'
+      };
+
+      // Inserăm utilizatorul în colecția "users"
+      await users.insertOne(newUser);
+
+      console.log('Utilizatorul a fost inserat în baza de date');
+
+      res.writeHead(302, { 'Location': '/login' });
+      res.end();
+    }
+  });
 }
 
 module.exports = { handleCreateAccountRequest, handleCreateAccountSubmit };
- 
