@@ -8,6 +8,7 @@ const { handleNewsRequest } = require('./controllers/newsController');
 const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
+const { handleForgotPswdRequest } = require('./controllers/forgotPswdController');
 // const { connectToDatabase } = require('./db'); 
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const getData = require('../api/allUsersAPI');
@@ -33,8 +34,9 @@ const server = http.createServer((req, res) => {
     handleCreateAccountRequest(req, res);
   } else if (req.url === '/create-account' && req.method === 'POST') {
     handleCreateAccountSubmit(req, res);
+  } else if (req.url === '/forgot-password' && req.method === 'GET') {
+    handleForgotPswdRequest(req, res);
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
-
     getData(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
