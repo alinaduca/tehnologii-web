@@ -53,25 +53,6 @@
 		</header>
 		 	
 		<section class="content">
-			<form class="login-content" id="loginForm" action="/login" method="POST">
-				<div class="form-element"><label for="email"> &emsp; &ensp;Email: </label><input type="email" id="email" name="email" required></div><br>
-				<div class="form-element"><label for="password">Password: </label><input type="password" id="password" name="password" required></div><br><br>
-				<a class="forgot-password" href="#" onclick="showForgotPasswordForm()">Forgot your password?</a>
-				<button type="submit" class="login-button">Login</button>
-				<div class="form-element forgot-password">You don't have any account? <a class="forgot-password" href="/create-account" onclick="showCreateAccountForm()">Create account</a></div>
-				<!-- <div class="form-element forgot-password">You don't have any account? <a class="forgot-password" href="#" onclick="showCreateAccountForm()">Create account</a></div> -->
-				<input type="hidden" id="isLoggedIn" name="isLoggedIn" value="">
-			</form>
-
-			<form class="login-content" id="forgotPasswordForm" style="display: none;">
-				<div class="form-element">
-					<label for="forgotEmail">Email:</label>
-					<input type="email" id="forgotEmail" name="forgotEmail" required>
-				</div><br>
-				<button type="submit" class="forgot-password-button">Reset Password</button>
-				<button type="button" class="forgot-password-button" onclick="showLoginForm()">Cancel</button>
-			</form>
-
 			<form class="login-content" id="createAccountForm" style="display: none;" action="/create-account" method="POST">
 				<div class="form-element">
 					<label for="username"> &emsp; &emsp; &ensp; Username: </label>

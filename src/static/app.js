@@ -7,7 +7,7 @@ const { handleNominationsRequest } = require('./controllers/nominationsControlle
 const { handleNewsRequest } = require('./controllers/newsController');
 const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
-const { handleCreateAccountSubmit } = require('./controllers/createAccountController');
+const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
 // const { connectToDatabase } = require('./db'); 
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const getData = require('../api/allUsersAPI');
@@ -29,6 +29,8 @@ const server = http.createServer((req, res) => {
     handleLoginRequest(req, res); 
   } else if (req.url === '/login' && req.method === 'POST') {
     handleLoginSubmission(req, res); 
+  } else if (req.url === '/create-account' && req.method === 'GET') {
+    handleCreateAccountRequest(req, res);
   } else if (req.url === '/create-account' && req.method === 'POST') {
     handleCreateAccountSubmit(req, res);
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
