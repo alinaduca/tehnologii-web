@@ -8,8 +8,6 @@ async function connectToDatabase() {
     const db = client.db('sagdatabase');
     console.log('Conexiunea la baza de date a fost stabilită cu succes');
     const collection = db.collection('users');
-    // console.log('here');
-    // console.log(collection);
     collection.find().toArray((err, users) => {
       if (err) {
         console.error('Failed to fetch users from MongoDB', err);
