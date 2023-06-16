@@ -7,6 +7,8 @@ const getData = (req, res) => {
     const collection = db.collection('users');
     let users = [];
     console.log(collection.find().toArray());
+
+
     // collection.find().toArray((err, users) => {
     //     console.log("hereee");
     //   if (err) {
