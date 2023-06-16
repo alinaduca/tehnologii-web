@@ -1,31 +1,176 @@
-const apiKey = '409e91ad98dc47919d456b7b91b91e5a';
-const apiUrl = 'https://newsapi.org/v2/everything?domains=wsj.com&apiKey=409e91ad98dc47919d456b7b91b91e5a';
+function fetchActorNews(actorName) {
+  const apiKey = '409e91ad98dc47919d456b7b91b91e5a';
+  const apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(actorName)}&apiKey=${apiKey}`;
 
-fetch(`${apiUrl}&apiKey=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-    const articles = data.articles; // obțineți array-ul de articole din răspuns
+  return fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error retrieving actor news');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("API response:", data);
+      if (data.articles && data.articles.length > 0) {
+        console.log("Total articles:", data.articles.length);
+        console.log("First article:", data.articles[0]);
+      } else {
+        throw new Error("Invalid response from API: No articles found");
+      }
 
-    // Parcurgeți fiecare articol și utilizați informațiile relevante
-    articles.forEach(article => {
-      const sourceName = article.source.name;
-      const author = article.author;
-      const title = article.title;
-      const description = article.description;
-      const url = article.url;
-      const imageUrl = article.urlToImage;
-    //   const publishedAt = article.publishedAt;
-      const content = article.content;
+      const dataSection = document.getElementById("buton-actori");
 
-      // Aici puteți efectua orice acțiuni suplimentare cu datele fiecărui articol
-      // de exemplu, puteți afișa titlul și descrierea într-o listă HTML
+      var ok = true;
+      const newsSection = document.createElement("div");
+      newsSection.classList.add("news_section");
 
-      const articleElement = document.createElement('li');
-      articleElement.innerHTML = `<h2>${title}</h2><p>${description}</p>`;
-      document.getElementById('news-list').appendChild(articleElement);
+      const container = document.createElement("div");
+      container.classList.add("container_news");
+      for (const article of data.articles) {
+        // if(ok) {    
+          // const newsSection2 = document.createElement("div");
+          // newsSection2.classList.add("news_section_2");
+
+          // const row = document.createElement("div");
+          // row.classList.add("row");
+
+          // const box = document.createElement("div");
+          // box.classList.add("box_news");
+
+          // const dateText = document.createElement("h6");
+          // dateText.classList.add("date_text");
+          // const date = new Date(article.publishedAt);
+          // const day = date.getDate();
+          // const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(date);
+          // dateText.innerHTML = `${day}<br>${month}`;
+
+          // const imageLeft = document.createElement("div");
+          // imageLeft.classList.add("image_left");
+          // const newsImg = document.createElement("img");
+          // newsImg.classList.add("news-img");
+          // newsImg.src = article.urlToImage;
+
+          // const rightBox = document.createElement("div");
+          // rightBox.classList.add("box_news");
+
+          // const newsLink = document.createElement("a");
+          // newsLink.href = article.url;
+          // newsLink.textContent = "Read More";
+
+          // const newsTitle = document.createElement("h4");
+          // newsTitle.classList.add("titlu_stire_rigth");
+          // newsTitle.textContent = article.title;
+
+          // const newsDetails = document.createElement("p");
+          // newsDetails.classList.add("detalii_stire");
+          // newsDetails.textContent = article.description;
+
+          // const likeButton = document.createElement("div");
+          // likeButton.classList.add("like_bt");
+          // likeButton.innerHTML = '<a href="#">Like</a>';
+
+          // const commentButton = document.createElement("div");
+          // commentButton.classList.add("comment_bt", "col");
+          // commentButton.innerHTML = '<a href="#">Comment</a>';
+
+          // box.appendChild(dateText);
+          // box.appendChild(imageLeft);
+          // imageLeft.appendChild(newsImg);
+
+          // rightBox.appendChild(newsLink);
+          // rightBox.appendChild(newsTitle);
+          // rightBox.appendChild(newsDetails);
+          // rightBox.appendChild(likeButton);
+          // rightBox.appendChild(commentButton);
+
+          // row.appendChild(box);
+          // row.appendChild(rightBox);
+
+          // newsSection2.appendChild(row);
+          // container.appendChild(newsSection2);
+        // }
+        // else
+        // {
+          const newsSection2 = document.createElement("div");
+          newsSection2.classList.add("news_section_2");
+  
+          const row = document.createElement("div");
+          row.classList.add("row");
+  
+          const box = document.createElement("div");
+          box.classList.add("box_news");
+  
+          const dateText = document.createElement("h6");
+          dateText.classList.add("date_text");
+          const date = new Date(article.publishedAt);
+          const day = date.getDate();
+          const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(date);
+          dateText.innerHTML = `${day}<br>${month}`;
+  
+          const boxText = document.createElement("div");
+          boxText.classList.add("box_text");
+  
+          const newsTitleLeft = document.createElement("h4");
+          newsTitleLeft.classList.add("titlu_stire_left");
+          newsTitleLeft.textContent = article.title;
+  
+          const newsDetails = document.createElement("p");
+          newsDetails.classList.add("detalii_stire");
+          newsDetails.textContent = article.description;
+  
+          const likeButton = document.createElement("div");
+          likeButton.classList.add("like_bt");
+          likeButton.innerHTML = '<a href="#">Like</a>';
+  
+          const commentButton = document.createElement("div");
+          commentButton.classList.add("comment_bt", "col");
+          commentButton.innerHTML = '<a href="#">Comment</a>';
+  
+          const box2 = document.createElement("div");
+          box2.classList.add("box_news");
+  
+          const imageRight = document.createElement("div");
+          imageRight.classList.add("image_right");
+          const newsImg = document.createElement("img");
+          newsImg.classList.add("news-img");
+          newsImg.src = article.urlToImage;
+  
+          box.appendChild(dateText);
+          boxText.appendChild(newsTitleLeft);
+          boxText.appendChild(newsDetails);
+          boxText.appendChild(likeButton);
+          boxText.appendChild(commentButton);
+          box.appendChild(boxText);
+  
+          box2.appendChild(imageRight);
+          imageRight.appendChild(newsImg);
+  
+          row.appendChild(box);
+          row.appendChild(box2);
+  
+          newsSection2.appendChild(row);
+          dataSection.appendChild(newsSection2);
+       // }
+       // ok = !ok;
+      }
+      newsSection.appendChild(container);
+      dataSection.appendChild(newsSection);
+    })
+    .catch(error => {
+      console.error(error);
+      throw new Error('Failed to retrieve actor news');
     });
-  })
-  .catch(error => {
-    console.error('A apărut o eroare:', error);
-    // Aici puteți trata eroarea în mod adecvat
-  });
+}
+
+var searchForm = document.getElementById("searchForm");
+var actorNameInput = document.getElementById("actorName");
+var articleList = document.getElementById("articleList");
+var myDiv = document.getElementById("buton-actori");
+myDiv.addEventListener("click", function(event) {
+  event.preventDefault();
+  var actorName = actorNameInput.value.trim();
+  console.log(actorName);
+  if (actorName !== "") {
+    fetchActorNews(actorName);
+  }
+});
