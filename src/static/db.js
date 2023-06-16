@@ -7,20 +7,21 @@ async function connectToDatabase() {
     const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     const db = client.db('sagdatabase');
     console.log('Conexiunea la baza de date a fost stabilită cu succes');
-    const collection = db.collection('users');
-    // console.log('here');
-    // console.log(collection);
-    collection.find().toArray((err, users) => {
-      if (err) {
-        console.error('Failed to fetch users from MongoDB', err);
-        return;
-      }
-      console.log(users);
-    });
-    return client.db('Authentication');
+    return db;
   } catch (error) {
     console.error('Eroare la conectarea la baza de date:', error);
     throw error;
   }
 }
-module.exports = { connectToDatabase };
+
+async function getAuthentication() {
+  const { client, database } = await connectToDatabase();
+  console.log(database);
+  console.log(client);
+  return {
+    client: client,
+    database: database.db('Authentication') // Modificați această linie
+  };
+}
+
+module.exports = { connectToDatabase, getAuthentication };

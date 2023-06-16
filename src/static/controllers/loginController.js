@@ -31,7 +31,6 @@ function handleLoginSubmission(req, res) {
     
     // Verificare și validare autentificare
     // Verificați dacă emailul și parola sunt valide
-    // Poate fi adăugată validare în funcție de nevoile dvs.
     if (email === 'alina_duca@yahoo.com' && password === '12345678') {
       // Autentificare reușită
       isLoggedIn = true;
