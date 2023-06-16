@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Demo</title>
+</head>
+<body>
+  <h1>API Data</h1>
+  <div id="data"></div>
+
+  <script>
+    fetch('/api/data')
+      .then(response => response.json())
+      .then(data => {
+        const dataDiv = document.getElementById('data');
+        dataDiv.innerText = JSON.stringify(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  </script>
+</body>
+</html>
