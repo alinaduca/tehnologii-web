@@ -9,73 +9,33 @@ body {
 
 .users-section {
     margin-top: 150px;
+    width: 100%;
 }
 
-.user p{
-    margin: 20px;
+.container p {
+    padding: 10px;
     font-weight: 300;
     font-size: 15px;
     line-height: 24px;
-}
-
-.user {
-    background-color: #d4adc6;
-    border-radius: 15px;
-    margin-bottom: 25px;
-}
-
-.details {
-    width: 100%;
-    float: left;
-    font-size: 16px;
-    color: #202020;
-    margin: 0px;
-    font-family: 'Raleway', sans-serif;
+    justify-self: center;
 }
 
 .container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto
-  }
-  
-  @media (min-width:576px) {
-    .container {
-      max-width: 540px
-    }
-  }
-  
-  @media (min-width:768px) {
-    .container {
-      max-width: 720px
-    }
-  }
-  
-  @media (min-width:992px) {
-    .container {
-      max-width: 960px
-    }
-  }
-  
-  @media (min-width:1200px) {
-    .container {
-      max-width: 1140px
-    }
-  }
-
-  .row {
-    display: -ms-flexbox;
+    background-color: #d4adc6;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    font-family: 'Raleway', sans-serif;
+    margin-left: 20%;
+    font-size: 16px;
+    width: 50%;
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
+    align-items: center;
+    justify-content: space-between;
+}
 
-  
-.box {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px
-  }
+.container img {
+    width: 30px;
+    height: fit-content;
+    margin-right: 10px;
+    cursor: pointer;
+}
