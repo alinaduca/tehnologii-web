@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-function handleNewsRequest(req, res) {
-    const filePath = path.join(__dirname, '../pages/news.html');
+function handleMyAccountRequest(req, res) {
+    const filePath = path.join(__dirname, '../pages/myAccount.html');
   
     fs.readFile(filePath, (err, data) => {
       if (err) {
@@ -15,4 +15,4 @@ function handleNewsRequest(req, res) {
     });
 }
 
-module.exports = { handleNewsRequest };
+module.exports = { handleMyAccountRequest };

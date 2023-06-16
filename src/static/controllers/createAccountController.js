@@ -91,8 +91,6 @@ async function handleCreateAccountSubmit(req, res) {
         const algorithm = 'sha256';
         const hashedPassword = crypto.createHash(algorithm).update(saltedPassword).digest('hex');
 
-        console.log('\tsalt-ul generat: ' + salt + '\n\tsalted: ' + saltedPassword + '\n\tpassword: ' + hashedPassword);
-
         // Creăm obiectul utilizatorului
         const newUser = {
           username: username,

@@ -9,6 +9,7 @@ const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
 const { handleForgotPswdRequest } = require('./controllers/forgotPswdController');
+const { handleMyAccountRequest } = require('./controllers/myAccountController');
 // const { connectToDatabase } = require('./db'); 
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const getData = require('../api/allUsersAPI');
@@ -33,7 +34,9 @@ const server = http.createServer((req, res) => {
   } else if (req.url === '/create-account' && req.method === 'GET') {
     handleCreateAccountRequest(req, res);
   } else if (req.url === '/create-account' && req.method === 'POST') {
-    handleCreateAccountSubmit(req, res);
+    handleCreateAccountSubmit(req, res); 
+  } else if (req.url === '/my-account' && req.method === 'GET') {
+    handleMyAccountRequest(req, res);
   } else if (req.url === '/forgot-password' && req.method === 'GET') {
     handleForgotPswdRequest(req, res);
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
@@ -79,6 +82,15 @@ const server = http.createServer((req, res) => {
       }
     });
   }
+
+  if (req.url === '/check-token' && req.method === 'GET') {
+    const tokenCookie = req.headers.cookie;
+    const hasToken = tokenCookie && tokenCookie.includes('token');
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ hasToken }));
+  }
+
 });
 
 

@@ -3,8 +3,9 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
+const cookie = require('cookie');
+
 const { getClient } = require("../database/dbManager");
-const e = require('express');
 
 function handleLoginRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/login.html');
@@ -30,8 +31,6 @@ function handleLoginSubmission(req, res) {
     const formData = new URLSearchParams(body);
     const email = formData.get('email');
     const password = formData.get('password');
-
-    console.log('\temail-ul primit: ' + email + '\n\tparola primita: ' + password);
 
     let isLoggedIn = false;
 
@@ -59,12 +58,32 @@ function handleLoginSubmission(req, res) {
       // verify if the passwords are the same
       const isPasswordCorrect = await bcrypt.compare(hashedPassword, DBhashedPassword);
 
-      console.log('\tsalt-ul gasit: ' + salt + '\n\tsalted: ' + saltedPassword +'\n\thash-ul generat: ' + hashedPassword + '\n\tDBhash: ' +DBhashedPassword);
-
       if (hashedPassword == DBhashedPassword) {
         // Parola este corectă
         isLoggedIn = true;
         console.log('Autentificare reușită');
+
+        // genere token JWT 
+        const secretKey = 'ak1j3bk^jb4986:BKG9h%jG#I7687jhg!';
+        const token = jwt.sign({ email }, secretKey);
+
+        // adaugare token în antetul răspunsului http
+        res.setHeader('Authorization', 'Bearer ' + token);
+
+        // Setați cookie-ul în răspunsul HTTP
+        const cookieToken = cookie.serialize('token', token, {
+          maxAge: 3600, // durata de viață a cookie-ului în secunde
+          httpOnly: true,
+        });
+
+        res.setHeader('Set-Cookie', cookieToken);
+
+        res.setHeader('Content-Type', 'text/html');
+        res.end(`
+          <script>window.location.href = "/";</script>
+       `);
+        // res.writeHead(302, { 'Location': '/' });
+        // res.end();
       } else {
         // Parola este incorectă
         console.log('Parolă incorectă');
