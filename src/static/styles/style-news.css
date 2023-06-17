@@ -280,3 +280,121 @@ img.news-img {
       max-width: 50%
     }
   }
+
+
+  .input-text {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .input-text input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ff6b6b, #c94c4c);
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .input-text input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .input-text input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+  }
+  
+  .input-text input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .input-text input:hover {
+    transform: scale(1.05);
+  }
+  
+  .input-text input:valid {
+    background: linear-gradient(45deg, #8B3C7F, #80056d);
+  }
+   
+
+  #buton-actori {
+    justify-content: center;
+    align-items: center;
+    color: #171616;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #buton-actori:active {
+    transform: scale(0.98);
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  }
+
+  #content-news{
+    padding: 200px 20px;
+  }
+  
+
+   #buton-actori:hover {
+    text-shadow: 0 0 5px rgb(159, 106, 151); /* Adaugăm culoarea de fundal la hover */
+  }
+
+  .button-55 {
+    align-self: center;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .button-55:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+  
+  .button-55:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  }
+  
+
+  .users-section {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
