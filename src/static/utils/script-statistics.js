@@ -1,126 +1,25 @@
-// Data
-var data = {
-	labels: ["Bradley Cooper", "Al Pacino", "Brad Pitt"],
-	datasets: [{
-		label: "Nominations",
-		data: [3, 5, 2],
-		backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-        borderColor: "#000000s",
-        borderWidth: 1,
-        fontColor: "#000000"
-	}]
-};
+ // Set up the Apollo Client
+ const client = new ApolloClient({
+    uri: 'http://localhost:4000/graphql', // Replace with your GraphQL server endpoint
+  });
 
-// Configuration
-var config = {
-	type: 'bar',
-	data: data,
-	options: {
-		scales: {
-			yAxes: [{
-				ticks: {
-					beginAtZero: true
-				}
-			}]
-		}
-	}
-};
-
-// Create chart
-var myChart = new Chart(
-	document.getElementById('myChart'),
-	config
-);
-
-
-
-
-// Data
-var data2 = {
-    labels: ["2020", "2021", "2022"],
-    datasets: [{
-        label: "Bradley Cooper",
-        data: [7000, 9000, 12000],
-        fill: false,
-        borderColor: "#3e95cd",
-        borderWidth: 2,
-        pointBackgroundColor: "#3e95cd",
-        pointRadius: 5
-    }, {
-        label: "Brad Pitt",
-        data: [6000, 7000, 15000],
-        fill: false,
-        borderColor: "#8e5ea2",
-        borderWidth: 2,
-        pointBackgroundColor: "#8e5ea2",
-        pointRadius: 5
-    }, {
-        label: "Al Pacino",
-        data: [8000, 6000, 12500],
-        fill: false,
-        borderColor: "#3cba9f",
-        borderWidth: 2,
-        pointBackgroundColor: "#3cba9f",
-        pointRadius: 5
-    }]
-};
-
-// Configuration
-var config2 = {
-    type: 'line',
-    data: data2,
-    options: {
-        legend: {
-            display: false
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+  // Define your GraphQL query
+  const GET_STATISTICS = gql`
+    query {
+      statistics {
+        # Define the fields you want to retrieve for statistics
+      }
     }
-};
+  `;
 
-// Create chart
-var myChart2 = new Chart(
-    document.getElementById('myChart2'),
-    config2
-);
-
-
-
-// Data
-var data3 = {
-	labels: ["Titanic", "Avatar", "Frozen", "Avatar2"],
-	datasets: [{
-		label: "Nominations",
-		data: [15, 19, 27, 14],
-		backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f", "#ed6fe1"],
-        borderColor: "#000000s",
-        borderWidth: 1,
-        fontColor: "#000000"
-	}]
-};
-
-// Configuration
-var config3 = {
-	type: 'pie',
-	data: data3,
-	options: {
-		scales: {
-			yAxes: [{
-				ticks: {
-					beginAtZero: true
-				}
-			}]
-		}
-	}
-};
-
-// Create chart
-var myChart3 = new Chart(
-	document.getElementById('myChart3'),
-	config3
-);
+  // Execute the GraphQL query and handle the response
+  client.query({ query: GET_STATISTICS })
+    .then(response => {
+      const statisticsData = response.data.statistics;
+      // Process the retrieved data and update the HTML to display the statistics
+      const statisticsContainer = document.getElementById('statistics-container');
+      statisticsContainer.innerText = JSON.stringify(statisticsData);
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
