@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    transition: ease all 0.5s;
+}
+
+body {
+    background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
+}
+
+.content {
+    margin-top: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout {
+    background-color: white;
+    color: #8B3C7F;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.logout:hover {
+  background-color: #3C1A37;
+  font-weight: bolder;
+  color:#ffffff;
+  border-radius: 5px;
+}
+
+a.logout {
+  color: #8B3C7F;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 15px 25px;
+}
+
+a.logout:hover {
+  color: white;
+  background-color: #3C1A37;
+  padding: 15px 25px;
+}

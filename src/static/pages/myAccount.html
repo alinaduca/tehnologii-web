@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title> View users </title>
+		<title> My Account </title>
         <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
 		<link rel="stylesheet" type="text/css" href="../styles/style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="../styles/style-all-users.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style-my-account.css">
     </head>
     <body>
     <header>
@@ -37,9 +37,9 @@
                         </li>    
                         <li class="nav-item">
                             <button id="login-button" class="try-now-btn loginButton" display="block"><a class="login" href="/login">Login</a></button>
-                          </li>
+                        </li>
                         <li class="nav-item">
-                            <button id="my-account-button" class="try-now-btn loginButton" disply="block"><a class="login" href="/login">My Account</a></button>
+                            <button id="my-account-button" class="try-now-btn loginButton" disply="block"><a class="login" href="#">My Account</a></button>
                         </li>
                     </ul>
                     
@@ -54,9 +54,7 @@
     </header>
 
     <section class="content">
-        <li class="nav-item">
-            <button id="my-account-button" class="try-now-btn loginButton"><a class="login" href="/login">Logout</a></button>
-        </li>
+        <button class="logout"><a class="logout" href="/logout">Logout</a></button>
     </section>
 
     <footer>
@@ -108,6 +106,6 @@
     </footer>
     <script src="../utils/hide-header.js"></script>
     <script src="../utils/hamburger-navbar-menu.js"></script>
-    <script src="../utils/viewAllUsers.js"></script>
+    <!-- <script src="../utils/viewAllUsers.js"></script> -->
     </body>
 </html>

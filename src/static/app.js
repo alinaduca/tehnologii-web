@@ -5,12 +5,12 @@ const jwt = require('jsonwebtoken');
 const { handleStatisticsRequest } = require('./controllers/statisticsController');
 const { handleNominationsRequest } = require('./controllers/nominationsController');
 const { handleNewsRequest } = require('./controllers/newsController');
-const { handleIndexRequest } = require('./controllers/indexController');
+// const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
+const { handleLogoutRequest } = require('./controllers/logoutController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
 const { handleForgotPswdRequest } = require('./controllers/forgotPswdController');
 const { handleMyAccountRequest } = require('./controllers/myAccountController');
-// const { connectToDatabase } = require('./db'); 
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const getData = require('../api/allUsersAPI');
 const { connectToDatabase } = require('./database/dbManager');
@@ -29,6 +29,8 @@ const server = http.createServer((req, res) => {
     handleAllUsersRequest(req, res); 
   } else if (req.url === '/login' && req.method === 'GET') {
     handleLoginRequest(req, res); 
+  } else if (req.url === '/logout' && req.method === 'GET') {
+    handleLogoutRequest(req, res);
   } else if (req.url === '/login' && req.method === 'POST') {
     handleLoginSubmission(req, res); 
   } else if (req.url === '/create-account' && req.method === 'GET') {
@@ -92,7 +94,6 @@ const server = http.createServer((req, res) => {
   }
 
 });
-
 
 const port = 3000;
 
