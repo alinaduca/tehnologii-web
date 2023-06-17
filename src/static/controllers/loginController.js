@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const cookie = require('cookie');
-
+const { connectToDatabase } = require('../db');
 const { getClient } = require("../database/dbManager");
 
 function handleLoginRequest(req, res) {
@@ -72,7 +72,7 @@ function handleLoginSubmission(req, res) {
 
         res.setHeader('Content-Type', 'text/html');
 
-        if(user.type === "user") {
+        if(user1.type === "user") {
           res.end(`
             <script>window.location.href = "/";</script>
          `);
@@ -101,16 +101,6 @@ function handleLoginSubmission(req, res) {
       `);
     }
     
-    // if (email === 'alina_duca@yahoo.com' && password === '12345678') {
-    //   isLoggedIn = true;
-    //   res.writeHead(302, { 'Location': '/all-users' });
-    //   res.end();
-    // } else {
-    //   // Autentificare eșuată
-    //   res.writeHead(401, { 'Content-Type': 'text/html' });
-    //   res.write('<h1>Autentificare eșuată. Vă rugăm să verificați emailul și parola.</h1>');
-    //   res.end();
-    // }
   });
 }
 

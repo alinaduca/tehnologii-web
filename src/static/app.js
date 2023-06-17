@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
+const cookie = require('cookie');
 const { handleStatisticsRequest } = require('./controllers/statisticsController');
 const { handleNominationsRequest } = require('./controllers/nominationsController');
 const { handleNewsRequest } = require('./controllers/newsController');
@@ -100,3 +101,22 @@ const port = 3000;
 server.listen(port, () => {
   console.log(`Serverul a pornit pe portul ${port}`);
 });
+
+
+// const terminateServer = () => {
+//   server.close(() => {
+//     console.log('Server closed.');
+
+//     const expiredToken = ''; 
+//     const cookieToken = cookie.serialize('token', expiredToken, {
+//       maxAge: 0, // Set the maxAge to 0 to make the cookie immediately expire
+//       httpOnly: true,
+//     });
+
+//     process.stdout.write('\n');
+//     console.log('Server is terminating...');
+//     process.exit(0);
+//   });
+// };
+
+// process.on('SIGINT', terminateServer); // Capturăm semnalul SIGINT (Ctrl+C)
