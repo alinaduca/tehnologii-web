@@ -16,10 +16,13 @@
     "cookie": "^0.5.0",
     "dotenv": "^16.1.4",
     "ejs": "^3.1.9",
+    "fs": "^0.0.1-security",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.6.0",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.1",
+    "nodemailer": "^6.9.3",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
