@@ -16,7 +16,6 @@
     "cookie": "^0.5.0",
     "dotenv": "^16.1.4",
     "ejs": "^3.1.9",
-    "express": "^4.18.2",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.6.0",

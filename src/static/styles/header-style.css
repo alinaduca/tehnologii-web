@@ -188,3 +188,11 @@ a.login:hover {
 #main-header.hide:hover{
   top: 0px;
 }
+
+#my-account-button {
+  display: none;
+}
+
+#login-button {
+  display: none;
+}

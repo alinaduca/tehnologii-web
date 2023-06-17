@@ -52,7 +52,6 @@ function handleLoginSubmission(req, res) {
 
       // verify if the passwords are the same
       if (hashedPassword == DBhashedPassword) {
-      // if(isPasswordCorrect) {
         // Parola este corectă
         console.log('Autentificare reușită');
 

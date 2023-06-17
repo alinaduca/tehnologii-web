@@ -14,7 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- <script src="../utils/script-statistics.js"></script> -->
     </head>
-   <body>
+    <body>
     <!-- HEADER -->
     <header id="main-header">
         <div class="container-header">
@@ -39,26 +39,34 @@
                      <a href="/news" class="nav-link">News</a>
                   </li>    
                   <li class="nav-item">
-                    <button id="login-button" class="try-now-btn loginButton" display="block"><a class="login" href="/login">Login</a></button>
+                    <button id="login-button" class="try-now-btn loginButton"><a class="login" href="/login">Login</a></button>
                   </li>
                   <li class="nav-item">
-                    <button id="my-account-button" class="try-now-btn loginButton" disply="block"><a class="login" href="/my-account">My Account</a></button>
+                    <button id="my-account-button" class="try-now-btn loginButton"><a class="login" href="/my-account">My Account</a></button>
                   </li>
                 </ul>
                 
                 <div class="hamburger">
-                  <span class="bar"></span>    
-                  <span class="bar"></span>   
-                  <span class="bar"></span>   
+                    <span class="bar"></span>    
+                    <span class="bar"></span>   
+                    <span class="bar"></span>   
                 </div>
                 
               </nav>
             </div>
         </div> 
-     </header>
+    </header>
 
-     <section class="content">
-         <div class="content-body">
+    <section class="content">
+        <div class="overlay">
+            <div class="message">
+                <h2>Access Restricted</h2>
+                <p>Please log in to view page content.</p>
+                <button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
+            </div>
+        </div>
+
+        <div class="content-body">
             <h1> Statistics:</h1>
             <div class="years">
                 <div class="year">
@@ -180,6 +188,7 @@
     <script src="../utils/hamburger-navbar-menu.js"></script>
     <script src="../utils/hide-header.js"></script>
     <script src="../utils/script-statistics.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apollo-boost@0.4.7/dist/apollo.min.js"></script>
+    <script src="../utils/add-coverage.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/apollo-boost@0.4.7/dist/apollo.min.js"></script> -->
    </body>
 </html>
