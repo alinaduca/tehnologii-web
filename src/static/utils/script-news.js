@@ -20,13 +20,6 @@ function fetchActorNews(actorName, actorName2) {
       return response.json();
     })
     .then(data => {
-      // console.log("API response:", data);
-      // if (data.articles && data.articles.length > 0) {
-      //   console.log("Total articles:", data.articles.length);
-      //   console.log("First article:", data.articles[0]);
-      // } else {
-      //   throw new Error("Invalid response from API: No articles found");
-      // }
       const articles = data.articles.filter(article => {
         const title = article.title.toLowerCase();
         if (actorName != "" && actorName2 != "") {
@@ -42,7 +35,6 @@ function fetchActorNews(actorName, actorName2) {
 
       const dataSection = document.getElementById("buton-actori");
 
-      // Remove existing news
       const existingNews = dataSection.getElementsByClassName("news_section");
       if (existingNews.length > 0) {
         existingNews[0].remove();
@@ -103,9 +95,8 @@ function fetchActorNews(actorName, actorName2) {
         newsImg.classList.add("news-img");
         newsImg.src = article.urlToImage;
 
-        // Check if the image loads successfully
         newsImg.addEventListener("error", function() {
-          newsSection2.remove(); // Remove the entire news section if image fails to load
+          newsSection2.remove(); 
         });
 
         box.appendChild(dateText);
@@ -149,3 +140,7 @@ myDiv.addEventListener("click", function(event) {
     fetchActorNews(actorName, actorName2);
   }
 });
+
+
+
+
