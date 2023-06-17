@@ -6,7 +6,10 @@
 
 /*background*/
 body {
-    background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
+  background-image: url("https://i.postimg.cc/Y0g9hjzy/R-3.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+    /* background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%); */
 }
 
 /*link like, comment*/
@@ -400,36 +403,3 @@ img.news-img {
   }
 
 
-
-  #container_background {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-}
-.actor-name {
-  position: absolute;
-  font-size: 34px;
-  font-weight: bold;
-  font-family: 'Pacifico', cursive;
-  opacity: 0;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: -1;
-  color: rgb(167, 79, 142);
-}
-.diagonal-left {
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
-.diagonal-right {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.sparkle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background-color: rgb(167, 79, 142);
-  pointer-events: none;
-  z-index: -1;
-}
