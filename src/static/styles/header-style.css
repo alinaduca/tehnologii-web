@@ -196,3 +196,7 @@ a.login:hover {
 #login-button {
   display: none;
 }
+
+#view-users {
+  display: none;
+}
