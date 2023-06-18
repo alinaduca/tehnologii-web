@@ -7,7 +7,7 @@ const getData = async (req, res) => {
     const users = await collection.find().toArray();
     const infos = [];
     for(let user of users) {
-        infos.push({"username" : user.username, "email" : user.email});
+        infos.push({"username" : user.username, "email" : user.email, "type" : user.type});
     }
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = 200;

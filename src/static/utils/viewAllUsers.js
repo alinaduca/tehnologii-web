@@ -5,25 +5,40 @@ fetch('/api/all-users')
         for(user of data) {
             var dataDiv = document.createElement("div");
             dataDiv.classList.add("container");
+            dataDiv.id = user.email;
             var dataP = document.createElement("p");
             dataP.innerText = user.username;
-            dataImg = document.createElement("img");
-            dataImg.src = "https://i.ibb.co/kh6mXCj/bin.png";
-            dataImg.title = "Remove";
-            dataImg.alt = user.username;
-            dataImg.onclick = function() {
-                alert("User has been removed.");
-            };
             dataDiv.appendChild(dataP);
-            dataDiv.appendChild(dataImg);
+            if(user.type === "user") {
+                dataImg = document.createElement("img");
+                dataImg.src = "https://i.ibb.co/kh6mXCj/bin.png";
+                dataImg.title = "Remove";
+                dataImg.onclick = createClickHandler(user.email);
+                dataDiv.appendChild(dataImg);
+            }
             dataSection.appendChild(dataDiv);
         }
-        // dataDiv.innerText = data[0].username;//JSON.stringify(data);
     })
     .catch(error => {
         console.error('Error:', error);
     });
 
-// function display(username) {
-//     alert(username + " has been removed.");
-// }
+function createClickHandler(username) {
+    return function() {
+        display(username);
+    };
+}
+
+function display(username) {
+    fetch(`/api/delete-user/${username}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        alert("User has been deleted from the database.");
+        var divComp = document.getElementById(username);
+        divComp.style.display = "none";
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
