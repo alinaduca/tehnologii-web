@@ -6,7 +6,6 @@ const cookie = require('cookie');
 const { handleStatisticsRequest } = require('./controllers/statisticsController');
 const { handleNominationsRequest } = require('./controllers/nominationsController');
 const { handleNewsRequest } = require('./controllers/newsController');
-// const { handleIndexRequest } = require('./controllers/indexController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
 const { handleLogoutRequest } = require('./controllers/logoutController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
@@ -15,6 +14,8 @@ const { handleMyAccountRequest } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const getData = require('../api/allUsersAPI');
 const { connectToDatabase } = require('./database/dbManager');
+const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
+var type;
 
 connectToDatabase();
 const server = http.createServer((req, res) => {
@@ -28,6 +29,9 @@ const server = http.createServer((req, res) => {
     handleNewsRequest(req, res);
   } else if (req.url === '/all-users' && req.method === 'GET') {
     handleAllUsersRequest(req, res); 
+  } else if (req.url.startsWith('/api/delete-user/') && req.method === 'DELETE') {
+    const username = req.url.substring('/api/delete-user/'.length);
+    handleDeleteUserRequest(req, res, username);
   } else if (req.url === '/login' && req.method === 'GET') {
     handleLoginRequest(req, res); 
   } else if (req.url === '/logout' && req.method === 'GET') {
@@ -59,7 +63,7 @@ const server = http.createServer((req, res) => {
   } else if (fileExtension === '.js') {
     fs.readFile(filePath, (err, data) => {
       if (err) {
-        res.writeHead(404);
+        res.writeHead(404);handleNominationsRequest
         res.end('404 Not Found');
       } else {
         res.writeHead(200, { 'Content-Type': 'application/javascript' });
