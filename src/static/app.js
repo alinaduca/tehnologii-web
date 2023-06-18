@@ -12,10 +12,10 @@ const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./con
 const { handleForgotPswdRequest, handleForgotPasswordSubmission } = require('./controllers/forgotPswdController');
 const { handleMyAccountRequest } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
-const getData = require('../api/allUsersAPI');
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
-var type;
+const getRights = require('./utils/check-rights');
+const getData = require('../api/allUsersAPI');
 
 connectToDatabase();
 const server = http.createServer((req, res) => {
@@ -32,6 +32,8 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/api/delete-user/') && req.method === 'DELETE') {
     const username = req.url.substring('/api/delete-user/'.length);
     handleDeleteUserRequest(req, res, username);
+  } else if (req.url === '/check-rights' && req.method === 'GET') {
+    getRights(req, res);
   } else if (req.url === '/login' && req.method === 'GET') {
     handleLoginRequest(req, res); 
   } else if (req.url === '/logout' && req.method === 'GET') {
@@ -107,22 +109,3 @@ const port = 3000;
 server.listen(port, () => {
   console.log(`Serverul a pornit pe portul ${port}`);
 });
-
-
-// const terminateServer = () => {
-//   server.close(() => {
-//     console.log('Server closed.');
-
-//     const expiredToken = ''; 
-//     const cookieToken = cookie.serialize('token', expiredToken, {
-//       maxAge: 0, // Set the maxAge to 0 to make the cookie immediately expire
-//       httpOnly: true,
-//     });
-
-//     process.stdout.write('\n');
-//     console.log('Server is terminating...');
-//     process.exit(0);
-//   });
-// };
-
-// process.on('SIGINT', terminateServer); // Capturăm semnalul SIGINT (Ctrl+C)

@@ -174,50 +174,54 @@ const actorUrl = `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}`
 //   });
 
 
-function fetchMoviesByYearAndActor(year, actor) {
-  const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&year=${year}&with_cast=${actor}`;
-  return fetch(apiUrl, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`
-    }
-  })
-  .then(response => response.json())
-  .then(data => data.results);
-}
+// function fetchMoviesByYearAndActor(year, actor) {
+//   const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&year=${year}&with_cast=${actor}`;
+//   return fetch(apiUrl, {
+//     headers: {
+//       Authorization: `Bearer ${accessToken}`
+//     }
+//   })
+//   .then(response => response.json())
+//   .then(data => data.results);
+// }
 
-// Filter movies based on year and actor
-function filterMoviesByYearAndActor(movies, year, actor) {
-  return movies.filter(movie => {
-    // console.log(movie);
-    const releaseYear = parseInt(movie.release_date.split('-')[0]);
-    // const hasActor = movie.cast.some(cast => cast.name === actor);
-    console.log(movie);
-    return releaseYear === year;
-  });
-}
+// // Filter movies based on year and actor
+// function filterMoviesByYearAndActor(movies, year, actor) {
+//   return movies.filter(movie => {
+//     // console.log(movie);
+//     const releaseYear = parseInt(movie.release_date.split('-')[0]);
+//     // const hasActor = movie.cast.some(cast => cast.name === actor);
+//     console.log(movie);
+//     return releaseYear === year;
+//   });
+// }
 
-// Calculate statistics based on the filtered movies
-function calculateStatistics(movies) {
-  const averageRating = movies.reduce((sum, movie) => sum + movie.vote_average, 0) / movies.length;
-  const movieCount = movies.length;
+// // Calculate statistics based on the filtered movies
+// function calculateStatistics(movies) {
+//   const averageRating = movies.reduce((sum, movie) => sum + movie.vote_average, 0) / movies.length;
+//   const movieCount = movies.length;
 
-  return {
-    averageRating,
-    movieCount
-  };
-}
+//   return {
+//     averageRating,
+//     movieCount
+//   };
+// }
 
-// Example usage
-const year = 2022;
-const actor = 'Hande Erçel';
+// // Example usage
+// const year = 2022;
+// const actor = 'Hande Erçel';
 
-fetchMoviesByYearAndActor(year, actor)
-  .then(movies => filterMoviesByYearAndActor(movies, year, actor))
-  .then(filteredMovies => calculateStatistics(filteredMovies))
-  .then(statistics => {
-    console.log(`Average rating: ${statistics.averageRating}`);
-    console.log(`Movie count: ${statistics.movieCount}`);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+// fetchMoviesByYearAndActor(year, actor)
+//   .then(movies => filterMoviesByYearAndActor(movies, year, actor))
+//   .then(filteredMovies => calculateStatistics(filteredMovies))
+//   .then(statistics => {
+//     console.log(`Average rating: ${statistics.averageRating}`);
+//     console.log(`Movie count: ${statistics.movieCount}`);
+//   })
+//   .catch(error => {
+//     console.error('Error:', error);
+//   });
+
+
+
+// fetch()

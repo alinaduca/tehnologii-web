@@ -1,7 +1,6 @@
 const { getClient } = require("../static/database/dbManager");
 
 async function handleDeleteUserRequest(req, res, email) {
-    console.log(email);
     const client = getClient();
     const db = client.db('sagdatabase');
     const collection = db.collection('users');

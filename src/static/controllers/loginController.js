@@ -7,6 +7,7 @@ const cookie = require('cookie');
 const { connectToDatabase } = require('../db');
 const { getClient } = require("../database/dbManager");
 
+let userType;
 function handleLoginRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/login.html');
 
@@ -71,7 +72,7 @@ function handleLoginSubmission(req, res) {
         res.setHeader('Set-Cookie', cookieToken);
 
         res.setHeader('Content-Type', 'text/html');
-
+        userType = user1.type;
         if(user1.type === "user") {
           res.end(`
             <script>window.location.href = "/";</script>
@@ -104,4 +105,8 @@ function handleLoginSubmission(req, res) {
   });
 }
 
-module.exports = { handleLoginRequest, handleLoginSubmission };
+function getUserType() {
+  return userType;
+}
+
+module.exports = { handleLoginRequest, handleLoginSubmission, getUserType };
