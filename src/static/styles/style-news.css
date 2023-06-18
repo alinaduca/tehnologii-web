@@ -163,7 +163,7 @@ img.news-img {
 
 /*aliniere buton like*/
 .like_bt {
-    width: 50px;
+    width: 200px;
     float: left;
 }
 
@@ -172,14 +172,14 @@ img.news-img {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #202020;
+    color: #f9be1c;
     font-weight: bold;
     font-family: 'Raleway', sans-serif;
 }
 
 /*schimba culoare buton like*/
 .like_bt a:hover {
-    color: #f9be1c;
+    color: #fed050;
 }
 
 /*aliniere comment button*/
