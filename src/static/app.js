@@ -10,7 +10,7 @@ const { handleNewsRequest } = require('./controllers/newsController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
 const { handleLogoutRequest } = require('./controllers/logoutController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
-const { handleForgotPswdRequest } = require('./controllers/forgotPswdController');
+const { handleForgotPswdRequest, handleForgotPasswordSubmission } = require('./controllers/forgotPswdController');
 const { handleMyAccountRequest } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const getData = require('../api/allUsersAPI');
@@ -42,6 +42,8 @@ const server = http.createServer((req, res) => {
     handleMyAccountRequest(req, res);
   } else if (req.url === '/forgot-password' && req.method === 'GET') {
     handleForgotPswdRequest(req, res);
+  } else if (req.url === '/forgot-password' && req.method === 'POST') {
+    handleForgotPasswordSubmission(req, res);
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
   } else if (fileExtension === '.css') {
