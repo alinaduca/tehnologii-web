@@ -14,6 +14,8 @@ const { handleMyAccountRequest } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
+const { topRatedMovies } = require('../api/topRatedMovies');
+
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
 
@@ -52,6 +54,8 @@ const server = http.createServer((req, res) => {
     handleForgotPasswordSubmission(req, res);
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
+  } else if (req.url === '/top-rated-movies' && req.method === 'GET') {
+    topRatedMovies(res, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {

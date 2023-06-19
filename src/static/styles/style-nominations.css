@@ -1,4 +1,4 @@
-/* SLIDESHOW */
+SLIDESHOW
 
 * {
   box-sizing: border-box;
@@ -70,39 +70,194 @@ body {
   margin-bottom: 20px;
 }
 
-.bttn-nominalizations {
-  margin-right: - 55px;
-  margin-left: 12px;
-  background-color: white;
-  color: #8B3C7F;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
+
+
+
+/* facut acum */
+
+.content {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-field {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.actor-search-dropdown {
+  position: relative;
+}
+
+.actor-search-dropdown input[type="text"] {
+  width: 150px;
+}
+
+.actor-search-dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.actor-search-dropdown ul li {
+  padding: 5px;
   cursor: pointer;
-} 
-
-.bttn-nominalizations a {
-  text-decoration: none;
 }
 
-.bttn-nominalizations a:hover {
-  background-color: transparent;
+.release-year-field {
+  position: relative;
 }
 
-.bttn-nominalizations:hover {
-  background-color: rgba(255, 255, 255, 0.829);
-  font-weight: bolder;
-  color:#ffffff;
-  border-radius: 5px;
+.release-year-hover {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: none;
+}
+
+.release-year-field:hover .release-year-hover {
+  display: block;
+}
+
+.filter-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.pagination #page-number {
+  margin: 0 10px;
+}
+
+.page-limit-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.previous-button {
+  background-color: #8B3C7F;
+  color: white;
   padding: 10px 20px;
-
-  transition: background-color 0.5s, color 0.5s;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.bttn-nominalizations a:active {
-  color: #8B3C7F; /* sau orice alta culoare doriti */
+.previous-button:hover {
+  background-color: #5F2653;
+  font-weight: bold;
 }
+
+#movies-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.movie {
+  position: relative;
+  flex: 0 0 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: 1%;
+}
+
+.movie img {
+  /* width: 220px; */
+  height: auto;
+  border: 1px solid #ccc;  /* Adaugă o bordură subțire imaginii */
+  transition: opacity 0.3s ease;
+}
+
+.movie:hover img {
+  opacity: 0.8; /* Redu opacitatea imaginii la hover */
+}
+
+#poster {
+  width: 220px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adaugă o umbră subtilă */
+}
+
+
+#title {
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+#release_date {
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.view-more-button {
+  background-color: #8B3C7F;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.view-more-button:hover {
+  background-color: #5F2653;
+  font-weight: bold;
+}
+
+
+
 
 
 /* */
@@ -248,89 +403,3 @@ body {
     
 
 /* */
-
-
-/*Stilizare pentru containerul de slideshow*/
-.slideshow-container-nominalizari {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-}
-
-/*Stilizare pentru slide-uri*/
-.mySlides {
-  display: none;
-}
-
-.nomination-type {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.nominee, .winner {
-  display: block;
-  border-bottom: 1px solid black;
-  padding: 20px 0;
-}
-
-.final-nominee {
-  display: block;
-  padding: 20px 0;
-}
-
-.principal-name {
-  font-size: 24px;
-  font-weight: bold;
-  float: left;
-}
-
-.secundar-name {
-  font-size: 16px;
-  margin-top: 5px;
-}
-
-.winner .principal-name {
-  color: #3C1A37;
-}
-
-.nominee .principal-name {
-  color: black;
-}
-
-.prev-top, .next-top {
-  position: absolute;
-  top: 0%;
-  transform: translateY(-50%);
-  color: rgb(0, 0, 0);
-}
-
-.prev-top {
-  left: 0;
-}
-
-.next-top {
-  right: 0;
-}
-
-.prev-bttm, .next-bttm {
-  position: absolute;
-  top: 103%;
-  transform: translateY(-50%);
-  color: black;
-}
-
-.prev-bttm {
-  left: 0;
-}
-
-.next-bttm {
-  right: 0;
-}
-
-.principal-name-containter {
-  display: flex;
-  align-items: center;
-}

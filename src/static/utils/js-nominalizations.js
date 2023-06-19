@@ -1,75 +1,75 @@
-function init() {
-    var slidePosition = 0;
-    SlideShow();
-  
-    function SlideShow() {
-        var i;
-        var slides = document.getElementsByClassName("Containers");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+
+let currentPage = 1;
+const pageNumberElement1 = document.getElementById("page-number1");
+const pageNumberElement2 = document.getElementById("page-number2");
+const moviesSection = document.getElementById("movies-section");
+
+function previousPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    // Apelează funcția topRatedMovies() pentru a reîncărca filmele cu pagina anterioară
+    topRatedMovies();
+  }
+} 
+
+// Funcția nextPage() pentru butonul "Next"
+function nextPage() {
+  currentPage++;
+  // Apelează funcția topRatedMovies() pentru a reîncărca filmele cu pagina următoare
+  topRatedMovies();
+}
+
+function topRatedMovies() {
+  console.log('nr paginii: ' + currentPage);
+
+  const apiUrl = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page="${currentPage}"';
+
+  const options = {
+      method: 'GET',
+      headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGIyZjJlYWM5NzgyOGIwMzI4ZmQwOGQwMDM5MjY0YyIsInN1YiI6IjY0ODk3Mzk1ZTI3MjYwMDBlOGMzMDlhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MwlA_KvNWITCgQzesL6MSktQoeHTDtHXiRYszXtyBgY'
+      }
+  };
+
+  // Actualizarea numărului paginii
+  pageNumberElement1.textContent = `Page ${currentPage}`;
+  pageNumberElement2.textContent = `Page ${currentPage}`;
+
+  fetch(apiUrl, options)
+    .then(res => res.json())
+    .then(data => {
+      const moviesData = data.results;
+
+      // Golește secțiunea moviesSection
+      moviesSection.innerHTML = '';
+
+      moviesData.forEach((movie, index) => {
+        if (index % 4 === 0) {
+          const rowElement = document.createElement("div");
+          rowElement.classList.add("row");
+          moviesSection.appendChild(rowElement);
         }
-        slidePosition++;
-        if (slidePosition > slides.length) { slidePosition = 1 }
-        slides[slidePosition - 1].style.display = "block";
-        setTimeout(SlideShow, 2000); // Change image every 2 seconds
-    }
   
-    $('.bttn-nominalizations').click(function(e) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: $('#nominalizations').offset().top
-      }, 1000); // timpul în milisecunde pentru tranziție
+        const currentRow = moviesSection.lastElementChild;
+  
+        const posterUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+
+        const movieElement = document.createElement("div");
+        movieElement.classList.add("movie");
+        movieElement.innerHTML = `
+          <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+          <h3 id="title">${movie.title}</h3>
+          <p id="release_date">Release Date: ${movie.release_date}</p>
+          <button class="view-more-button">View more</button>
+        `;
+        currentRow.appendChild(movieElement);
+      });
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      throw err;
     });
-  }
-  
-  window.onload = init;
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
 }
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-}
-  
-/* search button -> filtrare */
-
-// const searchBox = document.getElementById("search-box");
-// searchBox.addEventListener("focus", function() {
-//   if (this.value == "Search by the name of the actor / movie / director") {
-//     this.value = "";
-//   }
-// });
-
-// searchBox.addEventListener("blur", function() {
-//   if (this.value == "") {
-//     this.value = "Search by the name of the actor / movie / director";
-//   }
-// });
-
-var searchBox = document.getElementById("search-box");
-
-searchBox.addEventListener("click", function() {
-  if (this.value == "Search") {
-    this.value = "";
-  }
-});
+topRatedMovies();
