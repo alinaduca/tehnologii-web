@@ -225,3 +225,53 @@ const actorUrl = `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}`
 
 
 // fetch()
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Fetch data from the GraphQL API
+  axios.post('/graphql', {
+    query: `
+      {
+        years {
+          year
+          value
+        }
+      }
+    `
+  })
+  .then(function(response) {
+    const data = response.data.data.years;
+
+    // Generate the graph using the fetched data
+    generateGraph(data);
+  })
+  .catch(function(error) {
+    console.error(error);
+  });
+});
+
+function generateGraph(data) {
+  // Prepare the data for the graph library (e.g., Chart.js)
+  const labels = data.map(item => item.year);
+  const values = data.map(item => item.value);
+
+  // Create the graph
+  const ctx = document.getElementById('graph').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Yearly Data',
+        data: values,
+        borderColor: 'blue',
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false
+    }
+  });
+}

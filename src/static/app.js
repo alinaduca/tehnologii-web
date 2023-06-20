@@ -14,8 +14,13 @@ const { handleMyAccountRequest } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
+const getStatistic = require('../api/statisticAPI');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
+const { ApolloServer, gql } = require('apollo-server');
+
+// const server5 = new ApolloServer({ typeDefs, resolvers });
+
 
 connectToDatabase();
 const server = http.createServer((req, res) => {
@@ -52,6 +57,8 @@ const server = http.createServer((req, res) => {
     handleForgotPasswordSubmission(req, res);
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
+  } else if (req.url === '/graphql' && req.method === 'POST') {
+    getStatistic(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {
