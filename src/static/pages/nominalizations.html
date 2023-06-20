@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 		<link rel="stylesheet" type="text/css" href="../styles/style-nominations.css">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script src="../utils/nominationsTMDb.js"></script>
+		<!-- <script src="../utils/nominationsTMDb.js"></script> -->
 	</head>
 	<body>
 		<!-- HEADER -->
@@ -60,392 +60,60 @@
 		</header>
 
 		<!-- CONTENT -->
-		<section>
-			<div class="overlay">
-				<div class="message">
-					<h2>Access Restricted</h2>
-					<p>Please log in to view page content.</p>
-					<button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
+		<section class="content">
+			<div class="filter-section">
+			  <h2>Filter Movies</h2>
+			  <div class="filter-row">
+				<div class="filter-field">
+				  <label for="genre">Genre:</label>
+				  <select id="genre">
+					<!-- Opțiuni pentru genuri vor fi adăugate dinamic utilizând JavaScript -->
+				  </select>
+				</div>
+				<div class="filter-field">
+				  <label for="actor">Actor:</label>
+				  <div class="actor-search-dropdown">
+					<input type="text" id="actor" placeholder="Search Actor">
+					<ul id="actor-dropdown">
+					  <!-- Opțiuni pentru actori vor fi adăugate dinamic utilizând JavaScript -->
+					</ul>
+				  </div>
+				</div>
+				<div class="filter-field release-year-field">
+				  <label for="release-year">Release Year:</label>
+				  <input type="number" id="release-year">
+				  <div class="release-year-hover">
+					<span>or</span>
+					<input type="number" id="release-year-range-start" placeholder="Start Year">
+					<input type="number" id="release-year-range-end" placeholder="End Year">
+				  </div>
+				</div>
+			  </div>
+			  <div class="filter-button">
+				<button onclick="applyFilters()">Apply Filters</button>
+			  </div>
+			</div>
+  
+			<div class="pagination">
+				<button onclick="previousPage()" id="previous-button" disabled>&#8249; Previous</button>
+				<div id="page-number1"></div>
+				<button onclick="nextPage()" id="next-button">Next &#8250;</button>
+			</div>
+		  
+			<div id="movies-section">
+				<div class="row">
+				  <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
 				</div>
 			</div>
-
-			<!-- Slideshow container -->
-			<div class="slideshow-container fade">
-				<!-- Full images with numbers and message Info -->
-				<div class="Containers">
-					<img src="https://i.postimg.cc/WzphBHzt/image7.png" style="width:100%">
-					<div class="text-container">
-						<h2>Nominations's History</h2>
-						<button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-					</div>
-				</div>
-
-				<div class="Containers">
-					<img src="https://i.postimg.cc/023fPYsc/image1.png" style="width:100%">
-					<div class="text-container">
-						<h2>Nominations's History</h2>
-						<button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-					</div>
-				</div>
-
-				<div class="Containers">
-					<img src="https://i.postimg.cc/qq23r3XZ/image2.jpg" style="width:100%">
-					<div class="text-container">
-						<h2>Nominations's History</h2>
-						<button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-					</div>
-				</div>
-
-				<div class="Containers">
-					<img src="https://i.postimg.cc/52y2qzQd/image3.png" style="width:100%">
-					<div class="text-container">
-						<h2>Nominations's History</h2>
-						<button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-					</div>
-				</div>
-
-				<div class="Containers">
-					<img src="https://i.postimg.cc/J002dRNn/image4.png" style="width:100%">
-					<div class="text-container">
-						<h2>Nominations's History</h2>
-						<button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-					</div>
-				</div>
-
-				<div class="Containers">
-					<img src="https://i.postimg.cc/XvNmyKrd/image5.png" style="width:100%">
-					<div class="text-container">
-						<h2>Nominations's History</h2>
-						<button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-					</div>
-				</div>
-
-				<div class="Containers">
-					<img src="https://i.postimg.cc/L6dWVFqH/image6.png" style="width:100%">
-					<div class="text-container">
-						<h2>Nominations's History</h2>
-						<button class="bttn-nominalizations"><a href="#nominalizations">See Nominations!</a></button>
-					</div>
-				</div>
+		  
+			<div class="pagination">
+			  <button onclick="previousPage()" id="previous-button" disabled>&#8249; Previous</button>
+			  <div id="page-number2"></div>
+			  <button onclick="nextPage()" id="next-button">Next &#8250;</button>
 			</div>
-
-			<ul id="actor-list"></ul>
-			<!-- FILTRARE AN NOMINALIZARI -->
-
-			<section id="nominalizations">
-				<!-- The target section you want to scroll to -->
-				<!-- blog section end -->
-
-				<section id="nominalizari">
-
-					<div class="filter-menu">
-						<div class="dropdown">
-							<button class="dropbtn">Filter by year</button>
-							<div class="dropdown-content">
-								<div class="year-range">
-									<span class="range-label">2014 - 2023:</span>
-									<a href="#">2023</a>
-									<a href="#">2022</a>
-									<a href="#">2021</a>
-									<a href="#">2020</a>
-									<a href="#">2019</a>
-									<a href="#">2018</a>
-									<a href="#">2017</a>
-									<a href="#">2016</a>
-									<a href="#">2015</a>
-									<a href="#">2014</a>
-								</div>
-								<div class="year-range">
-									<span class="range-label">2004 - 2013:</span>
-									<a href="#">2013</a>
-									<a href="#">2012</a>
-									<a href="#">2011</a>
-									<a href="#">2010</a>
-									<a href="#">2009</a>
-									<a href="#">2008</a>
-									<a href="#">2007</a>
-									<a href="#">2006</a>
-									<a href="#">2005</a>
-									<a href="#">2004</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="dropdown">
-							<button class="dropbtn">Filter by genre</button>
-							<div class="dropdown-content">
-								<div class="year-range">
-									<a href="#">Masculin</a>
-									<a href="#">Feminin</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="search-container">
-							<input type="text" id="search-box" value="Search">
-							<button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
-						</div>
-					</div>
-					
-					<div class="top-nominalizari">
-						<h2>Top nominations</h2>
-						<!-- AFISARE NOMINALIZARI -->
-						<!-- Slideshow container -->
-						<div class="slideshow-container-nominalizari">
-
-							<!-- Next/prev buttons -->
-							<a class="prev-top" onclick="plusSlides(-1)">&#10094;</a>
-							<a class="next-top" onclick="plusSlides(1)">&#10095;</a>
-
-							<!-- Full-width slides/quotes -->
-							<div class="mySlides">
-								<h3 class="nomination-type">Best Movie</h3>
-								<a class="winner">
-									<div class="principal-name-containter">
-									<li class="principal-name">Everything Everywhere All at Once</li>
-									<li class="nominalizare">Winner</li>
-									</div>
-									<li class="secundar-name">Actors: Daniel Kwan, Daniel Scheinert, Jonathan Wang</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Top Gun 2</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Tom Cruise, Jerry Bruckheimer, Christopher McQuarrie</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Women Talking</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Frances McDormand, Dede Gardner, Jeremy Kleiner</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">The Banshees of Inisherin</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Martin McDonagh, Graham Broadbent, Peter Czernin</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Triunghiul tristeții</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Erik Hemmendorff, Philippe Bober</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">The Fabelmans</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Steven Spielberg, Tony Kushner, Kristie Macosko Krieger</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Nimic nou pe frontul de vest</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Malte Grunert</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Avatar 2</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: James Cameron, Jon Landau</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Elvis</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Baz Luhrmann, Catherine Martin, Gail Berman</li>
-								</a>
-
-								<a class="final-nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Tár</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Actors: Todd Field, Alexandra Milchan, Scott Lambert</li>
-								</a>
-							</div>
-							<!---->
-							<div class="mySlides">
-								<h3 class="nomination-type">Best Actor</h3>
-								<a class="winner">
-									<div class="principal-name-containter">
-										<li class="principal-name">Brendan Fraser</li>
-										<li class="nominalizare">Winner</li>
-									</div>
-									<li class="secundar-name">Movie: "The Whale"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Austin Butler</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Movie: "Elvis"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Colin Farrell</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Movie: "The Banshees of Inisherin"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Bill Nighy</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Movie: "Living"</li>
-								</a>
-
-								<a class="final-nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Paul Mescal</li>
-										<li class="nominalizare">Nominated </li>
-									</div>
-									<li class="secundar-name">Movie: "Aftersun"</li>
-								</a>
-							</div>
-
-							<div class="mySlides">
-								<h3 class="nomination-type">Best Director</h3>
-					
-								<a class="winner">
-									<div class="principal-name-containter">
-										<li class="principal-name">Bong Joon-ho</li>
-										<li class="nominalizare">Winner</li>
-									</div>
-									<li class="secundar-name">Movie: "Parasite"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Martin Scorsese</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "The Irishman"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Quentin Tarantino</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "Once Upon a Time in Hollywood"</li>
-								</a>
-
-								<a class="final-nominee">
-									<div class="principal-name-containter">
-										<li class="principal-name">Sam Mendes</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "1917"</li>
-								</a>
-							</div>
-
-							<div class="mySlides">
-								<h3 class="nomination-type">Best Supporting Actor</h3>
-								<a class="winner">
-									<div class="principal-name-container">
-										<li class="principal-name">Terry Crews</li>
-										<li class="nominalizare">Winner</li>
-									</div>
-									<li class="secundar-name">Movie: "John Henry"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-container">
-										<li class="principal-name">Daniel Kaluuya</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "Judas and the Black Messiah"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-container">
-										<li class="principal-name">Leslie Odom Jr.</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "One Night in Miami"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-container">
-										<li class="principal-name">Paul Raci</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "Sound of Metal"</li>
-								</a>
-
-								<a class="final-nominee">
-									<div class="principal-name-container">
-										<li class="principal-name">LaKeith Stanfield</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "Judas and the Black Messiah"</li>
-								</a>
-							</div>
-
-							<div class="mySlides">
-								<h3 class="nomination-type">Best Supporting Actress</h3>
-								<a class="winner">
-									<div class="principal-name-container">
-										<li class="principal-name">Amanda Seyfried</li>
-										<li class="nominalizare">Winner</li>
-									</div>
-									<li class="secundar-name">Movie: "Mank"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-container">
-										<li class="principal-name">Maria Bakalova</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "Borat Subsequent Moviefilm"</li>
-								</a>
-
-								<a class="nominee">
-									<div class="principal-name-container">
-										<li class="principal-name">Glenn Close</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "Hillbilly Elegy"</li>
-								</a>
-
-								<a class="final-nominee">
-									<div class="principal-name-container">
-										<li class="principal-name">Olivia Colman</li>
-										<li class="nominalizare">Nominated</li>
-									</div>
-									<li class="secundar-name">Movie: "The Father"</li>
-								</a>
-
-								<!-- Next/prev buttons -->
-								<a class="prev-bttm" onclick="plusSlides(-1)">&#10094;</a>
-								<a class="next-bttm" onclick="plusSlides(1)">&#10095;</a>
-							</div>
-						</div>
-					</div>
-				</section>
-			</section> 
 		</section>
+		  
+
 		<!-- footer end -->
 		<footer>
 			<div class="left-footer">

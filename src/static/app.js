@@ -15,6 +15,7 @@ const { handleAllUsersRequest } = require('./controllers/allUsersController');
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
 const getStatistic = require('../api/statisticAPI');
+const { topRatedMovies } = require('../api/topRatedMovies');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
 const { ApolloServer, gql } = require('apollo-server');
@@ -59,6 +60,8 @@ const server = http.createServer((req, res) => {
     getData(req, res);
   } else if (req.url === '/graphql' && req.method === 'POST') {
     getStatistic(req, res);
+  } else if (req.url === '/top-rated-movies' && req.method === 'GET') {
+    topRatedMovies(res, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {
