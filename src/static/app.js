@@ -9,15 +9,19 @@ const { handleNewsRequest } = require('./controllers/newsController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
 const { handleLogoutRequest } = require('./controllers/logoutController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
-const { handleForgotPswdRequest, handleForgotPasswordSubmission } = require('./controllers/forgotPswdController');
+const sendResetEmail = require('./controllers/forgotPswdController');
 const { handleMyAccountRequest } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
+const getStatistic = require('../api/statisticAPI');
 const { topRatedMovies } = require('../api/topRatedMovies');
-
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
+const { ApolloServer, gql } = require('apollo-server');
+
+// const server5 = new ApolloServer({ typeDefs, resolvers });
+
 
 connectToDatabase();
 const server = http.createServer((req, res) => {
@@ -48,12 +52,19 @@ const server = http.createServer((req, res) => {
     handleCreateAccountSubmit(req, res); 
   } else if (req.url === '/my-account' && req.method === 'GET') {
     handleMyAccountRequest(req, res);
-  } else if (req.url === '/forgot-password' && req.method === 'GET') {
-    handleForgotPswdRequest(req, res);
   } else if (req.url === '/forgot-password' && req.method === 'POST') {
-    handleForgotPasswordSubmission(req, res);
+    const { email } = req.body;
+
+    // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei
+    sendResetEmail(email);
+
+    // Răspuns către client, de exemplu, un mesaj de succes
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('E-mailul de resetare a parolei a fost trimis');
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
+  } else if (req.url === '/graphql' && req.method === 'POST') {
+    getStatistic(req, res);
   } else if (req.url === '/top-rated-movies' && req.method === 'GET') {
     topRatedMovies(res, res);
   } else if (fileExtension === '.css') {
