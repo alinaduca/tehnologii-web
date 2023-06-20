@@ -402,4 +402,21 @@ img.news-img {
     height: 100%;
   }
 
+ #h1-news {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  color: white; 
+  font-size: 56px; 
+  font-weight: bold; 
+  font-family: 'Pacifico', cursive;
+ }
 
+ #a-news {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  font-size: 30px; 
+  color: white; 
+  backdrop-filter: blur(5px);
+ }

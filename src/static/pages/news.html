@@ -58,16 +58,16 @@
      </header>
 
 	<section>
-		<div class="overlay">
+		<!-- <div class="overlay">
             <div class="message">
                 <h2>Access Restricted</h2>
                 <p>Please log in to view page content.</p>
                 <button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
             </div>
-        </div>
+        </div> -->
 		<div id="content-news">
 			
-			<h1 style="display: flex; justify-content: center; align-items: center; color: white; font-size: 56px; font-weight: bold; font-family: 'Pacifico', cursive;">NEWS</h1>
+			<h1 id="h1-news">NEWS</h1>
 			<form id="searchForm">
 				<div class="input-text">
 					<input type="text" id="actorName" placeholder="Enter actor1 name" />
@@ -76,7 +76,7 @@
           <input type="text" id="actorName2" placeholder="Enter actor2 name" />
         </div>
         <section class="users-section"> 
-			<a href="javascript:showhide('uniquename')" style="display: flex; justify-content: center; align-items: center; font-size: 30px; color: white; backdrop-filter: blur(5px);">Search</a>
+			<a href="javascript:showhide('uniquename')" id="a-news">Search</a>
 			<div id="uniquename" style="display:none;">
 				<div class="news_section" id="articleList"></div>
 			</div>

@@ -3,17 +3,11 @@ function fetchActorNews(actorName, actorName2) {
   var apiUrl = '';
   console.log(actorName);
   if (actorName != '' && actorName2 != '') {
-    apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(
-      actorName
-    )}+${encodeURIComponent(actorName2)}&apiKey=${apiKey}`;
+    apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(actorName)}+${encodeURIComponent(actorName2)}&apiKey=${apiKey}`;
   } else if (actorName != '') {
-    apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(
-      actorName
-    )}&apiKey=${apiKey}`;
+    apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(actorName)}&apiKey=${apiKey}`;
   } else if (actorName2 != '') {
-    apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(
-      actorName2
-    )}&apiKey=${apiKey}`;
+    apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(actorName2)}&apiKey=${apiKey}`;
   }
 
   console.log(apiUrl);
