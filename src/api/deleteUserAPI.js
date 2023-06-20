@@ -1,5 +1,4 @@
 const { getClient } = require("../static/database/dbManager");
-const { ApolloServer, gql } = require('apollo-server');
 
 async function handleDeleteUserRequest(req, res, email) {
     const client = getClient();
