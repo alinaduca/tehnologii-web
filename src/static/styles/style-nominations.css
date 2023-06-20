@@ -143,6 +143,16 @@ body {
 }
 
 
+#gender-options {
+  display: none;
+}
+
+.filter-field:hover #gender-options {
+  display: block;
+}
+
+
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -150,15 +160,34 @@ body {
   margin-top: 10px;
 }
 
-.pagination button {
+/* .pagination button {
   border: none;
-  background-color: #fff;
+  background-color: #0f27de;
   cursor: pointer;
   padding: 5px 10px;
+} */
+
+#filter-sort {
+  font-family: "Oswald";
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
 }
 
-.pagination #page-number {
+.pagination #page-number1 {
   margin: 0 10px;
+  font-family: "Oswald";
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
+
+.pagination #page-number2 {
+  margin: 0 10px;
+  font-family: "Oswald";
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
 }
 
 .page-limit-menu {
@@ -168,26 +197,13 @@ body {
   margin-top: 10px;
 }
 
-.previous-button {
-  background-color: #8B3C7F;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
+/* filter / sort section */
 
-.previous-button:hover {
-  background-color: #5F2653;
-  font-weight: bold;
-}
-
-#movies-section {
+#actors-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-top: 20px;
 }
 
 .row {
@@ -228,7 +244,7 @@ body {
 }
 
 
-#title {
+#name {
   font-size: 20px;
   color: #ffffff;
   margin-top: 10px;
@@ -255,6 +271,29 @@ body {
   background-color: #5F2653;
   font-weight: bold;
 }
+
+.pagination-button {
+  background-color: #8B3C7F;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.pagination-button:hover {
+  background-color: #5F2653;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
 
 
 
