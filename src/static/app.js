@@ -16,7 +16,6 @@ const { handleAllUsersRequest } = require('./controllers/allUsersController');
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
 const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
-const { topRatedMovies } = require('../api/topRatedMovies');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
 const { ApolloServer, gql } = require('apollo-server');
@@ -75,8 +74,6 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/linegraphql/') && req.method === 'GET') {
     const year = req.url.substring('/linegraphql/'.length);
     getStatisticLine(req, res, year);
-  } else if (req.url === '/top-rated-movies' && req.method === 'GET') {
-    topRatedMovies(res, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {
