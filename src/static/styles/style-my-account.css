@@ -13,6 +13,43 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+#changePasswordForm {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#actualPassword, #newPassword {
+  width: 150px; /* Ajustați valoarea după preferință */
+}
+
+
+#title-changePasswordForm {
+  margin-bottom: 7px;
+}
+
+#submit-changePasswordForm {
+  margin-bottom: 50px;
+  margin-top: 15px;
+  background-color: white;
+  color: #8B3C7F;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 7px 15px;
+}
+
+#submit-changePasswordForm:hover {
+  background-color: #3C1A37;
+  font-weight: bolder;
+  color:#ffffff;
+  border-radius: 5px;
 }
 
 .logout {
