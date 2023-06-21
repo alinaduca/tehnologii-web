@@ -50,7 +50,7 @@ showPage();
 function renderActorBiography() {
     console.log('am intrat in fct');
 
-    if (actorImages && actorData) {
+    // if (actorImages && actorData) {
         console.log('am intrat in if');
         // Golește secțiunea actorSection
         actorSection.innerHTML = '';
@@ -76,5 +76,5 @@ function renderActorBiography() {
         // Adăugarea HTML-ului generat în secțiunile corespunzătoare
         leftSection.innerHTML = carouselHTML;
         rightSection.innerHTML = actorNameHTML + saveToFavouritesButtonHTML + birthInfoHTML + popularityHTML + biographyHTML;
-    }
+    // }
 }
