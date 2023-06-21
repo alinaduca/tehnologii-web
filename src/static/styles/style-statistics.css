@@ -48,6 +48,7 @@ canvas {
 
 .years {
     display: flex;
+    margin-bottom: 20px;
 }
 
 .year {
@@ -85,6 +86,10 @@ h1 {
     margin-top: 30px;
     width: 90%;
     padding: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .export {
@@ -92,6 +97,7 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     width: 40%;
+    margin-bottom: 70px;
 }
 
 .item {
@@ -107,3 +113,53 @@ h1 {
     border: 1px solid black;
     justify-content: center;
 }
+
+.active-year {
+    background-color: #f6f0f6;
+    color: #462760;
+    font-weight: bold;
+}
+
+.input-field {
+    background-color: #462760;
+    border: 1px solid #2a123e;
+    padding: 5px 10px;
+    font-size: 17px;
+    margin: 5px;
+}
+
+#search {
+    text-decoration: none;
+    border: 2px solid #2a123e;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: #32124d;
+    font-size: large;
+    color: #c6a5c3;
+}
+
+#search:hover {
+    background-color: #e8c4e5;
+    border: 2px solid #ac8ca9;
+    color:#2a123e;
+}
+
+#searchForm {
+    justify-content: center;
+}
+
+.form-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#export {
+    display: none;
+}
+
+.spacing {
+    margin: 20px;
+}
+

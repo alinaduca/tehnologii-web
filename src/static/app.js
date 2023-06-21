@@ -14,7 +14,7 @@ const { handleMyAccountRequest } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
-const getStatistic = require('../api/statisticAPI');
+const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
 const { topRatedMovies } = require('../api/topRatedMovies');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
@@ -63,8 +63,15 @@ const server = http.createServer((req, res) => {
     res.end('E-mailul de resetare a parolei a fost trimis');
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
-  } else if (req.url === '/graphql' && req.method === 'POST') {
-    getStatistic(req, res);
+  } else if (req.url.startsWith('/piegraphql/') && req.method === 'GET') {
+    const year = req.url.substring('/piegraphql/'.length);
+    getStatisticPie(req, res, year);
+  } else if (req.url.startsWith('/bargraphql/') && req.method === 'GET') {
+    const year = req.url.substring('/bargraphql/'.length);
+    getStatisticBar(req, res, year);
+  } else if (req.url.startsWith('/linegraphql/') && req.method === 'GET') {
+    const year = req.url.substring('/linegraphql/'.length);
+    getStatisticLine(req, res, year);
   } else if (req.url === '/top-rated-movies' && req.method === 'GET') {
     topRatedMovies(res, res);
   } else if (fileExtension === '.css') {

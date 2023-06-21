@@ -4,8 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const cookie = require('cookie');
-const { connectToDatabase } = require('../db');
-const { getClient } = require("../database/dbManager");
+const { getClient, connectToDatabase } = require("../database/dbManager");
 
 let userType;
 function handleLoginRequest(req, res) {

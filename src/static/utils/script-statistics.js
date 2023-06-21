@@ -1,277 +1,445 @@
-//  // Set up the Apollo Client
-//  const client = new ApolloClient({
-//     uri: 'http://localhost:4000/graphql', // Replace with your GraphQL server endpoint
-//   });
+function filterResults(year) {
+	fetch(`/bargraphql/${year}`)
+	.then(response => response.json())
+	.then(data => {
+		const actors = [];
+		const nominations = [];
+		for(actor of data) {
+			actors.push(actor.name);
+			nominations.push(actor.number_of_nominations);
+		}
+		var data = [
+		{
+			x: actors,
+			y: nominations,
+			type: 'bar'
+		}];
+		var layout = {
+			xaxis: {
+				tickangle: -45,
+				automargin: true
+			},
+			yaxis: {
+				automargin: true
+			},
+			margin: {
+				t: 150,
+				b: 20 
+			},
 
-//   // Define your GraphQL query
-//   const GET_STATISTICS = gql`
-//     query {
-//       statistics {
-//         # Define the fields you want to retrieve for statistics
-//       }
-//     }
-//   `;
+		// plot_bgcolor: "rgba(0, 0, 0, 0)",
+		// paper_bgcolor: "rgba(0, 0, 0, 0)",
+			title: `Number of nominations at SAG Awards (${year})`
+		};
+		
+		Plotly.newPlot('chart', data, layout);
+	});
+}
 
-//   // Execute the GraphQL query and handle the response
-//   client.query({ query: GET_STATISTICS })
-//     .then(response => {
-//       const statisticsData = response.data.statistics;
-//       // Process the retrieved data and update the HTML to display the statistics
-//       const statisticsContainer = document.getElementById('statistics-container');
-//       statisticsContainer.innerText = JSON.stringify(statisticsData);
-//     })
-//     .catch(error => {
-//       console.error('Error occurred:', error);
-//     });
+function filterResults1(year) {
+	fetch(`/piegraphql/${year}`)
+	.then(response => response.json())
+	.then(data => {
+		const actors = [];
+		const nominations = [];
+		let i = 0;
+		for(actor of data) {
+			if(i < 20) {
+				actors.push(actor.name);
+				nominations.push(actor.number_of_nominations);
+			}
+			i++;
+		}
+		var data = [
+			{
+				labels: actors,
+				values: nominations,
+				type: 'pie'
+			}
+		];
+		
+		var layout = {
+			title: `Winners of SAG Awards (${year})`
+		};
+			
+		Plotly.newPlot('pie', data, layout);
+	});
+}
 
+function filterResults3(year) {
+	console.log('Macar sunt aici');
+	fetch(`/linegraphql/${year}`)
+	.then(response => response.json())
+	.then(data => {
+		const shows = [];
+		const actors = [];
+		for(show of data) {
+			shows.push(show.show);
+			actors.push(show.number_of_actors);
+		}
+		var data = [
+			{
+			  x: shows,
+			  y: actors,
+			  mode: 'lines+markers',
+			  type: 'scatter',
+			  line: {
+				color: 'blue',
+				width: 2,
+			  },
+			  marker: {
+				symbol: 'circle',
+				size: 6,
+				color: 'blue',
+			  },
+			},
+		  ];
+		var layout = {
+			xaxis: {
+				title: 'Shows',
+				tickangle: -45,
+				automargin: true,
+			  },
+			  yaxis: {
+				title: 'Number of actors',
+			  },
+			margin: {
+				t: 150,
+				b: 200 
+			},
 
+		// plot_bgcolor: "rgba(0, 0, 0, 0)",
+		// paper_bgcolor: "rgba(0, 0, 0, 0)",
+			title: `Number of actors per show nominated for SAG Awards (${year})`
+		};
+		
+		Plotly.newPlot('chart3', data, layout);
+	});
+}
 
-const apiKey = '20b2f2eac97828b0328fd08d0039264c'; // înlocuiește cu cheia ta reală de la TMDb
-const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGIyZjJlYWM5NzgyOGIwMzI4ZmQwOGQwMDM5MjY0YyIsInN1YiI6IjY0ODk3Mzk1ZTI3MjYwMDBlOGMzMDlhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MwlA_KvNWITCgQzesL6MSktQoeHTDtHXiRYszXtyBgY'; // înlocuiește cu tokenul tău real de acces
-const actorUrl = `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}`;
-// fetch(actorUrl, {
-//   headers: {
-//     Authorization: `Bearer ${accessToken}`,
-//   },
-// })
-//   .then(response => response.json())
-//   .then(data => {
-//     const actors = data.results;
-//     // const totalMovies = data.cast.length + data.crew.length;
-//     // console.log(actors);
-//     for(const actor of actors) {
-//       console.log(actor.name);
-//     }
-//   })
-//   .catch(error => {
-//     console.error('Eroare la efectuarea cererii către TMDb:', error);
-//   });
+const yearElements = document.querySelectorAll('.year');
 
-
-
-// fetch(actorUrl, {
-//   headers: {
-//     Authorization: `Bearer ${accessToken}`,
-//   },
-// })
-//   .then(response => response.json())
-//   .then(data => {
-//     const actors = data.results;
-//     const promises = actors.map(actor => {
-//       const actorId = actor.id;
-//       // const combinedCreditsUrl = `https://api.themoviedb.org/3/person/${actorId}/combined_credits`;
-//       const combinedCreditsUrl = `https://api.themoviedb.org/3/person/${actorId}/combined_credits`;
-//       const params = new URLSearchParams({
-//         api_key: accessToken,
-//       });
-//       const url = `${combinedCreditsUrl}?${params}`;
-
-//       return fetch(url)
-//         .then(response => response.json())
-//         .then(creditsData => {
-//           const totalMovies = creditsData.cast.length + creditsData.crew.length;
-//           console.log(`${actor.name} - Total Movies: ${totalMovies}`);
-//         });
-//     });
-
-//     return Promise.all(promises);
-//   })
-//   .catch(error => {
-//     console.error('Eroare la efectuarea cererii către TMDb:', error);
-//   });
-
-
-
-// function displayAllActors(page) {
-//     const actorUrl2 = `https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&page=${page}`;
-//     return fetch(actorUrl2, {
-//       headers: {
-//         Authorization: `Bearer ${accessToken}`
-//       }
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//       var actors = data.results;
-//       var ok = 0;
-//       for(actor of actors) {
-//         console.log(actor.name);
-//         if(actor.name === "Jenna Ortega") {
-//           console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!hereee");
-//           ok = 1;
-//         }
-//       }
-//       return ok;
-//     })
-//     .catch(error => {
-//       console.error('Eroare la efectuarea cererii către TMDb:', error);
-//       throw error;
-//     });
-// }
-
-// function showActors() {
-//   var promises = [];
-
-//   for (var i = 1; i <= 10; i++) {
-//     promises.push(displayAllActors(i));
-//   }
-
-//   Promise.all(promises)
-//     .then(results => {
-//       console.log(results); // Array of 'ok' values
-//     })
-//     .catch(error => {
-//       console.error('Error:', error);
-//     });
-// }
-
-// showActors();
-
-
-// displayAllActors(1);
-
-
-
-
-// function searchActorByName(actorName) {
-//   const searchUrl = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${encodeURIComponent(actorName)}`;
-
-//   return fetch(searchUrl, {
-//     headers: {
-//       Authorization: `Bearer ${accessToken}`,
-//     },
-//   })
-//     .then(response => response.json())
-//     .then(data => {
-//       const actor = data.results.find(actor => actor.name.toLowerCase() === actorName.toLowerCase());
-//       console.log(actor);
-      // if (actor) {
-      //   const actorId = actor.id;
-      //   const actorDetailsUrl = `https://api.themoviedb.org/3/person/${actorId}?api_key=${apiKey}`;
-
-      //   return fetch(actorDetailsUrl, {
-      //     headers: {
-      //       Authorization: `Bearer ${accessToken}`,
-      //     },
-      //   })
-      //     .then(response => response.json())
-      //     .then(details => {
-      //       return details;
-      //     });
-      // } else {
-      //   throw new Error(`Actor '${actorName}' not found.`);
-      // }
-//     });
-// }
-
-// const actorName = 'Dakota Johnson'; // Replace with the name of the actor you want to search for
-
-// searchActorByName(actorName)
-//   .then(actorDetails => {
-//     console.log(actorDetails); // Object with detailed information about the actor
-//   })
-//   .catch(error => {
-//     console.error('Error:', error);
-//   });
-
-
-// function fetchMoviesByYearAndActor(year, actor) {
-//   const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&year=${year}&with_cast=${actor}`;
-//   return fetch(apiUrl, {
-//     headers: {
-//       Authorization: `Bearer ${accessToken}`
-//     }
-//   })
-//   .then(response => response.json())
-//   .then(data => data.results);
-// }
-
-// // Filter movies based on year and actor
-// function filterMoviesByYearAndActor(movies, year, actor) {
-//   return movies.filter(movie => {
-//     // console.log(movie);
-//     const releaseYear = parseInt(movie.release_date.split('-')[0]);
-//     // const hasActor = movie.cast.some(cast => cast.name === actor);
-//     console.log(movie);
-//     return releaseYear === year;
-//   });
-// }
-
-// // Calculate statistics based on the filtered movies
-// function calculateStatistics(movies) {
-//   const averageRating = movies.reduce((sum, movie) => sum + movie.vote_average, 0) / movies.length;
-//   const movieCount = movies.length;
-
-//   return {
-//     averageRating,
-//     movieCount
-//   };
-// }
-
-// // Example usage
-// const year = 2022;
-// const actor = 'Hande Erçel';
-
-// fetchMoviesByYearAndActor(year, actor)
-//   .then(movies => filterMoviesByYearAndActor(movies, year, actor))
-//   .then(filteredMovies => calculateStatistics(filteredMovies))
-//   .then(statistics => {
-//     console.log(`Average rating: ${statistics.averageRating}`);
-//     console.log(`Movie count: ${statistics.movieCount}`);
-//   })
-//   .catch(error => {
-//     console.error('Error:', error);
-//   });
-
-
-
-// fetch()
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Fetch data from the GraphQL API
-  axios.post('/graphql', {
-    query: `
-      {
-        years {
-          year
-          value
-        }
-      }
-    `
-  })
-  .then(function(response) {
-    const data = response.data.data.years;
-
-    // Generate the graph using the fetched data
-    generateGraph(data);
-  })
-  .catch(function(error) {
-    console.error(error);
+yearElements.forEach(yearElement => {
+  yearElement.addEventListener('click', () => {
+    yearElements.forEach(element => {
+      element.classList.remove('active-year');
+    });
+    yearElement.classList.add('active-year');
+    const selectedYear = yearElement.id;
+    filterResults(selectedYear);
+	filterResults1(selectedYear);
+	filterResults3(selectedYear);
   });
 });
 
-function generateGraph(data) {
-  // Prepare the data for the graph library (e.g., Chart.js)
-  const labels = data.map(item => item.year);
-  const values = data.map(item => item.value);
+let defaultYear = document.querySelector('.active-year');
+filterResults(defaultYear.id);
+filterResults1(defaultYear.id);
+filterResults3(defaultYear.id);
 
-  // Create the graph
-  const ctx = document.getElementById('graph').getContext('2d');
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Yearly Data',
-        data: values,
-        borderColor: 'blue',
-        fill: false
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false
-    }
-  });
+// Function to export the chart data as CSV format
+function exportAsCSV(year) {
+	fetch(`/bargraphql/${year}`)
+	.then(response => response.json())
+	.then(data => {
+		const actors = [];
+		const nominations = [];
+		for(actor of data) {
+			actors.push(actor.name);
+			nominations.push(actor.number_of_nominations);
+		}
+		const csvContent = "data:text/csv;charset=utf-8," + [
+			['Actor', 'Number of Nominations'],
+			...actors.map((actor, index) => [actor, nominations[index]])
+			.map(row => row.map(field => `"${field}"`).join(',')) // Escape fields with double quotes
+		].join('\n');
+		
+		const encodedUri = encodeURI(csvContent);
+		const link = document.createElement("a");
+		link.setAttribute("href", encodedUri);
+		link.setAttribute("download", "chart_data.csv");
+		document.body.appendChild(link); // Required for Firefox
+		link.click();
+	});
 }
+
+// Function to export the chart as WebP format
+function exportAsWebP() {
+	Plotly.toImage('chart', { format: 'webp', width: 800, height: 600 })
+        .then(function (url) {
+			const link = document.createElement('a');
+            link.href = url;
+            link.download = 'chart.webp';
+            document.body.appendChild(link); // Required for Firefox
+            link.click();
+            link.parentNode.removeChild(link);
+        });
+	}
+	
+	// Function to export the chart as SVG format
+	function exportAsSVG() {
+		Plotly.downloadImage('chart', { format: 'svg', width: 800, height: 600, filename: 'chart' });
+	}
+	
+	// Add event listeners to export items
+	document.getElementById('export-csv').addEventListener('click', () => {
+	exportAsCSV(defaultYear.id);
+});
+document.getElementById('export-webp').addEventListener('click', exportAsWebP);
+document.getElementById('export-svg').addEventListener('click', exportAsSVG);
+
+	
+// Function to export the chart data as CSV format
+function exportAsCSV1(year) {
+	fetch(`/piegraphql/${year}`)
+	.then(response => response.json())
+	.then(data => {
+		const actors = [];
+		const nominations = [];
+		for(actor of data) {
+			actors.push(actor.name);
+			nominations.push(actor.number_of_nominations);
+		}
+		const csvContent = "data:text/csv;charset=utf-8," + [
+			['Actor', 'Number of Nominations'],
+			...actors.map((actor, index) => [actor, nominations[index]])
+			.map(row => row.map(field => `"${field}"`).join(',')) // Escape fields with double quotes
+		].join('\n');
+		
+		const encodedUri = encodeURI(csvContent);
+		const link = document.createElement("a");
+		link.setAttribute("href", encodedUri);
+		link.setAttribute("download", "chart_data.csv");
+		document.body.appendChild(link); // Required for Firefox
+		link.click();
+	});
+}
+
+// Function to export the chart as WebP format
+function exportAsWebP1() {
+	Plotly.toImage('pie', { format: 'webp', width: 800, height: 600 })
+        .then(function (url) {
+			const link = document.createElement('a');
+            link.href = url;
+            link.download = 'chart.webp';
+            document.body.appendChild(link); // Required for Firefox
+            link.click();
+            link.parentNode.removeChild(link);
+        });
+	}
+	
+	// Function to export the chart as SVG format
+	function exportAsSVG1() {
+		Plotly.downloadImage('pie', { format: 'svg', width: 800, height: 600, filename: 'chart' });
+	}
+	
+	// Add event listeners to export items
+	document.getElementById('export-csv1').addEventListener('click', () => {
+	exportAsCSV1(defaultYear.id);
+});
+document.getElementById('export-webp1').addEventListener('click', exportAsWebP1);
+document.getElementById('export-svg1').addEventListener('click', exportAsSVG1);
+
+const apiKey = '20b2f2eac97828b0328fd08d0039264c'; // înlocuiește cu cheia ta reală de la TMDb
+const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGIyZjJlYWM5NzgyOGIwMzI4ZmQwOGQwMDM5MjY0YyIsInN1YiI6IjY0ODk3Mzk1ZTI3MjYwMDBlOGMzMDlhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MwlA_KvNWITCgQzesL6MSktQoeHTDtHXiRYszXtyBgY'; // înlocuiește cu tokenul tău real de acces
+
+function searchActorByName(actorName) {
+	const searchUrl = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${encodeURIComponent(actorName)}`;
+  
+	return fetch(searchUrl, {
+	  headers: {
+		Authorization: `Bearer ${accessToken}`,
+	  },
+	})
+	  .then(response => response.json())
+	  .then(data => {
+		const actor = data.results.find(actor => actor.name.toLowerCase() === actorName.toLowerCase());
+		if (actor) {
+		  const actorId = actor.id;
+		  const actorDetailsUrl = `https://api.themoviedb.org/3/person/${actorId}?api_key=${apiKey}`;
+  
+		  return fetch(actorDetailsUrl, {
+			headers: {
+			  Authorization: `Bearer ${accessToken}`,
+			},
+		  })
+			.then(response => response.json())
+			.then(details => {
+			  return {"name": details.name, "popularity" : details.popularity};
+			});
+		} else {
+		  throw new Error(`Actor '${actorName}' not found.`);
+		}
+	  });
+  }
+  
+  const actorName = 'Dakota Johnson';
+  
+
+function displayActorsPopularity() {
+	const name1 = document.getElementById('actorName').value;
+	const name2 = document.getElementById('actorName2').value;
+
+	const divEl = document.getElementById('chart2');
+
+	searchActorByName(name1)
+		.then(actorDetails1 => {
+			searchActorByName(name2)
+				.then(actorDetails2 => {
+					divEl.innerText = "";
+					const element = document.getElementById('export');
+					element.style.display = "flex";
+					createGraphic(actorDetails1, actorDetails2);
+				})
+				.catch(error => {
+					console.error('Error:', error);
+					divEl.innerText = "One of the actors doesn't exist in database.";
+					const element = document.getElementById('export');
+					element.style.display = "none";
+				});
+		})
+		.catch(error => {
+			console.error('Error:', error);
+			divEl.innerText = "One of the actors doesn't exist in database.";
+			const element = document.getElementById('export');
+			element.style.display = "none";
+		});
+}
+
+function createGraphic(actor1, actor2) {
+	const data = [
+		{
+			x: [actor1.name, actor2.name],
+			y: [actor1.popularity, actor2.popularity],
+			fill: 'tozeroy',
+			type: 'area',
+			line: {
+				color: 'blue',
+				width: 2,
+			},
+			marker: {
+				width:1,
+			},
+		},
+	];
+
+	const layout = {
+		title: `Actor's Popularity`,
+		xaxis: {
+			title: 'Actors',
+		},
+		yaxis: {
+			title: 'Popularity',
+		},
+	};
+
+	Plotly.newPlot('chart2', data, layout);
+}
+
+
+// Function to export the chart data as CSV format
+function exportAsCSV2(year) {
+	const name1 = document.getElementById('actorName').value;
+	const name2 = document.getElementById('actorName2').value;
+
+	searchActorByName(name1)
+		.then(actorDetails1 => {
+			searchActorByName(name2)
+				.then(actorDetails2 => {
+					const csvContent = "data:text/csv;charset=utf-8," + [
+						['Actor', 'Popularity'],
+						[actorDetails1.name, actorDetails1.popularity],
+						[actorDetails2.name, actorDetails2.popularity]
+						].map(row => row.join(',')).join('\n');
+					
+					const encodedUri = encodeURI(csvContent);
+					const link = document.createElement("a");
+					link.setAttribute("href", encodedUri);
+					link.setAttribute("download", "chart_data.csv");
+					document.body.appendChild(link); // Required for Firefox
+					link.click();
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+		})
+		.catch(error => {
+			console.error('Error:', error);
+		});
+}
+
+// Function to export the chart as WebP format
+function exportAsWebP2() {
+	Plotly.toImage('chart2', { format: 'webp', width: 800, height: 600 })
+        .then(function (url) {
+			const link = document.createElement('a');
+            link.href = url;
+            link.download = 'chart.webp';
+            document.body.appendChild(link); // Required for Firefox
+            link.click();
+            link.parentNode.removeChild(link);
+        });
+	}
+	
+	// Function to export the chart as SVG format
+	function exportAsSVG2() {
+		Plotly.downloadImage('chart2', { format: 'svg', width: 800, height: 600, filename: 'chart2' });
+	}
+	
+	// Add event listeners to export items
+	document.getElementById('export-csv2').addEventListener('click', () => {
+	exportAsCSV2();
+});
+document.getElementById('export-webp2').addEventListener('click', exportAsWebP2);
+document.getElementById('export-svg2').addEventListener('click', exportAsSVG2);
+
+// Function to export the chart data as CSV format
+function exportAsCSV3(year) {
+	fetch(`/linegraphql/${year}`)
+	.then(response => response.json())
+	.then(data => {
+		const shows = [];
+		const actors = [];
+		for(show of data) {
+			shows.push(show.show);
+			actors.push(show.number_of_actors);
+		}
+		const csvContent = "data:text/csv;charset=utf-8," + [
+			['Shows', 'Number of Actors nominated for SAG Awards'],
+			...shows.map((show, index) => [show, actors[index]])
+			.map(row => row.map(field => `"${field}"`).join(',')) // Escape fields with double quotes
+		].join('\n');
+		
+		const encodedUri = encodeURI(csvContent);
+		const link = document.createElement("a");
+		link.setAttribute("href", encodedUri);
+		link.setAttribute("download", "chart_data.csv");
+		document.body.appendChild(link); // Required for Firefox
+		link.click();
+	});
+}
+
+// Function to export the chart as WebP format
+function exportAsWebP3() {
+	Plotly.toImage('chart3', { format: 'webp', width: 800, height: 600 })
+        .then(function (url) {
+			const link = document.createElement('a');
+            link.href = url;
+            link.download = 'chart.webp';
+            document.body.appendChild(link); // Required for Firefox
+            link.click();
+            link.parentNode.removeChild(link);
+        });
+	}
+	
+	// Function to export the chart as SVG format
+	function exportAsSVG3() {
+		Plotly.downloadImage('chart3', { format: 'svg', width: 800, height: 600, filename: 'chart3' });
+	}
+	
+	// Add event listeners to export items
+	document.getElementById('export-csv3').addEventListener('click', () => {
+	exportAsCSV3(defaultYear.id);
+});
+document.getElementById('export-webp3').addEventListener('click', exportAsWebP3);
+document.getElementById('export-svg3').addEventListener('click', exportAsSVG3);

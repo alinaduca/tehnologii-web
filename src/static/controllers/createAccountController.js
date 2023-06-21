@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const { connectToDatabase } = require('../db');
+const { connectToDatabase } = require('../database/dbManager');
 
 function handleCreateAccountRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/createAccount.html');

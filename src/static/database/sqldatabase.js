@@ -4,14 +4,17 @@ const { open } = require('sqlite');
 const cheerio = require('cheerio');
 const axios = require('axios');
 const csv = require('csv-parser');
+const db = new sqlite3.Database('./database/data.db');
 
 function executeInitialSchema() {
-    const db = new sqlite3.Database('./database/data.db');
-
+  db.serialize(() => {
+    db.run(`DROP TABLE IF EXISTS sag_awards`);
+  });
     // Create the database table if it doesn't exist
     db.serialize(() => {
       db.run(`
         CREATE TABLE IF NOT EXISTS sag_awards (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
           year TEXT,
           category TEXT,
           full_name TEXT,
@@ -40,8 +43,11 @@ function executeInitialSchema() {
       .on('end', () => {
         // CSV parsing is complete
         console.log('Data insertion complete.');
-        db.close();
       });
   }
 
-module.exports = { executeInitialSchema };
+  function getDb() {
+    return db;
+  }
+
+module.exports = { executeInitialSchema, getDb };
