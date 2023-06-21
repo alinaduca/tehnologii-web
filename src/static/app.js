@@ -15,7 +15,6 @@ const { handleAllUsersRequest } = require('./controllers/allUsersController');
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
 const getStatistic = require('../api/statisticAPI');
-const { topRatedMovies } = require('../api/topRatedMovies');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
 const { ApolloServer, gql } = require('apollo-server');
