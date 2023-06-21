@@ -1,6 +1,7 @@
 const actorSection = document.getElementsByClassName("actor-section");
 let actorImages;
 let actorData;
+let actorMovies;
 let actorID;
 
 
@@ -39,10 +40,26 @@ function showPage() {
         actorData = data;
 
         console.log('name: ' + actorData.name);
+    })
+    .catch(err => console.error('error:' + err));
+
+    const moviesURL = `https://api.themoviedb.org/3/person/${actorID}/combined_credits?language=en-US`;
+
+    fetch(moviesURL, options)
+    .then(res => res.json())
+    .then(data => {
+        console.log('data1:', data);
+        actorMovies = data.cast;
+        console.log('data2:', actorMovies);
+
+        actorMovies.forEach((movie, index) => {
+            console.log('Title:', movie.original_title); // original_name
+        });
 
         renderActorBiography();
     })
-    .catch(err => console.error('error:' + err));
+    .catch(err => console.error('error:', err));
+
 }
 
 showPage();
@@ -50,19 +67,17 @@ showPage();
 function renderActorBiography() {
     console.log('am intrat in fct');
 
-    // if (actorImages && actorData) {
-        console.log('am intrat in if');
-        // Golește secțiunea actorSection
-        actorSection.innerHTML = '';
+    // Golește secțiunea actorSection
+    actorSection.innerHTML = '';
 
-        const leftSection = document.getElementsByClassName("left-section")[0];
-        const rightSection = document.getElementsByClassName("right-section")[0];
+    const leftSection = document.getElementsByClassName("left-section")[0];
+    const rightSection = document.getElementsByClassName("right-section")[0];
 
-        // Generare HTML pentru caruselul cu pozele luate din "actorImages" în partea stângă
-        let carouselHTML = '<div id="profile-img">';
-        const imageUrl = 'https://image.tmdb.org/t/p/w500' + actorData.profile_path;
-        carouselHTML += `<img src="${imageUrl}" alt="Actor Image">`;
-        carouselHTML += '</div>';
+    // Generare HTML pentru caruselul cu pozele luate din "actorImages" în partea stângă
+    let carouselHTML = '<div id="profile-img">';
+    const imageUrl = 'https://image.tmdb.org/t/p/w500' + actorData.profile_path;
+    carouselHTML += `<img src="${imageUrl}" alt="Actor Image">`;
+    carouselHTML += '</div>';
 
         // Generare HTML pentru datele din "actorData" în partea dreaptă
         const actorNameHTML = `<h2 class="actor-name">${actorData.name}</h2>`;
@@ -73,8 +88,60 @@ function renderActorBiography() {
         const popularityHTML = `<p class="profile-popularity">Popularity: ${actorData.popularity}</p>`;
         const biographyHTML = `<p class="profile-bio">Biography: ${actorData.biography}</p>`;
 
-        // Adăugarea HTML-ului generat în secțiunile corespunzătoare
-        leftSection.innerHTML = carouselHTML;
-        rightSection.innerHTML = actorNameHTML + saveToFavouritesButtonHTML + birthInfoHTML + popularityHTML + biographyHTML;
-    // }
+    // Adăugarea HTML-ului generat în secțiunile corespunzătoare
+    leftSection.innerHTML = carouselHTML;
+    rightSection.innerHTML = actorNameHTML + saveToFavouritesButtonHTML + birthInfoHTML + popularityHTML + biographyHTML;
+
+
+    // movies section
+    const moviesSection = document.getElementsByClassName("actor-movies")[0];
+
+    // actorMovies.slice(0, 4).forEach((movie, index) => {
+    //     console.log('Title:', movie.original_title);
+    // });
+
+    actorMovies.slice(0, 4).forEach((movie, index) => {
+        if (index % 4 === 0) {
+          const rowElement = document.createElement("div");
+          rowElement.classList.add("row");
+          moviesSection.appendChild(rowElement);
+        }
+      
+        const currentRow = moviesSection.lastElementChild;
+      
+        const posterUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+      
+        const movieElement = document.createElement("div");
+        movieElement.classList.add("movie");
+        if (movie.original_title && movie.character) {
+            movieElement.innerHTML = `
+              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+              <h3 id="title">${movie.original_title}</h3>
+              <p id="character">Character: ${movie.character}</p>
+              <p id="vote_average">Average vote: ${movie.vote_average}</p>
+            `;
+        } else if (movie.original_title && !movie.character) {
+            movieElement.innerHTML = `
+              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+              <h3 id="title">${movie.original_title}</h3>
+              <p id="vote_average">Average vote: ${movie.vote_average}</p>
+            `;
+        } else if(!movie.original_title && movie.character) {
+            movieElement.innerHTML = `
+              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+              <h3 id="title">${movie.original_name}</h3>
+              <p id="character">Character: ${movie.character}</p>
+              <p id="vote_average">Average vote: ${movie.vote_average}</p>
+            `;
+        } else {
+            movieElement.innerHTML = `
+              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+              <h3 id="title">${movie.original_name}</h3>
+              <p id="vote_average">Average vote: ${movie.vote_average}</p>
+            `;
+        }
+        currentRow.appendChild(movieElement);
+      
+      });
+    
 }
