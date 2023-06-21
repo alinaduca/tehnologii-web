@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title> Statistics </title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Statistics </title>
         <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
-		<link rel="stylesheet" type="text/css" href="../styles/style.css">
-		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
-		<link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/header-style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="../styles/style-statistics.css">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <!-- <script src="../utils/script-statistics.js"></script> -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
     <body>
     <!-- HEADER -->
@@ -22,7 +21,7 @@
               <nav class="navbar">
                 <div class="logo">
                     <a href="/">
-                      <img class="logo-img" href="/" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
+						<img class="logo-img" href="/" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
                     </a>
                 </div>
                 <ul class="nav-menu">
@@ -60,7 +59,7 @@
         </div> 
     </header>
 
-    <section class="content">
+    <div class="content">
         <div class="overlay">
             <div class="message">
                 <h2>Access Restricted</h2>
@@ -72,75 +71,67 @@
         <div class="content-body">
             <h1> Statistics:</h1>
             <div class="years">
-                <div class="year">
-                    <a>2017</a>
-                </div>
-                <div class="year">
-                    <a>2018</a>
-                </div>
-                <div class="year">
-                    <a>2019</a>
-                </div>
-                <div class="year">
-                    <a>2020</a>
-                </div>
-                <div class="year">
-                    <a>2021</a>
-                </div>
-                <div class="year">
-                    <a>2022</a>
-                </div>
+                <div class="year active-year" id="2020"> 2020 </div>
+                <div class="year" id="2019"> 2019 </div>
+                <div class="year" id="2018"> 2018 </div>
+                <div class="year" id="2017"> 2017 </div>
+                <div class="year" id="2016"> 2016 </div>
+                <div class="year" id="2015"> 2015 </div>
+                <div class="year" id="2014"> 2014 </div>
             </div>
             <div class="diagrams">
-                <div class="text"> Number of nominations for each actor:</div>
-                <!-- <canvas id='myChart'></canvas> -->
-                <!-- <div class="diagrama">
+                <!-- <div class="text"> Number of nominations for each actor:</div> -->
+                <div id="chart"></div>
+                <div class="export">
+                    <div class="item" id="export-csv"> CSV </div>
+                    <div class="item" id="export-webp"> WebP </div>
+                    <div class="item" id="export-svg"> SVG </div>
+                </div>
+                <br /><br />
 
-                </div> -->
-                <div id="graph"></div>
+                <div id="pie"></div>
+                <div class="export">
+                  <div class="item" id="export-csv1"> CSV </div>
+                  <div class="item" id="export-webp1"> WebP </div>
+                  <div class="item" id="export-svg1"> SVG </div>
+                </div>
+                <br /><br />
 
-                <div id="statistics-container"></div>
+                <div class="text"> Actor's popularity: </div>
+				<form id="searchForm">
+                    <div class="form-content">
+                        <div class="input-text">
+                            <input type="text" class="input-field" id="actorName" placeholder="Enter actor1 name" />
+                        </div>
+                        <div class="input-text">
+                            <input type="text" class="input-field" id="actorName2" placeholder="Enter actor2 name" />
+                        </div>
+                    </div>
+                    <div class="form-content">
+                        <a href="javascript:displayActorsPopularity()" id="search">Search</a>
+                    </div>
+				</form>
+				<div id="chart2"></div>
+                <div class="export" id="export">
+                    <div class="item" id="export-csv2"> CSV </div>
+                    <div class="item" id="export-webp2"> WebP </div>
+                    <div class="item" id="export-svg2"> SVG </div>
+                  </div>
+                  <br /><br />
+                  
+                  <div class="spacing"></div>
+                <div id="chart3"></div>
                 <div class="export">
-                    <div class="item">
-                        CSV
-                    </div>
-                    <div class="item">
-                        WebP
-                    </div>
-                    <div class="item">
-                        SVG
-                    </div>
-                </div>
-                <div class="text"> Popularity of actors by their number of fans:</div>
-                <!-- <canvas id='myChart2'></canvas> -->
-                <div class="export">
-                    <div class="item">
-                        CSV
-                    </div>
-                    <div class="item">
-                        WebP
-                    </div>
-                    <div class="item">
-                        SVG
-                    </div>
-                </div>
-                <div class="text"> Nominations per movies:</div>
-                <!-- <canvas id='myChart3'></canvas> -->
-                <div class="export">
-                    <div class="item">
-                        CSV
-                    </div>
-                    <div class="item">
-                        WebP
-                    </div>
-                    <div class="item">
-                        SVG
-                    </div>
-                </div>
+                    <div class="item" id="export-csv3"> CSV </div>
+                    <div class="item" id="export-webp3"> WebP </div>
+                    <div class="item" id="export-svg3"> SVG </div>
+                  </div>
+                  <br /><br />
+
             </div>
             <br /><br />
         </div>
-    </section>
+      </div>
 
     <footer>
         <div class="left-footer">
@@ -194,7 +185,5 @@
     <script src="../utils/script-statistics.js"></script>
     <script src="../utils/add-coverage.js"></script>
     <script src="../utils/view-users-button.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apollo-boost@0.4.7/dist/apollo.min.js"></script> -->
-   </body>
+	</body>
 </html>
