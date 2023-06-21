@@ -207,6 +207,11 @@ function relevanceSort(sortValue) {
           <button class="view-more-button">View more</button>
         `;
         currentRow.appendChild(actorElement);
+
+        const viewMoreButton = actorElement.querySelector('.view-more-button');
+          viewMoreButton.addEventListener('click', () => {
+            viewMoreButtonClicked(actor.name, actor.id);
+          });
       });
     })
     .catch(err => {
@@ -284,6 +289,11 @@ function searchActorByName(actorName) {
             <button class="view-more-button">View more</button>
           `;
           currentRow.appendChild(actorElement);
+
+          const viewMoreButton = actorElement.querySelector('.view-more-button');
+          viewMoreButton.addEventListener('click', () => {
+            viewMoreButtonClicked(actor.name, actor.id);
+          });
         });
 
       })
@@ -294,4 +304,12 @@ function searchActorByName(actorName) {
     relevanceSort(sortValue);
   }
   actorInput.value = "";
+}
+
+let actor;
+let id;
+
+function viewMoreButtonClicked(name, id) {
+  console.log('Apelată funcția viewMoreButtonClicked() pentru actorul:', name, id);
+  // Aici poți adăuga orice logica sau acțiuni suplimentare
 }

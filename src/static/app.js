@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
   const fileExtension = path.extname(filePath);
   if (req.url === '/statistics' && req.method === 'GET') {
     handleStatisticsRequest(req, res);
-  } else if (req.url === '/nominations' && req.method === 'GET') {
+  } else if (req.url === '/actors' && req.method === 'GET') {
     handleNominationsRequest(req, res); 
   } else if (req.url === '/news' && req.method === 'GET') {
     handleNewsRequest(req, res);
