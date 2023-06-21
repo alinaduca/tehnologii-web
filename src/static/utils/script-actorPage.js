@@ -66,12 +66,12 @@ function renderActorBiography() {
 
         // Generare HTML pentru datele din "actorData" în partea dreaptă
         const actorNameHTML = `<h2 class="actor-name">${actorData.name}</h2>`;
-        const saveToFavouritesButtonHTML = `<button class="save-button">Save to Favorites</button>`;
+        const saveToFavouritesButtonHTML = `<button class="save-button">&#10084; Save to Favorites</button>`;
         const birthInfoHTML = actorData.place_of_birth
-            ? `<p>Birthday: ${actorData.birthday} | Place of Birth: ${actorData.place_of_birth}</p>`
-            : `<p>Birthday: ${actorData.birthday}</p>`;
-        const popularityHTML = `<p>Popularity: ${actorData.popularity}</p>`;
-        const biographyHTML = `<p>Biography: ${actorData.biography}</p>`;
+            ? `<p class="profile-info">Birthday: ${actorData.birthday} | Place of Birth: ${actorData.place_of_birth}</p>`
+            : `<p class="profile-info">Birthday: ${actorData.birthday}</p>`;
+        const popularityHTML = `<p class="profile-popularity">Popularity: ${actorData.popularity}</p>`;
+        const biographyHTML = `<p class="profile-bio">Biography: ${actorData.biography}</p>`;
 
         // Adăugarea HTML-ului generat în secțiunile corespunzătoare
         leftSection.innerHTML = carouselHTML;

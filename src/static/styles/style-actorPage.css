@@ -5,7 +5,7 @@
 }
 
 .left-section {
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,27 +19,62 @@
 
   /* Stilizare secțiunea dreaptă */
   .right-section {
-    width: 50%;
-    padding: 20px;
-    background-color: #f2f2f2;
+    width: 60%;
+    background-color: #c7b7c7;
     border-radius: 10px;
+    padding-left: 50px;
+    padding-right: 30px;
   }
 
   .actor-name {
-    font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    font-size: 38px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    color: #231942;
+    text-shadow: 2px 2px 4px #d4adc6;
+    animation: glow 2s ease-in-out infinite alternate
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #cd0293, 0 0 40px #cd0293, 0 0 50px #cd0293, 0 0 60px #cd0293, 0 0 70px #cd0293;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #d355a3, 0 0 40px #d355a3, 0 0 50px #d355a3, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #d355a3;
+    }
   }
 
   .save-button {
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
+    background-color: #fff;
+    color: #8B3C7F;
     border: none;
     border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
     cursor: pointer;
+    box-shadow: 0 2px 5px #d4adc6;
+    margin-bottom: 30px;
   }
 
   p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
+
+  .profile-info, .profile-popularity, .profile-bio {
+    font-size: 20px;
+    color: #231942;
+    text-shadow: 1px 1px 2px #d4adc6;
+  }
+  
+  .profile-info::before,
+  .profile-popularity::before,
+  .profile-bio::before {
+    content: "• ";
+  }
+  
+  .profile-bio {
+    margin-top: 10px;
+  }
+  
