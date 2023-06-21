@@ -326,6 +326,10 @@ img.news-img {
   .input-text input:valid {
     background: linear-gradient(45deg, #8B3C7F, #80056d);
   }
+
+  .content-news-class {
+    z-index: 1;
+  }
    
 
   #buton-actori {

@@ -150,6 +150,9 @@ body {
 .filter-field:hover #gender-options {
   display: block;
 }
+.content-section {
+  z-index: 1;
+}
 
 
 

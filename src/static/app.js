@@ -18,10 +18,10 @@ const getStatistic = require('../api/statisticAPI');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
 const { ApolloServer, gql } = require('apollo-server');
+const { Db } = require('mongodb');
+const { executeInitialSchema } = require('./database/sqldatabase');
 
-// const server5 = new ApolloServer({ typeDefs, resolvers });
-
-
+executeInitialSchema();
 connectToDatabase();
 const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, req.url);
