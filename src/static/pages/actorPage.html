@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title> Statistics </title>
+        <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
+		<link rel="stylesheet" type="text/css" href="../styles/style.css">
+		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
+		<link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style-statistics.css">
+        <link rel="stylesheet" type="text/css" href="../styles/style-actorPage.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+    <!-- HEADER -->
+    <header id="main-header">
+        <div class="container-header">
+            <div class="subcontainer-header">
+              <nav class="navbar">
+                <div class="logo">
+                    <a href="/">
+                      <img class="logo-img" href="/" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                  <li class="nav-item">
+                     <a href="/" class="nav-link">Home</a>
+                  </li>    
+                  <li class="nav-item">
+                     <a href="/statistics" class="nav-link">Statistics</a>
+                  </li>    
+                  <li class="nav-item">
+                     <a href="/actors" class="nav-link">Actors</a>
+                  </li>    
+                  <li class="nav-item">
+                     <a href="/news" class="nav-link">News</a>
+                  </li>    
+                  <li class="nav-item">
+                    <a href="/all-users" class="nav-link" id="view-users">View Users</a>
+                  </li> 
+                  <li class="nav-item">
+                    <button id="login-button" class="try-now-btn loginButton"><a class="login" href="/login">Login</a></button>
+                  </li>
+                  <li class="nav-item">
+                    <button id="my-account-button" class="try-now-btn loginButton"><a class="login" href="/my-account">My Account</a></button>
+                  </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>    
+                    <span class="bar"></span>   
+                    <span class="bar"></span>   
+                </div>
+                
+              </nav>
+            </div>
+        </div> 
+    </header>
+
+    <section class="content">
+        <div class="overlay">
+            <div class="message">
+                <h2>Access Restricted</h2>
+                <p>Please log in to view page content.</p>
+                <button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
+            </div>
+        </div>
+
+        <div id="actor-section">
+            <div class="left-section">
+                <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
+            </div>
+            <div class="right-section">
+                <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
+            </div>
+            <div id="actor-movies">
+                <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="left-footer">
+            <p>
+                FireStream 
+            </p>
+            <p id="copyright">Copyright &#169; 2023 <strong>FireStream</strong> All rights reserved</strong></p>
+        </div>
+
+        <div class="center-footer">
+            <div id="location">
+                <div class="circle">
+                    <i class="fa fa-map-marker-alt fa-lg"></i>
+                </div>
+                <div id="loc">
+                    <p id="city">Iași</p>
+                    <p id="country">România</p>
+                </div>
+            </div>
+            <div id="echipa">
+                <div class="name">
+                    <div class="circle">
+                        <i class="fa fa-envelope fa-sm"></i>
+                    </div>
+                    <p>Chichirău Claudiu</p>
+                </div>
+                <div class="name">
+                    <div class="circle">
+                        <i class="fa fa-envelope fa-sm"></i>
+                    </div>
+                    <p>Duca Alina</p>
+                </div>
+                <div class="name">
+                    <div class="circle">
+                        <i class="fa fa-envelope fa-sm"></i>
+                    </div>
+                    <p>Renghiuc Bianca</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-footer">
+            <p id="about-us"><strong>About us</strong></p>
+            <p>
+                <strong>FireStream</strong> is a team of three students from the Faculty of Computer Science of the UAIC and this website is our Web Technologies project.
+            </p>
+        </div>
+    </footer>
+    <script src="../utils/script-actorPage.js"></script>
+    <script src="../utils/hamburger-navbar-menu.js"></script>
+    <script src="../utils/hide-header.js"></script>
+    <script src="../utils/script-statistics.js"></script>
+    <script src="../utils/add-coverage.js"></script>
+    <script src="../utils/view-users-button.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+   </body>
+</html>

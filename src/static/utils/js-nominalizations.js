@@ -310,6 +310,8 @@ let actor;
 let id;
 
 function viewMoreButtonClicked(name, id) {
-  console.log('Apelată funcția viewMoreButtonClicked() pentru actorul:', name, id);
-  // Aici poți adăuga orice logica sau acțiuni suplimentare
+  console.log('Apelată funcția pentru actorul:', name, id);
+  
+  const actorUrl = '/actors/' + id;
+  window.location.href = actorUrl;
 }

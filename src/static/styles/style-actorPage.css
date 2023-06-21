@@ -1,0 +1,50 @@
+#actor-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.left-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #profile-img img {
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 5%;
+  }
+
+  /* .actor-image {
+    max-width: 200px; /* Setează lățimea maximă a imaginii la 200 de pixeli */
+    height: auto; /* Păstrează raportul de aspect al imaginii */
+  } */
+
+  /* Stilizare secțiunea dreaptă */
+  .right-section {
+    width: 50%;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+  }
+
+  .actor-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .save-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
