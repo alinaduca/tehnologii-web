@@ -2,6 +2,7 @@ function fetchActorNews(actorName, actorName2) {
   const apiKey = '409e91ad98dc47919d456b7b91b91e5a';
   var apiUrl = '';
   console.log(actorName);
+  var firstPage = 'false';
   if (actorName != '' && actorName2 != '') {
     apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(actorName)}+${encodeURIComponent(actorName2)}&apiKey=${apiKey}`;
   } else if (actorName != '') {
@@ -9,7 +10,10 @@ function fetchActorNews(actorName, actorName2) {
   } else if (actorName2 != '') {
     apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(actorName2)}&apiKey=${apiKey}`;
   }
-
+  else {
+    firstPage = 'true';
+    apiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent('hollywood')}&apiKey=${apiKey}`;
+  }
   console.log(apiUrl);
   return fetch(apiUrl)
     .then((response) => {
@@ -19,19 +23,7 @@ function fetchActorNews(actorName, actorName2) {
       return response.json();
     })
     .then((data) => {
-      const articles = data.articles.filter((article) => {
-        const title = article.title.toLowerCase();
-        if (actorName != '' && actorName2 != '') {
-          return (
-            title.includes(actorName.toLowerCase()) &&
-            title.includes(actorName2.toLowerCase())
-          );
-        } else if (actorName != '') {
-          return title.includes(actorName.toLowerCase());
-        } else if (actorName2 != '') {
-          return title.includes(actorName2.toLowerCase());
-        }
-      });
+      const articles = data.articles;
 
       const dataSection = document.getElementById('articleList');
 
@@ -40,9 +32,18 @@ function fetchActorNews(actorName, actorName2) {
         existingNews[0].remove();
       }
 
-      const sortedArticles = articles.sort(
+      var sortedArticles = articles;
+      
+      if(firstPage == 'false') {
+      sortedArticles = articles.sort(
         (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
       );
+      } else {
+        sortedArticles = articles
+          .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+          .slice(0, 5);
+
+      }
 
       for (const article of sortedArticles) {
         const imageUrl = article.urlToImage;
@@ -129,16 +130,20 @@ var searchForm = document.getElementById('searchForm');
 var actorNameInput = document.getElementById('actorName');
 var actorNameInput2 = document.getElementById('actorName2');
 var myButton = document.getElementById('buton-actori');
-myButton.addEventListener('click', function (event) {
-  event.preventDefault();
-  var actorName = actorNameInput.value.trim();
-  var actorName2 = actorNameInput2.value.trim();
-  console.log(actorName);
-  console.log(actorName2);
-  if (actorName !== '' || actorName2 !== '') {
-    fetchActorNews(actorName, actorName2);
-  }
-});
+if (myButton) {
+  myButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    var actorName = actorNameInput.value.trim();
+    var actorName2 = actorNameInput2.value.trim();
+    console.log(actorName);
+    console.log(actorName2);
+    if (actorName !== '' || actorName2 !== '') {
+      fetchActorNews(actorName, actorName2);
+    }
+  });
+} else {
+  fetchActorNews('', '');
+}
 
 function showhide(id) {
   var e = document.getElementById(id);
@@ -162,5 +167,10 @@ function showhide(id) {
     }
   }
 }
+
+
+
+
+
 
 
