@@ -13,7 +13,9 @@
     "apollo-server": "^3.12.0",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
+    "cheerio": "^1.0.0-rc.12",
     "cookie": "^0.5.0",
+    "csv-parser": "^3.0.0",
     "dotenv": "^16.1.4",
     "ejs": "^3.1.9",
     "fs": "^0.0.1-security",
@@ -21,9 +23,12 @@
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.6.0",
+    "mysql": "^2.18.1",
     "node-fetch": "^2.6.11",
     "nodemailer": "^6.9.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sqlite": "^4.2.1",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
