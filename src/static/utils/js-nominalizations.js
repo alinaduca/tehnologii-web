@@ -1,5 +1,6 @@
 
-let currentPage = 1;
+let currentPageNumber = 1;
+let currentPage = 'sortPage';
 const pageNumberElement1 = document.getElementById("page-number1");
 const pageNumberElement2 = document.getElementById("page-number2");
 const actorsSection = document.getElementById("actors-section");
@@ -8,30 +9,83 @@ const previousButton2 = document.getElementById("previous-button2");
 const nextButton1 = document.getElementById("next-button1");
 const nextButton2 = document.getElementById("next-button2");
 let sortValue = 'relevance';
+let actorName = '';
 
 function firstPage() {
-  currentPage=1;
+  currentPageNumber=1;
+  console.log('page nr: ' + currentPageNumber + ', page name: ' + currentPage);
   // Apelează funcția topRatedMovies() pentru a reîncărca filmele din prima pagina
-  relevanceSort(sortValue);
+  switch (currentPage) {
+    case 'sortPage':
+      relevanceSort(sortValue);
+      break;
+    case 'searchPage':
+      searchActorByName(actorName);
+      break;
+    default:
+      relevanceSort(sortValue);
+      break;
+  }
 } 
 
 function lastPage() {
-  currentPage=500;
+  currentPageNumber=500;
   // Apelează funcția topRatedMovies() pentru a reîncărca filmele din prima pagina
-  relevanceSort(sortValue);
+  switch (currentPage) {
+    case 'sortPage':
+      relevanceSort(sortValue);
+      break;
+    case 'searchPage':
+      console.log('search last: ' + currentPageNumber);
+      searchActorByName(actorName);
+      break;
+    default:
+      relevanceSort(sortValue);
+      break;
+  }
 } 
 
 function previousPage() {
-  if (currentPage > 1) {
-    currentPage--;
+  if (currentPageNumber > 1) {
+    currentPageNumber--;
     // Apelează funcția topRatedMovies() pentru a reîncărca filmele cu pagina anterioară
-    relevanceSort(sortValue);
+    switch (currentPage) {
+      case 'sortPage':
+        relevanceSort(sortValue);
+        break;
+      case 'searchPage':
+        searchActorByName(actorName);
+        break;
+      default:
+        relevanceSort(sortValue);
+        break;
+    }
   }
 } 
 
 function nextPage() {
-  currentPage++;
+  currentPageNumber++;
   // Apelează funcția topRatedMovies() pentru a reîncărca filmele cu pagina următoare
+  switch (currentPage) {
+    case 'sortPage': {
+      relevanceSort(sortValue);
+      break; 
+    }
+    case 'searchPage': {
+      searchActorByName(actorName);
+      break;
+    }
+    default: {
+      relevanceSort(sortValue);
+      break;
+    }
+  }
+}
+
+function resetFilters() {
+  currentPageNumber = 1;
+  sortValue = 'relevance';
+  currentPage = 'sortPage';
   relevanceSort(sortValue);
 }
 
@@ -48,11 +102,9 @@ function handleOrderByChange() {
   relevanceSort(sortValue);
 }
 
-
-
 function relevanceSort(sortValue) {
 
-  const apiUrl = `https://api.themoviedb.org/3/person/popular?language=en-US&page=${currentPage}`;
+  const apiUrl = `https://api.themoviedb.org/3/person/popular?language=en-US&page=${currentPageNumber}`;
 
   const options = {
       method: 'GET',
@@ -63,14 +115,14 @@ function relevanceSort(sortValue) {
   };
 
   // Actualizarea numărului paginii
-  pageNumberElement1.textContent = `Page ${currentPage}`;
-  pageNumberElement2.textContent = `Page ${currentPage}`;
+  pageNumberElement1.textContent = `Page ${currentPageNumber}`;
+  pageNumberElement2.textContent = `Page ${currentPageNumber}`;
 
-  // Verifică dacă currentPage este 1 și dezactivează butonul "Previous" în consecință
-  if (currentPage === 1) {
+  // Verifică dacă currentPageNumber este 1 și dezactivează butonul "Previous" în consecință
+  if (currentPageNumber === 1) {
     previousButton1.disabled = true;
     previousButton2.disabled = true;
-  } else if(currentPage === 500) {
+  } else if(currentPageNumber === 500) {
     nextButton1.disabled = true;
     nextButton2.disabled = true;
   } else {
@@ -169,34 +221,77 @@ relevanceSort(sortValue);
 
 
 const searchButton = document.getElementById('search-button');
-searchButton.addEventListener('click', handleSearch);
+searchButton.addEventListener('click', firstSearch);
 
-function handleSearch() {
+function firstSearch() {
+  currentPageNumber = 1;
+
   const actorInput = document.getElementById('actor');
-  const searchString = actorInput.value.trim(); // Elimină spațiile de la început și de la sfârșitul șirului
+  actorName = actorInput.value.trim(); // Elimină spațiile de la început și de la sfârșitul șirului
 
-  if (searchString !== '') {
-    // Execută acțiunile pentru căutare
-    console.log('Text căutat:', searchString);
-    searchActorByName(searchString);
-  }
+  searchActorByName(actorName);
 }
 
 // Funcția de căutare după numele actorului
 function searchActorByName(actorName) {
-  const url = `https://api.themoviedb.org/3/search/person?query=${actorName}&include_adult=false&language=en-US&page=1`;
-  
-  // const url = 'https://api.themoviedb.org/3/search/person?query=Tom&include_adult=false&language=en-US&page=1';
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGIyZjJlYWM5NzgyOGIwMzI4ZmQwOGQwMDM5MjY0YyIsInN1YiI6IjY0ODk3Mzk1ZTI3MjYwMDBlOGMzMDlhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MwlA_KvNWITCgQzesL6MSktQoeHTDtHXiRYszXtyBgY'
-    }
-  };
+  // Actualizarea numărului paginii
+  pageNumberElement1.textContent = `Page ${currentPageNumber}`;
+  pageNumberElement2.textContent = `Page ${currentPageNumber}`;
 
-  fetch(url, options)
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .catch(err => console.error('error:' + err));
+  const actorInput = document.getElementById('actor');
+
+  if (actorName !== '') {
+    currentPage = 'searchPage';
+
+    const url = `https://api.themoviedb.org/3/search/person?query=${actorName}&include_adult=false&language=en-US&page=${currentPageNumber}`;
+    
+    // const url = 'https://api.themoviedb.org/3/search/person?query=Tom&include_adult=false&language=en-US&page=1';
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGIyZjJlYWM5NzgyOGIwMzI4ZmQwOGQwMDM5MjY0YyIsInN1YiI6IjY0ODk3Mzk1ZTI3MjYwMDBlOGMzMDlhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MwlA_KvNWITCgQzesL6MSktQoeHTDtHXiRYszXtyBgY'
+      }
+    };
+
+    fetch(url, options)
+      .then(res => res.json())
+      .then(data => {
+        actorsData = data.results
+              .filter(actor => actor.profile_path);
+
+        // Golește secțiunea actorsSection
+        actorsSection.innerHTML = '';
+
+        actorsData.forEach((actor, index) => {
+
+          if (index % 4 === 0) {
+            const rowElement = document.createElement("div");
+            rowElement.classList.add("row");
+            actorsSection.appendChild(rowElement);
+          }
+    
+          const currentRow = actorsSection.lastElementChild;
+    
+          const profileUrl = 'https://image.tmdb.org/t/p/w500' + actor.profile_path;
+
+          const actorElement = document.createElement("div");
+          actorElement.classList.add("movie");
+          actorElement.innerHTML = `
+            <img id="poster" src="${profileUrl}" alt="Movie Poster" data-movie-id="${actor.id}">
+            <h3 id="name">${actor.name}</h3>
+            <p id="popularity">Popularity: ${actor.popularity}</p>
+            <button class="view-more-button">View more</button>
+          `;
+          currentRow.appendChild(actorElement);
+        });
+
+      })
+      .catch(err => console.error('error:' + err));
+  }
+  else {
+    currentPage = 'sortPage';
+    relevanceSort(sortValue);
+  }
+  actorInput.value = "";
 }
