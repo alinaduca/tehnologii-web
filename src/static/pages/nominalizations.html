@@ -33,7 +33,7 @@
 								<a href="/statistics" class="nav-link">Statistics</a>
 							</li>    
 							<li class="nav-item">
-								<a href="/nominations" class="nav-link">Nominations</a>
+								<a href="/nominations" class="nav-link">Actors</a>
 							</li>    
 							<li class="nav-item">
 								<a href="/news" class="nav-link">News</a>
@@ -61,17 +61,30 @@
 
 		<!-- CONTENT -->
 		<section class="content">
+			<div class="overlay">
+				<div class="message">
+					<h2>Access Restricted</h2>
+					<p>Please log in to view page content.</p>
+					<button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
+				</div>
+			</div>
+
 			<div class="filter-section">
 			  <h2>Filter Movies</h2>
 			  <div class="filter-row">
+			  <div class="filter-field">
+				<label for="order-by" id="filter-sort" >Order by:</label>
+				<select id="order-by" class="relevance">
+				  <option value="relevance">Relevance</option>
+				  <option value="name-asc">Name in Ascending Order</option>
+				  <option value="name-desc">Name in Descending Order</option>
+				  <option value="popularity-asc">Popularity in Ascending Order</option>
+				  <option value="popularity-desc">Popularity in Descending Order</option>
+				</select>
+			  </div>
+			  <div class="filter-row">
 				<div class="filter-field">
-				  <label for="genre">Genre:</label>
-				  <select id="genre">
-					<!-- Opțiuni pentru genuri vor fi adăugate dinamic utilizând JavaScript -->
-				  </select>
-				</div>
-				<div class="filter-field">
-				  <label for="actor">Actor:</label>
+				  <label for="actor" id="filter-sort">Actor:</label>
 				  <div class="actor-search-dropdown">
 					<input type="text" id="actor" placeholder="Search Actor">
 					<ul id="actor-dropdown">
@@ -79,37 +92,41 @@
 					</ul>
 				  </div>
 				</div>
-				<div class="filter-field release-year-field">
-				  <label for="release-year">Release Year:</label>
-				  <input type="number" id="release-year">
-				  <div class="release-year-hover">
-					<span>or</span>
-					<input type="number" id="release-year-range-start" placeholder="Start Year">
-					<input type="number" id="release-year-range-end" placeholder="End Year">
-				  </div>
-				</div>
 			  </div>
+			  <div class="filter-field">
+				<label for="filter-by" id="filter-sort">Filter by:</label>
+				<select id="filter-by">
+				  <option value="-">-</option>
+				  <optgroup label="Gender">
+					<option value="male" class="gender-option">Male</option>
+					<option value="female" class="gender-option">Female</option>
+				  </optgroup>
+				</select>
+			  </div>		
+			  </div>	
 			  <div class="filter-button">
-				<button onclick="applyFilters()">Apply Filters</button>
+				<button class="view-more-button" onclick="applyFilters()">Apply Filters</button>
 			  </div>
 			</div>
+
+			
   
 			<div class="pagination">
-				<button onclick="previousPage()" id="previous-button" disabled>&#8249; Previous</button>
+				<button class="pagination-button" onclick="previousPage()" id="previous-button1">&#8249; Previous</button>
 				<div id="page-number1"></div>
-				<button onclick="nextPage()" id="next-button">Next &#8250;</button>
+				<button class="pagination-button" onclick="nextPage()" id="next-button">Next &#8250;</button>
 			</div>
 		  
-			<div id="movies-section">
+			<div id="actors-section">
 				<div class="row">
 				  <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
 				</div>
 			</div>
 		  
 			<div class="pagination">
-			  <button onclick="previousPage()" id="previous-button" disabled>&#8249; Previous</button>
+			  <button class="pagination-button" onclick="previousPage()" id="previous-button2">&#8249; Previous</button>
 			  <div id="page-number2"></div>
-			  <button onclick="nextPage()" id="next-button">Next &#8250;</button>
+			  <button class="pagination-button" onclick="nextPage()" id="next-button">Next &#8250;</button>
 			</div>
 		</section>
 		  

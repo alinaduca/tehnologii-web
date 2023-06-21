@@ -2,7 +2,9 @@
 let currentPage = 1;
 const pageNumberElement1 = document.getElementById("page-number1");
 const pageNumberElement2 = document.getElementById("page-number2");
-const moviesSection = document.getElementById("movies-section");
+const actorsSection = document.getElementById("actors-section");
+const previousButton1 = document.getElementById("previous-button1");
+const previousButton2 = document.getElementById("previous-button2");
 
 function previousPage() {
   if (currentPage > 1) {
@@ -20,9 +22,8 @@ function nextPage() {
 }
 
 function topRatedMovies() {
-  console.log('nr paginii: ' + currentPage);
 
-  const apiUrl = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page="${currentPage}"';
+  const apiUrl = `https://api.themoviedb.org/3/person/popular?language=en-US&page=${currentPage}`;
 
   const options = {
       method: 'GET',
@@ -36,34 +37,42 @@ function topRatedMovies() {
   pageNumberElement1.textContent = `Page ${currentPage}`;
   pageNumberElement2.textContent = `Page ${currentPage}`;
 
+  // Verifică dacă currentPage este 1 și dezactivează butonul "Previous" în consecință
+  if (currentPage === 1) {
+    previousButton1.disabled = true;
+    previousButton2.disabled = true;
+  } else {
+    previousButton1.disabled = false;
+    previousButton2.disabled = false;
+  }
+
   fetch(apiUrl, options)
     .then(res => res.json())
     .then(data => {
-      const moviesData = data.results;
+      const actorsData = data.results.filter(actor => actor.profile_path); 
 
-      // Golește secțiunea moviesSection
-      moviesSection.innerHTML = '';
+      // Golește secțiunea actorsSection
+      actorsSection.innerHTML = '';
 
-      moviesData.forEach((movie, index) => {
+      actorsData.forEach((actor, index) => {
         if (index % 4 === 0) {
           const rowElement = document.createElement("div");
           rowElement.classList.add("row");
-          moviesSection.appendChild(rowElement);
+          actorsSection.appendChild(rowElement);
         }
   
-        const currentRow = moviesSection.lastElementChild;
+        const currentRow = actorsSection.lastElementChild;
   
-        const posterUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+        const profileUrl = 'https://image.tmdb.org/t/p/w500' + actor.profile_path;
 
-        const movieElement = document.createElement("div");
-        movieElement.classList.add("movie");
-        movieElement.innerHTML = `
-          <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-          <h3 id="title">${movie.title}</h3>
-          <p id="release_date">Release Date: ${movie.release_date}</p>
+        const actorElement = document.createElement("div");
+        actorElement.classList.add("movie");
+        actorElement.innerHTML = `
+          <img id="poster" src="${profileUrl}" alt="Movie Poster" data-movie-id="${actor.id}">
+          <h3 id="name">${actor.name}</h3>
           <button class="view-more-button">View more</button>
         `;
-        currentRow.appendChild(movieElement);
+        currentRow.appendChild(actorElement);
       });
     })
     .catch(err => {
