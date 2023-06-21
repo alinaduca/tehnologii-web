@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title> Statistics </title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title> Statistics </title>
         <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
-        <link rel="stylesheet" type="text/css" href="../styles/style.css">
-        <link rel="stylesheet" type="text/css" href="../styles/header-style.css">
-        <link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+		<link rel="stylesheet" type="text/css" href="../styles/style.css">
+		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
+		<link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="../styles/style-statistics.css">
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../styles/style-actorPage.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
     <!-- HEADER -->
@@ -21,7 +22,7 @@
               <nav class="navbar">
                 <div class="logo">
                     <a href="/">
-						<img class="logo-img" href="/" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
+                      <img class="logo-img" href="/" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
                     </a>
                 </div>
                 <ul class="nav-menu">
@@ -59,7 +60,7 @@
         </div> 
     </header>
 
-    <div class="content">
+    <section class="content">
         <div class="overlay">
             <div class="message">
                 <h2>Access Restricted</h2>
@@ -68,70 +69,20 @@
             </div>
         </div>
 
-        <div class="content-body">
-            <h1> Statistics:</h1>
-            <div class="years">
-                <div class="year active-year" id="2020"> 2020 </div>
-                <div class="year" id="2019"> 2019 </div>
-                <div class="year" id="2018"> 2018 </div>
-                <div class="year" id="2017"> 2017 </div>
-                <div class="year" id="2016"> 2016 </div>
-                <div class="year" id="2015"> 2015 </div>
-                <div class="year" id="2014"> 2014 </div>
+        <div id="actor-section">
+            <div class="left-section">
+                <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
             </div>
-            <div class="diagrams">
-                <!-- <div class="text"> Number of nominations for each actor:</div> -->
-                <div id="chart"></div>
-                <div class="export">
-                    <div class="item" id="export-csv"> CSV </div>
-                    <div class="item" id="export-webp"> WebP </div>
-                    <div class="item" id="export-svg"> SVG </div>
-                </div>
-                <br /><br />
-
-                <div id="pie"></div>
-                <div class="export">
-                  <div class="item" id="export-csv1"> CSV </div>
-                  <div class="item" id="export-webp1"> WebP </div>
-                  <div class="item" id="export-svg1"> SVG </div>
-                </div>
-                <br /><br />
-
-                <div class="text"> Actor's popularity: </div>
-				<form id="searchForm">
-                    <div class="form-content">
-                        <div class="input-text">
-                            <input type="text" class="input-field" id="actorName" placeholder="Enter actor1 name" />
-                        </div>
-                        <div class="input-text">
-                            <input type="text" class="input-field" id="actorName2" placeholder="Enter actor2 name" />
-                        </div>
-                    </div>
-                    <div class="form-content">
-                        <a href="javascript:displayActorsPopularity()" id="search">Search</a>
-                    </div>
-				</form>
-				<div id="chart2"></div>
-                <div class="export" id="export">
-                    <div class="item" id="export-csv2"> CSV </div>
-                    <div class="item" id="export-webp2"> WebP </div>
-                    <div class="item" id="export-svg2"> SVG </div>
-                  </div>
-                  <br /><br />
-                  
-                  <div class="spacing"></div>
-                <div id="chart3"></div>
-                <div class="export">
-                    <div class="item" id="export-csv3"> CSV </div>
-                    <div class="item" id="export-webp3"> WebP </div>
-                    <div class="item" id="export-svg3"> SVG </div>
-                  </div>
-                  <br /><br />
-
+            <div class="right-section">
+                <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
             </div>
-            <br /><br />
         </div>
-      </div>
+            <div class="actor-movies">
+                <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript -->
+            </div>
+        </div>
+
+    </section>
 
     <footer>
         <div class="left-footer">
@@ -180,10 +131,13 @@
             </p>
         </div>
     </footer>
+    <script src="../utils/script-actorPage.js"></script>
     <script src="../utils/hamburger-navbar-menu.js"></script>
     <script src="../utils/hide-header.js"></script>
     <script src="../utils/script-statistics.js"></script>
     <script src="../utils/add-coverage.js"></script>
     <script src="../utils/view-users-button.js"></script>
-	</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+   </body>
 </html>

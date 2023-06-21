@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const cookie = require('cookie');
 const { handleStatisticsRequest } = require('./controllers/statisticsController');
 const { handleNominationsRequest } = require('./controllers/nominationsController');
+const { handleSpecificActorRequest } = require('./controllers/actorPageController');
 const { handleNewsRequest } = require('./controllers/newsController');
 const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
 const { handleLogoutRequest } = require('./controllers/logoutController');
@@ -29,8 +30,10 @@ const server = http.createServer((req, res) => {
   const fileExtension = path.extname(filePath);
   if (req.url === '/statistics' && req.method === 'GET') {
     handleStatisticsRequest(req, res);
-  } else if (req.url === '/nominations' && req.method === 'GET') {
+  } else if (req.url === '/actors' && req.method === 'GET') {
     handleNominationsRequest(req, res); 
+  } else if (req.url.startsWith('/actors/') && req.method === 'GET') {
+    handleSpecificActorRequest(req, res);
   } else if (req.url === '/news' && req.method === 'GET') {
     handleNewsRequest(req, res);
   } else if (req.url === '/all-users' && req.method === 'GET') {

@@ -326,6 +326,10 @@ img.news-img {
   .input-text input:valid {
     background: linear-gradient(45deg, #8B3C7F, #80056d);
   }
+
+  .content-news-class {
+    z-index: 1;
+  }
    
 
   #buton-actori {
@@ -420,3 +424,44 @@ img.news-img {
   color: white; 
   backdrop-filter: blur(5px);
  }
+
+ #latest-news {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  opacity: 1;
+  animation: glow 2s ease-in-out infinite alternate, fadeOut 2s 3s cubic-bezier(0.2, 0.6, 0.8, 0.4) forwards;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    font-size: 0px;
+    opacity: 0;
+    display: none;
+  }
+}
+
+ /* #latest-news {
+  padding-top: 50px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px #e8c4e5, 0 0 5px #462760;
+  text-align: center;
+ }
+
+ #latest-news2 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px #e8c4e5, 0 0 5px #462760;
+  text-align: center;
+ } */

@@ -30,7 +30,7 @@
                      <a href="/statistics" class="nav-link">Statistics</a>
                   </li>    
                   <li class="nav-item">
-                     <a href="/nominations" class="nav-link">Actors</a>
+                     <a href="/actors" class="nav-link">Actors</a>
                   </li>    
                   <li class="nav-item">
                      <a href="/news" class="nav-link">News</a>
@@ -58,15 +58,14 @@
      </header>
 
 	<section>
-		<!-- <div class="overlay">
+		<div class="overlay">
             <div class="message">
                 <h2>Access Restricted</h2>
                 <p>Please log in to view page content.</p>
                 <button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
             </div>
-        </div> -->
-		<div id="content-news">
-			
+        </div>
+		<div id="content-news" class="content-news-class">
 			<h1 id="h1-news">NEWS</h1>
 			<form id="searchForm">
 				<div class="input-text">
@@ -77,7 +76,9 @@
         </div>
         <section class="users-section"> 
 			<a href="javascript:showhide('uniquename')" id="a-news">Search</a>
-			<div id="uniquename" style="display:none;">
+			<div id="uniquename" style="display:block;">
+        <h1 id="latest-news">Latest News from Hollywood</h1>
+        <h1 id="latest-news">&darr; &darr; &darr;</h1>
 				<div class="news_section" id="articleList"></div>
 			</div>
 			

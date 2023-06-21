@@ -30,7 +30,7 @@
                             <a href="/statistics" class="nav-link">Statistics</a>
                         </li>    
                         <li class="nav-item">
-                            <a href="/nominations" class="nav-link">Actors</a>
+                            <a href="/actors" class="nav-link">Actors</a>
                         </li>    
                         <li class="nav-item">
                             <a href="/news" class="nav-link">News</a>
@@ -57,8 +57,20 @@
     </header>
 
     <section class="content">
+        <h2>Welcome, <span id="username"></span>!</h2>
+        <form id="changePasswordForm">
+          <h3 id="title-changePasswordForm">Change Password</h3>
+          <label for="actualPassword">Actual Password:</label>
+          <input type="password" id="actualPassword" name="actualPassword">
+          <label for="newPassword">New Password:</label>
+          <input type="password" id="newPassword" name="newPassword">
+      
+          <button type="submit" id="submit-changePasswordForm">Submit</button>
+        </form>
         <button class="logout"><a class="logout" href="/logout">Logout</a></button>
-    </section>
+      </section>
+      
+      
 
     <footer>
         <div class="left-footer">
