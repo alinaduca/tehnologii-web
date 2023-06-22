@@ -95,13 +95,13 @@
 }
 
 .movie {
-  background-color: #fff;
-  border-radius: 5px;
+  background-color: #c7b7c7;
+  border-radius: 20%;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   text-align: center;
-  /* display: flex;
-  justify-content: center; */
+  margin-bottom: 20px;
+
 }
 
 .movie h3 {
@@ -132,4 +132,42 @@
 #poster {
   width: 70%;
   height: auto;
+  border-radius: 5%;
+}
+
+#movies-title {
+  padding-top: 30px;
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  opacity: 1;
+  animation: glow2 2s ease-in-out infinite alternate, fadeOut 2s 3s cubic-bezier(0.2, 0.6, 0.8, 0.4) forwards;
+}
+
+
+@keyframes glow2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ebcfdd, 0 0 40px #ebcfdd, 0 0 50px #ebcfdd, 0 0 60px #ebcfdd, 0 0 70px #ebcfdd;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff, 0 0 80px #ffffff;
+  }
+}
+
+#title {
+  font-size: 20px;
+    color: #231942;
+    text-shadow: 1px 1px 2px #b087a1;
+}
+
+#character {
+  font-size: 17px;
+    color: #231942;
+    text-shadow: 1px 1px 2px #b087a1;
+}
+
+#vote_average {
+  font-size: 17px;
+    color: #231942;
+    text-shadow: 1px 1px 2px #b087a1;
 }
