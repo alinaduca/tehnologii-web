@@ -65,8 +65,6 @@ function showPage() {
 showPage();
 
 function renderActorBiography() {
-    console.log('am intrat in fct');
-
     // Golește secțiunea actorSection
     actorSection.innerHTML = '';
 
@@ -79,69 +77,70 @@ function renderActorBiography() {
     carouselHTML += `<img src="${imageUrl}" alt="Actor Image">`;
     carouselHTML += '</div>';
 
-        // Generare HTML pentru datele din "actorData" în partea dreaptă
-        const actorNameHTML = `<h2 class="actor-name">${actorData.name}</h2>`;
-        const saveToFavouritesButtonHTML = `<button class="save-button">&#10084; Save to Favorites</button>`;
-        const birthInfoHTML = actorData.place_of_birth
-            ? `<p class="profile-info">Birthday: ${actorData.birthday} | Place of Birth: ${actorData.place_of_birth}</p>`
-            : `<p class="profile-info">Birthday: ${actorData.birthday}</p>`;
-        const popularityHTML = `<p class="profile-popularity">Popularity: ${actorData.popularity}</p>`;
-        const biographyHTML = `<p class="profile-bio">Biography: ${actorData.biography}</p>`;
+    // Generare HTML pentru datele din "actorData" în partea dreaptă
+    const actorNameHTML = `<h2 class="actor-name">${actorData.name}</h2>`;
+    const saveToFavouritesButtonHTML = `<button class="save-button">&#10084; Save to Favorites</button>`;
+    const birthInfoHTML = actorData.place_of_birth
+    ? `<p class="profile-info">Birthday: ${actorData.birthday} | Place of Birth: ${actorData.place_of_birth}</p>`
+    : `<p class="profile-info">Birthday: ${actorData.birthday}</p>`;
+    const popularityHTML = `<p class="profile-popularity">Popularity: ${actorData.popularity}</p>`;
+    const biographyHTML = `<p class="profile-bio">Biography: ${actorData.biography}</p>`;
 
     // Adăugarea HTML-ului generat în secțiunile corespunzătoare
     leftSection.innerHTML = carouselHTML;
     rightSection.innerHTML = actorNameHTML + saveToFavouritesButtonHTML + birthInfoHTML + popularityHTML + biographyHTML;
 
-
-    // movies section
     const moviesSection = document.getElementsByClassName("actor-movies")[0];
 
-    // actorMovies.slice(0, 4).forEach((movie, index) => {
-    //     console.log('Title:', movie.original_title);
-    // });
+    // Adăugarea titlului "Movies:"
+    const moviesTitleElement = document.createElement("div");
+    moviesTitleElement.innerHTML = `<p id="movies-title">Movies:</p>`;
+    moviesSection.insertBefore(moviesTitleElement, moviesSection.firstChild);
 
     actorMovies.slice(0, 4).forEach((movie, index) => {
-        if (index % 4 === 0) {
-          const rowElement = document.createElement("div");
-          rowElement.classList.add("row");
-          moviesSection.appendChild(rowElement);
-        }
-      
-        const currentRow = moviesSection.lastElementChild;
-      
-        const posterUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
-      
-        const movieElement = document.createElement("div");
-        movieElement.classList.add("movie");
-        if (movie.original_title && movie.character) {
-            movieElement.innerHTML = `
-              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-              <h3 id="title">${movie.original_title}</h3>
-              <p id="character">Character: ${movie.character}</p>
-              <p id="vote_average">Average vote: ${movie.vote_average}</p>
-            `;
-        } else if (movie.original_title && !movie.character) {
-            movieElement.innerHTML = `
-              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-              <h3 id="title">${movie.original_title}</h3>
-              <p id="vote_average">Average vote: ${movie.vote_average}</p>
-            `;
-        } else if(!movie.original_title && movie.character) {
-            movieElement.innerHTML = `
-              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-              <h3 id="title">${movie.original_name}</h3>
-              <p id="character">Character: ${movie.character}</p>
-              <p id="vote_average">Average vote: ${movie.vote_average}</p>
-            `;
-        } else {
-            movieElement.innerHTML = `
-              <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-              <h3 id="title">${movie.original_name}</h3>
-              <p id="vote_average">Average vote: ${movie.vote_average}</p>
-            `;
-        }
-        currentRow.appendChild(movieElement);
-      
-      });
+    if (index % 4 === 0) {
+        const rowElement = document.createElement("div");
+        rowElement.classList.add("row");
+        moviesSection.appendChild(rowElement);
+    }
+
+    const currentRow = moviesSection.lastElementChild;
+
+    const posterUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+
+    const movieElement = document.createElement("div");
+    movieElement.classList.add("movie");
+
+    if (movie.original_title && movie.character) {
+        movieElement.innerHTML = `
+        <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+        <h3 id="title">${movie.original_title}</h3>
+        <p id="character">Character: ${movie.character}</p>
+        <p id="vote_average">Average vote: ${movie.vote_average}</p>
+        `;
+    } else if (movie.original_title && !movie.character) {
+        movieElement.innerHTML = `
+        <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+        <h3 id="title">${movie.original_title}</h3>
+        <p id="vote_average">Average vote: ${movie.vote_average}</p>
+        `;
+    } else if (!movie.original_title && movie.character) {
+        movieElement.innerHTML = `
+        <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+        <h3 id="title">${movie.original_name}</h3>
+        <p id="character">Character: ${movie.character}</p>
+        <p id="vote_average">Average vote: ${movie.vote_average}</p>
+        `;
+    } else {
+        movieElement.innerHTML = `
+        <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+        <h3 id="title">${movie.original_name}</h3>
+        <p id="vote_average">Average vote: ${movie.vote_average}</p>
+        `;
+    }
+
+    currentRow.appendChild(movieElement);
+    });
+
     
 }
