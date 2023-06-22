@@ -152,3 +152,12 @@ align-items: center;
 #downloads-text {
   margin-top: 30px;
 }
+
+.titlu-diagrama {
+  background-color: #7e5b9b;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+}

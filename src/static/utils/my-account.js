@@ -27,8 +27,22 @@ showPage();
 fetch('/get-username')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         const userField = document.getElementById('username');
         userField.innerText = data;
     })
-    .catch();
+    .catch(err => console.error('error:' + err));
+
+
+    fetch('/get-history')
+    .then(response => response.json())
+    .then(data => {
+        const historySection = document.getElementById('history');
+        for(var title of data) {
+            console.log(title.title);
+            var dataDiv = document.createElement("div");
+            dataDiv.classList.add("titlu-diagrama");
+            dataDiv.innerText = title.title;
+            historySection.appendChild(dataDiv);
+        }
+    })
+    .catch(err => console.error('error:' + err));

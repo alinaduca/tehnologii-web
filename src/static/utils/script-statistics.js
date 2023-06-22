@@ -1,22 +1,6 @@
 function saveGraphicToServer(title) {
-	console.log('aici');
-	fetch(`/save-graphic/${title}`, {
-	  method: 'POST',
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify({ title }),
-	})
-	  .then(response => {
-		if (response.ok) {
-		  console.log('Graphic data saved to server successfully.');
-		} else {
-		  console.error('Error saving graphic data to server:', response.statusText);
-		}
-	  })
-	  .catch(error => {
-		console.error('Error saving graphic data to server:', error);
-	  });
+	  fetch(`/save-graphic/${title}`)
+	  .then(response => {});
   }
 
 function filterResults(year) {
@@ -162,7 +146,7 @@ function exportAsCSV(year) {
 	fetch(`/bargraphql/${year}`)
 	.then(response => response.json())
 	.then(data => {
-		saveGraphicToServer(`Number of nominations at SAG Awards (${year})`);
+		saveGraphicToServer(`Number of nominations at SAG Awards`);
 		const actors = [];
 		const nominations = [];
 		for(actor of data) {
@@ -188,6 +172,7 @@ function exportAsCSV(year) {
 function exportAsWebP() {
 	Plotly.toImage('chart', { format: 'webp', width: 800, height: 600 })
         .then(function (url) {
+			saveGraphicToServer(`Number of nominations at SAG Awards`);
 			const link = document.createElement('a');
             link.href = url;
             link.download = 'chart.webp';
@@ -199,6 +184,7 @@ function exportAsWebP() {
 	
 	// Function to export the chart as SVG format
 	function exportAsSVG() {
+		saveGraphicToServer(`Number of nominations at SAG Awards`);
 		Plotly.downloadImage('chart', { format: 'svg', width: 800, height: 600, filename: 'chart' });
 	}
 	
@@ -215,6 +201,7 @@ function exportAsCSV1(year) {
 	fetch(`/piegraphql/${year}`)
 	.then(response => response.json())
 	.then(data => {
+		saveGraphicToServer(`Winners of SAG Awards`);
 		const actors = [];
 		const nominations = [];
 		for(actor of data) {
@@ -240,6 +227,7 @@ function exportAsCSV1(year) {
 function exportAsWebP1() {
 	Plotly.toImage('pie', { format: 'webp', width: 800, height: 600 })
         .then(function (url) {
+			saveGraphicToServer(`Winners of SAG Awards`);
 			const link = document.createElement('a');
             link.href = url;
             link.download = 'chart.webp';
@@ -251,6 +239,7 @@ function exportAsWebP1() {
 	
 	// Function to export the chart as SVG format
 	function exportAsSVG1() {
+		saveGraphicToServer(`Winners of SAG Awards`);
 		Plotly.downloadImage('pie', { format: 'svg', width: 800, height: 600, filename: 'chart' });
 	}
 	
@@ -300,7 +289,6 @@ function searchActorByName(actorName) {
 function displayActorsPopularity() {
 	const name1 = document.getElementById('actorName').value;
 	const name2 = document.getElementById('actorName2').value;
-
 	const divEl = document.getElementById('chart2');
 
 	searchActorByName(name1)
@@ -367,6 +355,7 @@ function exportAsCSV2(year) {
 		.then(actorDetails1 => {
 			searchActorByName(name2)
 				.then(actorDetails2 => {
+					saveGraphicToServer(`Actor's popularity`);
 					const csvContent = "data:text/csv;charset=utf-8," + [
 						['Actor', 'Popularity'],
 						[actorDetails1.name, actorDetails1.popularity],
@@ -393,6 +382,7 @@ function exportAsCSV2(year) {
 function exportAsWebP2() {
 	Plotly.toImage('chart2', { format: 'webp', width: 800, height: 600 })
         .then(function (url) {
+			saveGraphicToServer(`Actor's popularity`);
 			const link = document.createElement('a');
             link.href = url;
             link.download = 'chart.webp';
@@ -404,6 +394,7 @@ function exportAsWebP2() {
 	
 	// Function to export the chart as SVG format
 	function exportAsSVG2() {
+		saveGraphicToServer(`Actor's popularity`);
 		Plotly.downloadImage('chart2', { format: 'svg', width: 800, height: 600, filename: 'chart2' });
 	}
 	
@@ -419,6 +410,7 @@ function exportAsCSV3(year) {
 	fetch(`/linegraphql/${year}`)
 	.then(response => response.json())
 	.then(data => {
+		saveGraphicToServer(`Number of actors per show nominated for SAG Awards`);
 		const shows = [];
 		const actors = [];
 		for(show of data) {
@@ -444,6 +436,7 @@ function exportAsCSV3(year) {
 function exportAsWebP3() {
 	Plotly.toImage('chart3', { format: 'webp', width: 800, height: 600 })
         .then(function (url) {
+			saveGraphicToServer(`Number of actors per show nominated for SAG Awards`);
 			const link = document.createElement('a');
             link.href = url;
             link.download = 'chart.webp';

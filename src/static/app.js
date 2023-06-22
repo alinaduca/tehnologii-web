@@ -20,6 +20,7 @@ const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/st
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
 const { executeInitialSchema } = require('./database/sqldatabase');
+const { handleDownload, getHistory } = require('./controllers/downloadController');
 
 executeInitialSchema();
 connectToDatabase();
@@ -61,7 +62,6 @@ const server = http.createServer((req, res) => {
     handleChangePasswordSubmit(req, res);
   } else if (req.url.startsWith('/save-graphic/') && req.method === 'GET') {
     const title = req.url.substring('/save-graphic/'.length);
-    console.log(`%${title}%`);
     handleDownload(req, res, title);
   } else if (req.url === '/forgot-password' && req.method === 'POST') {
     const { email } = req.body;
@@ -72,6 +72,8 @@ const server = http.createServer((req, res) => {
     res.end('E-mailul de resetare a parolei a fost trimis');
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
+  } else if (req.url === '/get-history' && req.method === 'GET') {
+    getHistory(req, res);
   } else if (req.url.startsWith('/piegraphql/') && req.method === 'GET') {
     const year = req.url.substring('/piegraphql/'.length);
     getStatisticPie(req, res, year);
