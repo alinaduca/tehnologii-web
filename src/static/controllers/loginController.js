@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const cookie = require('cookie');
 const { getClient, connectToDatabase } = require("../database/dbManager");
 
+let username;
 let userType;
 function handleLoginRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/login.html');
@@ -58,6 +59,7 @@ function handleLoginSubmission(req, res) {
       if (hashedPassword == DBhashedPassword) {
         // Parola este corectă
         console.log('Autentificare reușită');
+        setUsername(user.username);
 
         // generare token JWT 
         const secretKey = 'ak1j3bk^jb4986:BKG9h%jG#I7687jhg!';
@@ -112,4 +114,12 @@ function getUserType() {
   return userType;
 }
 
-module.exports = { handleLoginRequest, handleLoginSubmission, getUserType };
+function getUsername() {
+  return username;
+}
+
+function setUsername(user) {
+  username = user;
+}
+
+module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername };
