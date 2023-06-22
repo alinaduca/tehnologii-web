@@ -8,6 +8,7 @@ const { getClient, connectToDatabase } = require("../database/dbManager");
 
 let username="";
 let userType;
+let connectedEmail;
 function handleLoginRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/login.html');
 
@@ -53,6 +54,8 @@ function handleLoginSubmission(req, res) {
 
       // verify if the passwords are the same
       if (hashedPassword == DBhashedPassword) {
+        connectedEmail = email;
+
         // Parola este corectă
         console.log('Autentificare reușită');
         setUsername(user1.username);
@@ -117,6 +120,13 @@ function getUsername(req, res) {
   res.end(JSON.stringify(username));
 }
 
+function getEmail(req, res) {
+  console.log(`email:${connectedEmail}`);
+  res.setHeader('Content-Type', 'application/json');
+  res.statusCode = 200;
+  res.end(JSON.stringify(connectedEmail));
+}
+
 function getUsernameForServer() {
   return username;
 }
@@ -125,4 +135,4 @@ function setUsername(user) {
   username = user;
 }
 
-module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, getUsernameForServer };
+module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, getUsernameForServer, getEmail };
