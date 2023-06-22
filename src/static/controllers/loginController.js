@@ -6,7 +6,7 @@ const crypto = require('crypto');
 const cookie = require('cookie');
 const { getClient, connectToDatabase } = require("../database/dbManager");
 
-let username;
+let username="";
 let userType;
 function handleLoginRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/login.html');
@@ -50,10 +50,6 @@ function handleLoginSubmission(req, res) {
       const saltedPassword = password + salt;
       const algorithm = 'sha256';
       const hashedPassword = crypto.createHash(algorithm).update(saltedPassword).digest('hex');   
-
-      // console.log('salt db: ' + salt);
-      // console.log('saltedPassword db: ' + saltedPassword);
-      // console.log('hashedPassword db: ' + hashedPassword);
 
       // verify if the passwords are the same
       if (hashedPassword == DBhashedPassword) {

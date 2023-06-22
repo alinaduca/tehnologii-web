@@ -1,4 +1,5 @@
 const cookie = require('cookie');
+const { setUsername } = require('./loginController');
 
 function handleLogoutRequest(req, res) {
     // Clear the authentication token
@@ -8,7 +9,7 @@ function handleLogoutRequest(req, res) {
       maxAge: 0, // Set the maxAge to 0 to make the cookie immediately expire
       httpOnly: true,
     });
-  
+    setUsername("");
     res.setHeader('Set-Cookie', cookieToken);
     res.setHeader('Content-Type', 'text/html');
     res.end(`
