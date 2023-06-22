@@ -31,11 +31,11 @@ async function handleCreateAccountSubmit(req, res) {
     const password = formData.get('password');
     const confirmPassword = formData.get('confirmPassword');
 
-    console.log(formData);
+    // console.log(formData);
 
     const existingEmail = await checkEmailExists(forgotEmail);
     if (existingEmail) {
-      console.log('Adresa de email există deja');
+      // console.log('Adresa de email există deja');
 
       res.setHeader('Content-Type', 'text/html');
       res.end(`

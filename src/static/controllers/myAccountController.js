@@ -2,10 +2,11 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const cookie = require('cookie');
 const { getClient, connectToDatabase } = require("../database/dbManager");
+
+let email;
 
 function handleMyAccountRequest(req, res) {
     const filePath = path.join(__dirname, '../pages/myAccount.html');
@@ -31,12 +32,12 @@ async function handleChangePasswordSubmit(req, res) {
     const actualPassword = formData.get('actualPassword');
     const newPassword = formData.get('newPassword');
     const confirmPassword = formData.get('confirmNewPassword');
+    let email;
 
     console.log(formData);
 
     // Obține token-ul din cookie
     const token = getTokenFromCookie(req);
-    let email;
 
     if (token) {
       // Verifică și decodează token-ul
@@ -197,4 +198,41 @@ const updatePassword = async (email, newPassword) => {
 };
 
 
-module.exports = { handleMyAccountRequest, handleChangePasswordSubmit };
+async function getFavouritesActors(req, res) {
+  const client = getClient();
+  const db = client.db('sagdatabase');
+  const collection = db.collection('favouriteActors');
+
+  let email;
+
+  // Obține token-ul din cookie
+  const token = getTokenFromCookie(req);
+
+  if (token) {
+    // Verifică și decodează token-ul
+    const secretKey = 'ak1j3bk^jb4986:BKG9h%jG#I7687jhg!';
+    jwt.verify(token, secretKey, (err, decodedToken) => {
+      if (err) {
+        console.log('Eroare la decodarea token-ului:', err.message);
+        return;
+      }
+  
+      // Token-ul a fost decodat cu succes
+      console.log('Informații din token:', decodedToken);
+      email = decodedToken.email;
+    });
+  }
+
+  const query = { email: email };
+  const projection = { actorID: 1, _id: 0 };
+
+  const result = await collection.find(query).project(projection).toArray();
+
+  const actorIDs = result.map(item => item.actorID);
+
+  res.setHeader('Content-Type', 'application/json');
+  res.statusCode = 200;
+  res.end(JSON.stringify(actorIDs));
+}
+
+module.exports = { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors };

@@ -26,6 +26,7 @@ body {
 
 #actualPassword, #newPassword {
   width: 150px; /* Ajustați valoarea după preferință */
+  margin-bottom: 5px;
 }
 
 
@@ -59,6 +60,7 @@ body {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 30px;
 }
 
 button.logout:hover {
@@ -117,6 +119,7 @@ align-items: center;
 
 .password-input input:hover {
   transform: scale(1.05);
+  border-radius: 12px;
 }
 
 .password-input input:valid {

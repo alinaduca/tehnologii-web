@@ -11,10 +11,11 @@ const { handleLoginRequest, handleLoginSubmission, getUsername } = require('./co
 const { handleLogoutRequest } = require('./controllers/logoutController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
 const sendResetEmail = require('./controllers/forgotPswdController');
-const { handleMyAccountRequest, handleChangePasswordSubmit } = require('./controllers/myAccountController');
+const { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
+const { handleSaveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
 const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
@@ -48,6 +49,8 @@ const server = http.createServer((req, res) => {
     handleLoginSubmission(req, res); 
   } else if (req.url === '/get-username' && req.method === 'GET') {
     getUsername(req, res); 
+  } else if (req.url === '/get-favourites-actors' && req.method === 'GET') {
+    getFavouritesActors(req, res); 
   } else if (req.url === '/create-account' && req.method === 'GET') {
     handleCreateAccountRequest(req, res);
   } else if (req.url === '/create-account' && req.method === 'POST') {
@@ -79,6 +82,8 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/linegraphql/') && req.method === 'GET') {
     const year = req.url.substring('/linegraphql/'.length);
     getStatisticLine(req, res, year);
+  } else if (req.url.startsWith('/save-favourite/') && req.method === 'GET') {
+    handleSaveFavouriteActorRequest(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {

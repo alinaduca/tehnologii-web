@@ -66,6 +66,18 @@
     margin-bottom: 30px;
   }
 
+  .save-button:hover {
+    background-color: #8B3C7F;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px #d4adc6;
+    margin-bottom: 30px;
+  }
+
   p {
     margin-bottom: 15px;
   }
