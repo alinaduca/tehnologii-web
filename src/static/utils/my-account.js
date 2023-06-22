@@ -47,7 +47,6 @@ async function showPage() {
 
         const viewMoreButton = actorElement.querySelector('.view-more-button');
           viewMoreButton.addEventListener('click', () => {
-            
             viewMoreButtonClicked(actorData.id);
           });
 
@@ -65,7 +64,7 @@ async function showPage() {
 fetch('/get-username')
     .then(response => response.json())
     .then(data => {
-        const userField = document.getElementsByClassName('username');
+        const userField = document.getElementById('username');
         userField.innerText = data;
     })
     .catch(err => console.error('error:' + err));
@@ -76,7 +75,6 @@ fetch('/get-username')
     .then(data => {
         const historySection = document.getElementById('history');
         for(var title of data) {
-            console.log(title.title);
             var dataDiv = document.createElement("div");
             dataDiv.classList.add("titlu-diagrama");
             dataDiv.innerText = title.title;
