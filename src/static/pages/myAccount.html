@@ -57,16 +57,18 @@
     </header>
 
     <section class="content">
-        <h2>Welcome, <span id="username"></span>!</h2>
+        <h2 id="welcome">Welcome, <span id="username"></span>!</h2>
         <form id="changePasswordForm" action="/my-account/chnage-password" method="POST">
           <h3 id="title-changePasswordForm">Change Password</h3>
-          <label for="actualPassword">Actual Password:</label>
-          <input type="password" id="actualPassword" name="actualPassword">
-          <label for="newPassword">New Password:</label>
-          <input type="password" id="newPassword" name="newPassword">
-          <label for="confirmNewPassword">Confirm New Password:</label>
-          <input type="password" id="confirmNewPassword" name="confirmNewPassword">
-      
+          <div class="password-input">
+            <input type="password" id="actualPassword" name="actualPassword" placeholder="Actual Password">
+          </div>
+          <div class="password-input">
+            <input type="password" id="newPassword" name="newPassword" placeholder="New Password">
+          </div>
+          <div class="password-input">
+            <input type="password" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
+          </div>
           <button type="submit" id="submit-changePasswordForm">Submit</button>
         </form>
         <button class="logout"><a class="logout" href="/logout">Logout</a></button>

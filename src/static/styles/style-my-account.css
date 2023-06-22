@@ -80,3 +80,70 @@ a.logout:hover {
   background-color: #3C1A37;
   padding: 15px 25px;
 }
+
+.password-input {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.password-input input {
+  width: 170px;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #8B3C7F, #79346e);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.password-input input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.password-input input::placeholder {
+  color: #3C1A37;
+  transition: color 0.3s ease;
+}
+
+.password-input input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.password-input input:hover {
+  transform: scale(1.05);
+}
+
+.password-input input:valid {
+  background: linear-gradient(45deg, #c7b7c7, #8B3C7F);
+}
+
+#title-changePasswordForm {
+  color: #231942;
+}
+
+
+
+#welcome {
+  font-weight: bold;
+  font-size: 38px;
+  padding-bottom: 10px;
+  margin-top: 30px;
+  color: #231942;
+  text-shadow: 2px 2px 4px #d4adc6;
+  animation: glow 2s ease-in-out infinite alternate
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #8B3C7F, 0 0 40px #8B3C7F, 0 0 50px #8B3C7F, 0 0 60px #8B3C7F, 0 0 70px #8B3C7F;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #d355a3, 0 0 40px #d355a3, 0 0 50px #d355a3, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #d355a3;
+  }
+}
