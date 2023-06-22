@@ -38,7 +38,7 @@ function handleLoginSubmission(req, res) {
 
     // found the user by the email adress
     const user = await authentication.findOne({ email });
-
+    
     if (user) {
       // the user exists
       const salt = user.salt;
@@ -55,7 +55,7 @@ function handleLoginSubmission(req, res) {
       if (hashedPassword == DBhashedPassword) {
         // Parola este corectă
         console.log('Autentificare reușită');
-        setUsername(user.username);
+        setUsername(user1.username);
 
         // generare token JWT 
         const secretKey = 'ak1j3bk^jb4986:BKG9h%jG#I7687jhg!';
@@ -110,7 +110,14 @@ function getUserType() {
   return userType;
 }
 
-function getUsername() {
+function getUsername(req, res) {
+  console.log(`Username:${username}`);
+  res.setHeader('Content-Type', 'application/json');
+  res.statusCode = 200;
+  res.end(JSON.stringify(username));
+}
+
+function getUsernameForServer() {
   return username;
 }
 
@@ -118,4 +125,4 @@ function setUsername(user) {
   username = user;
 }
 
-module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername };
+module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, getUsernameForServer };

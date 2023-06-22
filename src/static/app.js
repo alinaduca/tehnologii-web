@@ -7,7 +7,7 @@ const { handleStatisticsRequest } = require('./controllers/statisticsController'
 const { handleNominationsRequest } = require('./controllers/nominationsController');
 const { handleSpecificActorRequest } = require('./controllers/actorPageController');
 const { handleNewsRequest } = require('./controllers/newsController');
-const { handleLoginRequest, handleLoginSubmission } = require('./controllers/loginController');
+const { handleLoginRequest, handleLoginSubmission, getUsername } = require('./controllers/loginController');
 const { handleLogoutRequest } = require('./controllers/logoutController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
 const sendResetEmail = require('./controllers/forgotPswdController');
@@ -19,8 +19,6 @@ const { handleSaveFavouriteActorRequest } = require('./controllers/saveFavourite
 const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
-const { ApolloServer, gql } = require('apollo-server');
-const { Db } = require('mongodb');
 const { executeInitialSchema } = require('./database/sqldatabase');
 
 executeInitialSchema();
@@ -49,6 +47,8 @@ const server = http.createServer((req, res) => {
     handleLogoutRequest(req, res);
   } else if (req.url === '/login' && req.method === 'POST') {
     handleLoginSubmission(req, res); 
+  } else if (req.url === '/get-username' && req.method === 'GET') {
+    getUsername(req, res); 
   } else if (req.url === '/create-account' && req.method === 'GET') {
     handleCreateAccountRequest(req, res);
   } else if (req.url === '/create-account' && req.method === 'POST') {
@@ -59,10 +59,8 @@ const server = http.createServer((req, res) => {
     handleChangePasswordSubmit(req, res);
   } else if (req.url === '/forgot-password' && req.method === 'POST') {
     const { email } = req.body;
-
     // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei
     sendResetEmail(email);
-
     // Răspuns către client, de exemplu, un mesaj de succes
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('E-mailul de resetare a parolei a fost trimis');
