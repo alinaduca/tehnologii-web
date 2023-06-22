@@ -140,6 +140,11 @@ align-items: center;
   animation: glow 2s ease-in-out infinite alternate
 }
 
+#no-favorite-actors-message {
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
 @keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #8B3C7F, 0 0 40px #8B3C7F, 0 0 50px #8B3C7F, 0 0 60px #8B3C7F, 0 0 70px #8B3C7F;
@@ -153,6 +158,7 @@ align-items: center;
   margin-top: 30px;
 }
 
+
 .titlu-diagrama {
   background-color: #7e5b9b;
   margin: 10px;
@@ -160,4 +166,35 @@ align-items: center;
   justify-content: center;
   padding: 10px 20px;
   border-radius: 20px;
+}
+.actor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.actor img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 5px solid #3C1A37;
+}
+
+.actor h3 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.actor p {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+#title-fav {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }

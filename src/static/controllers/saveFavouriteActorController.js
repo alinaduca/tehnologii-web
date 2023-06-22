@@ -11,7 +11,7 @@ async function handleSaveFavouriteActorRequest(req, res) {
     const lastComponent = urlComponents.pop();
     const actorID = parseInt(lastComponent, 10);
 
-    console.log('ID-ul actorului:', actorID);
+    // console.log('ID-ul actorului:', actorID);
 
     // insert into db
     const client = getClient();

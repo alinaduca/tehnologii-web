@@ -96,7 +96,7 @@ function renderActorBiography() {
 
     // Adăugarea titlului "Movies:"
     const moviesTitleElement = document.createElement("div");
-    moviesTitleElement.innerHTML = `<p id="movies-title">${actorData.name}'s Movies:</p>`;
+    moviesTitleElement.innerHTML = `<p id="movies-title">&darr; ${actorData.name}'s Movies: &darr;</p>`;
     moviesSection.insertBefore(moviesTitleElement, moviesSection.firstChild);
 
     actorMovies.slice(0, 4).forEach((movie, index) => {
