@@ -1,3 +1,24 @@
+function saveGraphicToServer(title) {
+	console.log('aici');
+	fetch(`/save-graphic/${title}`, {
+	  method: 'POST',
+	  headers: {
+		'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify({ title }),
+	})
+	  .then(response => {
+		if (response.ok) {
+		  console.log('Graphic data saved to server successfully.');
+		} else {
+		  console.error('Error saving graphic data to server:', response.statusText);
+		}
+	  })
+	  .catch(error => {
+		console.error('Error saving graphic data to server:', error);
+	  });
+  }
+
 function filterResults(year) {
 	fetch(`/bargraphql/${year}`)
 	.then(response => response.json())
@@ -67,7 +88,6 @@ function filterResults1(year) {
 }
 
 function filterResults3(year) {
-	console.log('Macar sunt aici');
 	fetch(`/linegraphql/${year}`)
 	.then(response => response.json())
 	.then(data => {
@@ -142,6 +162,7 @@ function exportAsCSV(year) {
 	fetch(`/bargraphql/${year}`)
 	.then(response => response.json())
 	.then(data => {
+		saveGraphicToServer(`Number of nominations at SAG Awards (${year})`);
 		const actors = [];
 		const nominations = [];
 		for(actor of data) {
