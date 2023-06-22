@@ -50,6 +50,10 @@ function handleLoginSubmission(req, res) {
       const algorithm = 'sha256';
       const hashedPassword = crypto.createHash(algorithm).update(saltedPassword).digest('hex');   
 
+      // console.log('salt db: ' + salt);
+      // console.log('saltedPassword db: ' + saltedPassword);
+      // console.log('hashedPassword db: ' + hashedPassword);
+
       // verify if the passwords are the same
       if (hashedPassword == DBhashedPassword) {
         // Parola este corectă
@@ -64,7 +68,7 @@ function handleLoginSubmission(req, res) {
 
         // Setați cookie-ul în răspunsul HTTP
         const cookieToken = cookie.serialize('token', token, {
-          maxAge: 3600, // durata de viață a cookie-ului în secunde
+          maxAge: 600, // durata de viață a cookie-ului în secunde
           httpOnly: true,
         });
 
@@ -84,12 +88,12 @@ function handleLoginSubmission(req, res) {
         }
       } else {
         // Parola este incorectă
-        console.log('Parolă incorectă');
+        console.log('Parolă incorectă, hashedPassword : ' + hashedPassword + '\n\t DBhashedPassword: ' + DBhashedPassword);
         res.setHeader('Content-Type', 'text/html');
-      res.end(`
-        <script>alert('The password is incorrect!');</script>
-        <script>window.location.href = "/login";</script>
-      `);
+        res.end(`
+          <script>alert('The password is incorrect!');</script>
+          <script>window.location.href = "/login";</script>
+        `);
       }
     } else {
       // Utilizatorul nu există în baza de date

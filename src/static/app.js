@@ -11,7 +11,7 @@ const { handleLoginRequest, handleLoginSubmission } = require('./controllers/log
 const { handleLogoutRequest } = require('./controllers/logoutController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
 const sendResetEmail = require('./controllers/forgotPswdController');
-const { handleMyAccountRequest } = require('./controllers/myAccountController');
+const { handleMyAccountRequest, handleChangePasswordSubmit } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
@@ -54,6 +54,8 @@ const server = http.createServer((req, res) => {
     handleCreateAccountSubmit(req, res); 
   } else if (req.url === '/my-account' && req.method === 'GET') {
     handleMyAccountRequest(req, res);
+  } else if (req.url === '/my-account/chnage-password' && req.method === 'POST') {
+    handleChangePasswordSubmit(req, res);
   } else if (req.url === '/forgot-password' && req.method === 'POST') {
     const { email } = req.body;
 

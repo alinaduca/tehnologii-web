@@ -58,12 +58,14 @@
 
     <section class="content">
         <h2>Welcome, <span id="username"></span>!</h2>
-        <form id="changePasswordForm">
+        <form id="changePasswordForm" action="/my-account/chnage-password" method="POST">
           <h3 id="title-changePasswordForm">Change Password</h3>
           <label for="actualPassword">Actual Password:</label>
           <input type="password" id="actualPassword" name="actualPassword">
           <label for="newPassword">New Password:</label>
           <input type="password" id="newPassword" name="newPassword">
+          <label for="confirmNewPassword">Confirm New Password:</label>
+          <input type="password" id="confirmNewPassword" name="confirmNewPassword">
       
           <button type="submit" id="submit-changePasswordForm">Submit</button>
         </form>

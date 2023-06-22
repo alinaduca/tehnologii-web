@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const { connectToDatabase } = require('../database/dbManager');
+const { getClient, connectToDatabase } = require("../database/dbManager");
 
 function handleCreateAccountRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/createAccount.html');
@@ -47,7 +47,7 @@ async function handleCreateAccountSubmit(req, res) {
 
     // same passwords
     if (password !== confirmPassword) {
-      console.log('parole diferite');
+      // console.log('parole diferite');
 
       res.setHeader('Content-Type', 'text/html');
       res.end(`
@@ -55,12 +55,12 @@ async function handleCreateAccountSubmit(req, res) {
         <script>window.location.href = "/create-account";</script>
       `);
     } else {
-      console.log('parole identice');
+      // console.log('parole identice');
 
       // Verifică cerințele pentru parolă
       const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,}$/;
       if (!passwordRegex.test(password)) {
-        console.log('parola neconforma');
+        // console.log('parola neconforma');
 
         res.setHeader('Content-Type', 'text/html');
         res.end(`
@@ -68,14 +68,17 @@ async function handleCreateAccountSubmit(req, res) {
           <script>window.location.href = "/create-account";</script>
         `);
       } else {
-        console.log('parola conforma');
+        // console.log('parola conforma');
 
-        let db = await connectToDatabase();
+        const client = getClient();
+        const db = client.db('sagdatabase');
         const users = db.collection('users');
         const authentication = db.collection('Authentication');
 
         // Generăm saltul utilizând bcrypt
         const salt = await bcrypt.genSalt(10);
+
+        // console.log('salt generat: ' + salt);
 
         // Adăugăm saltul și emailul în colecția "Authentication"
         const authData = {
@@ -87,9 +90,13 @@ async function handleCreateAccountSubmit(req, res) {
         // Modificăm parola în "password+salt"
         const saltedPassword = password + salt;
 
+        // console.log('saltedPassword generat: ' + saltedPassword);
+
         // Hashuim parola modificată utilizând bcrypt
         const algorithm = 'sha256';
         const hashedPassword = crypto.createHash(algorithm).update(saltedPassword).digest('hex');
+
+        // console.log('hashedPassword generat: ' + hashedPassword);
 
         // Creăm obiectul utilizatorului
         const newUser = {
@@ -112,7 +119,8 @@ async function handleCreateAccountSubmit(req, res) {
 }
 
 const checkEmailExists = async (email) => {
-  let db = await connectToDatabase();
+  const client = getClient();
+  const db = client.db('sagdatabase');
   const collection = db.collection('users');
 
   const existingUser = await collection.findOne({ email });
