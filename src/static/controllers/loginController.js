@@ -124,8 +124,12 @@ function getEmail() {
   return email;
 }
 
+function setEmail(user) {
+  email = user;
+}
+
 function setUsername(user) {
   username = user;
 }
 
-module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, getUsernameForServer, getEmail };
+module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, setEmail, getEmail };

@@ -1,7 +1,6 @@
 const { getClient } = require("../database/dbManager");
 const { getEmail } = require("./loginController");
 
-
 async function handleDownload(req, res, title) {
     try {
         const email = getEmail(); // Replace with your method to retrieve the user's email

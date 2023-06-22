@@ -2,7 +2,6 @@ const favouriteActorsSection = document.getElementsByClassName("favourites-actor
 let actorImages;
 let actorID;
 
-
 async function showPage() {
 
     const response = await fetch('/get-favourites-actors');
@@ -28,3 +27,13 @@ async function showPage() {
 }
 
 showPage();
+
+
+fetch('/get-username')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        const userField = document.getElementById('username');
+        userField.innerText = data;
+    })
+    .catch();
