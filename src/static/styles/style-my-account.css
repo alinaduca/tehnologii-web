@@ -130,8 +130,6 @@ align-items: center;
   color: #231942;
 }
 
-
-
 #welcome {
   font-weight: bold;
   font-size: 38px;
@@ -149,4 +147,8 @@ align-items: center;
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #d355a3, 0 0 40px #d355a3, 0 0 50px #d355a3, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #d355a3;
   }
+}
+
+#downloads-text {
+  margin-top: 30px;
 }

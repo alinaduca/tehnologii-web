@@ -7,6 +7,7 @@ const cookie = require('cookie');
 const { getClient, connectToDatabase } = require("../database/dbManager");
 
 let username="";
+let email="";
 let userType;
 let connectedEmail;
 function handleLoginRequest(req, res) {
@@ -59,6 +60,7 @@ function handleLoginSubmission(req, res) {
         // Parola este corectă
         console.log('Autentificare reușită');
         setUsername(user1.username);
+        setEmail(user1.email);
 
         // generare token JWT 
         const secretKey = 'ak1j3bk^jb4986:BKG9h%jG#I7687jhg!';
@@ -105,7 +107,6 @@ function handleLoginSubmission(req, res) {
         <script>window.location.href = "/login";</script>
       `);
     }
-    
   });
 }
 
@@ -114,25 +115,21 @@ function getUserType() {
 }
 
 function getUsername(req, res) {
-  console.log(`Username:${username}`);
   res.setHeader('Content-Type', 'application/json');
   res.statusCode = 200;
   res.end(JSON.stringify(username));
 }
 
-function getEmail(req, res) {
-  console.log(`email:${connectedEmail}`);
-  res.setHeader('Content-Type', 'application/json');
-  res.statusCode = 200;
-  res.end(JSON.stringify(connectedEmail));
+function getEmail() {
+  return email;
 }
 
-function getUsernameForServer() {
-  return username;
+function setEmail(user) {
+  email = user;
 }
 
 function setUsername(user) {
   username = user;
 }
 
-module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, getUsernameForServer, getEmail };
+module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, setEmail, getEmail };

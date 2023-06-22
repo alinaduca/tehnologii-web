@@ -59,6 +59,10 @@ const server = http.createServer((req, res) => {
     handleMyAccountRequest(req, res);
   } else if (req.url === '/my-account/chnage-password' && req.method === 'POST') {
     handleChangePasswordSubmit(req, res);
+  } else if (req.url.startsWith('/save-graphic/') && req.method === 'GET') {
+    const title = req.url.substring('/save-graphic/'.length);
+    console.log(`%${title}%`);
+    handleDownload(req, res, title);
   } else if (req.url === '/forgot-password' && req.method === 'POST') {
     const { email } = req.body;
     // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei

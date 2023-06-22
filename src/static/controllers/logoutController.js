@@ -1,5 +1,5 @@
 const cookie = require('cookie');
-const { setUsername } = require('./loginController');
+const { setUsername, setEmail } = require('./loginController');
 
 function handleLogoutRequest(req, res) {
     // Clear the authentication token
@@ -10,6 +10,7 @@ function handleLogoutRequest(req, res) {
       httpOnly: true,
     });
     setUsername("");
+    setEmail("");
     res.setHeader('Set-Cookie', cookieToken);
     res.setHeader('Content-Type', 'text/html');
     res.end(`
