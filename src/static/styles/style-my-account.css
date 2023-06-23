@@ -146,13 +146,21 @@ a.logout:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  width: 20%; /* Alocă 20% lățime pentru fiecare element actor */
+  padding: 10px;
+  /* margin-left: 35px;
+  margin-right: 35px; */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
+
 .actor img {
   width: 200px;
   height: 300px;
   object-fit: cover;
-  border-radius: 15px;
-  border: 5px solid #3C1A37;
+  border-radius: 5%;
+  border: 2px solid #ffffff;
 }
 .actor h3 {
   margin-top: 10px;
@@ -168,3 +176,43 @@ a.logout:hover {
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
+.favourites-actors {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-more-button {
+  background-color: #8B3C7F;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+.view-more-button:hover {
+  background-color: #5F2653;
+  font-weight: bold;
+}
+
+.remove-fav-actor-button {
+  background-color: #e53538;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.remove-fav-actor-button:hover {
+  background-color: white;
+  color: #e53538;
+  font-weight: bold;
+}
+

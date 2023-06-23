@@ -13,6 +13,7 @@
   max-width: 500px;
   max-height: 500px;
   border-radius: 5%;
+  border: 2px solid rgb(255, 255, 255);
 }
 .right-section {
   width: 60%;
@@ -134,6 +135,7 @@ p {
   width: 70%;
   height: auto;
   border-radius: 5%;
+  border: 2px solid rgb(255, 255, 255);
 }
 #movies-title {
   padding-top: 30px;

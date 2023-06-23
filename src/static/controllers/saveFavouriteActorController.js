@@ -61,6 +61,49 @@ async function handleSaveFavouriteActorRequest(req, res) {
     res.end();
   }
 
+async function handleRemoveFavouriteActorRequest(req, res) {
+  const currentURL = req.url;
+
+  const urlComponents = currentURL.split('/');
+  const lastComponent = urlComponents.pop();
+  const actorID = parseInt(lastComponent, 10);
+
+  // Obține token-ul din cookie
+  const token = getTokenFromCookie(req);
+  let email;
+
+  if (token) {
+    const secretKey = 'ak1j3bk^jb4986:BKG9h%jG#I7687jhg!';
+    jwt.verify(token, secretKey, (err, decodedToken) => {
+      if (err) {
+        console.log('Eroare la decodarea token-ului:', err.message);
+        return;
+      }
+      email = decodedToken.email;
+    });
+  }
+
+  // Conectare la baza de date
+  const client = getClient();
+  const db = client.db('sagdatabase');
+  const collection = db.collection('favouriteActors');
+
+  try {
+    const existingActor = await collection.findOne({ email: email, actorID: actorID });
+
+    if (existingActor)
+      // Șterge actorul din baza de date
+      await collection.deleteOne({ email: email, actorID: actorID });
+  } catch (error) {
+    console.error('Eroare la ștergerea actorului din baza de date:', error);
+  }
+
+  const actorUrl = '/my-account';
+  res.writeHead(302, { 'Location': actorUrl });
+  res.end();
+}
+
+
 async function handleExistsFavouriteActorRequest(req, res) {
 
     const currentURL = req.url;
@@ -120,4 +163,4 @@ async function handleExistsFavouriteActorRequest(req, res) {
     return null;
   }
   
-  module.exports = { handleSaveFavouriteActorRequest, handleExistsFavouriteActorRequest };
+  module.exports = { handleSaveFavouriteActorRequest, handleExistsFavouriteActorRequest, handleRemoveFavouriteActorRequest };

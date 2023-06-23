@@ -90,13 +90,10 @@ async function renderActorBiography() {
         textSaveButton = data;
 
         let saveToFavouritesButtonHTML;
-        console.log('textSaveButton: ' + textSaveButton);
         if(textSaveButton === "NU exista in db")
             saveToFavouritesButtonHTML = `<button class="save-button">&#10084; Save to Favorites</button>`;
         else if(textSaveButton === "exista in db")
             saveToFavouritesButtonHTML = `<button class="saved-button">&#10084; Actor saved</button>`;
-
-        console.log('saveToFavouritesButtonHTML: ' + saveToFavouritesButtonHTML);
         
         const birthInfoHTML = actorData.place_of_birth
             ? `<p class="profile-info">Birthday: ${actorData.birthday} | Place of Birth: ${actorData.place_of_birth}</p>`
@@ -191,19 +188,3 @@ function saveButtonClicked(actorID) {
     window.location.href = actorUrl;
   }
   
-// function saveButtonClicked(actorID, saveButton) {
-//     // const saveButton = document.querySelector('.save-button');
-
-//     if (saveButton.textContent === "❤️ Actor saved!") {
-//         saveButton.textContent = "❤️ Save to Favorites";
-//         saveButton.classList.remove("saved");
-//         textSaveButton = '&#10084; Save to Favorites';
-//     } else {
-//         saveButton.textContent = "❤️ Actor saved!";
-//         saveButton.classList.add("saved");
-//         textSaveButton = '&#10084; Actor saved!';
-//     }
-
-//     const actorUrl = '/save-favourite/' + actorID;
-//     window.location.href = actorUrl;
-// }

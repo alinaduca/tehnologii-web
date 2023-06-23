@@ -15,50 +15,56 @@ async function showPage() {
   
     const favouriteActorsSection = document.getElementsByClassName("favourites-actors")[0];
   
-    const fetchActorData = async (actorID) => {
+    const fetchActorData = async (actorID, index) => {
       const url = `https://api.themoviedb.org/3/person/${actorID}?language=en-US`;
-  
+    
       try {
         const res = await fetch(url, options);
         const data = await res.json();
-        console.log('1.date-actor: ' + data);
         actorData = data;
-        console.log('2.date-actor: ' + data);
-
-        console.log('profile_path: ' + actorData.profile_path);
-        console.log('name: ' + actorData.name);
-
+    
         const imageUrl = 'https://image.tmdb.org/t/p/w500' + actorData.profile_path;
-  
+    
         const actorElement = document.createElement('div');
         actorElement.classList.add('actor');
         actorElement.innerHTML = `
           <img src="${imageUrl}" alt="actor-name">
           <h3>${actorData.name}</h3>
           <p>Popularity: ${actorData.popularity}</p>
+          <button class="remove-fav-actor-button" data-actorid="${actorID}">&#10084; Remove</button>
+          <button class="view-more-button" data-actorid="${actorID}">View more</button>
         `;
-        // actorElement.innerHTML = `
-        //   <img src="${imageUrl}" alt="actor-name">
-        //   <h3>${actorData.name}</h3>
-        //   <p>Popularity: ${actorData.popularity}</p>
-        //   <button class="view-more-button">View more</button>
-        // `;
         favouriteActorsSection.appendChild(actorElement);
-
+    
         const viewMoreButton = actorElement.querySelector('.view-more-button');
-          viewMoreButton.addEventListener('click', () => {
-            viewMoreButtonClicked(actorData.id);
-          });
+        viewMoreButton.addEventListener('click', () => {
+          const actorId = viewMoreButton.dataset.actorid;
+          viewMoreButtonClicked(actorId);
+        });
 
+        const removeFavActorButton = actorElement.querySelector('.remove-fav-actor-button');
+        removeFavActorButton.addEventListener('click', () => {
+          const actorId = viewMoreButton.dataset.actorid;
+          removeFavActorButtonClicked(actorId);
+        });
+    
       } catch (error) {
         console.error('Error:', error);
       }
-    };
-    const actorPromises = favouritesActors.map(actorID => fetchActorData(actorID));
-
-  }
-  
+    }; 
+    const actorPromises = favouritesActors.map((actorID, index) => fetchActorData(actorID, index));
+}
   showPage();
+
+function viewMoreButtonClicked(id) {
+  const actorUrl = '/actors/' + id;
+  window.location.href = actorUrl;
+}
+
+function removeFavActorButtonClicked(id) {
+  const actorUrl = '/remove-fav-actors/' + id;
+  window.location.href = actorUrl;
+}
   
 
   var xhttp = new XMLHttpRequest();
