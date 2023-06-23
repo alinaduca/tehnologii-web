@@ -57,15 +57,18 @@ body {
   padding: 20px;
 }
 .filter-row {
-  display: flex;
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
   justify-content: space-between;
   align-items: center;
 }
 
-.one-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* grid-gap: 20px; */
+@media screen and (max-width: 700px) {
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .filter-row-with-text
