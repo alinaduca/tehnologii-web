@@ -34,10 +34,9 @@ function handleLoginSubmission(req, res) {
     authenticateUser(email, password, res)
     .then(({ token, user, userName }) => {
       res.setHeader('Content-Type', 'text/html');
-      userType = user.type;
+      userType = userName.type;
       username = userName.username;
-      console.log('username: ' + username);
-      if (user.type === 'user') {
+      if (userType === 'user') {
         res.end(`
           <script>window.location.href = "/";</script>
         `);
