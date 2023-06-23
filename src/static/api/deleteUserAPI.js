@@ -1,4 +1,4 @@
-const { getClient } = require("../static/database/dbManager");
+const { getClient } = require("../database/dbManager");
 
 async function handleDeleteUserRequest(req, res, email) {
     const client = getClient();

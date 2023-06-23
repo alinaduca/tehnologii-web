@@ -14,11 +14,11 @@ const sendResetEmail = require('./controllers/forgotPswdController');
 const { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors } = require('./controllers/myAccountController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
-const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
+const { handleDeleteUserRequest } = require('./api/deleteUserAPI');
 const { handleSaveFavouriteActorRequest,handleExistsFavouriteActorRequest, handleRemoveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
 const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
 const getRights = require('./utils/check-rights');
-const getData = require('../api/allUsersAPI');
+const getData = require('./api/allUsersAPI');
 const { executeInitialSchema } = require('./database/sqldatabase');
 const { handleDownload, getHistory } = require('./controllers/downloadController');
 

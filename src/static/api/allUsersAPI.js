@@ -1,4 +1,4 @@
-const { getClient } = require("../static/database/dbManager");
+const { getClient } = require("../database/dbManager");
 
 const getData = async (req, res) => {
     const client = getClient();
