@@ -57,10 +57,27 @@ body {
   padding: 20px;
 }
 .filter-row {
-  display: flex;
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
   justify-content: space-between;
   align-items: center;
 }
+
+@media screen and (max-width: 700px) {
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filter-row-with-text
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .filter-field {
   display: flex;
   align-items: center;
@@ -155,12 +172,11 @@ body {
   justify-content: space-between;
   padding-top: 20px;
 }
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
+
+.row2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }
 .movie {
   position: relative;

@@ -32,6 +32,7 @@ function fetchActorNews(actorName, actorName2) {
         existingNews[0].remove();
       }
 
+      console.log("am ajuns si eu aici1");
       var sortedArticles = articles;
       
       if(firstPage == 'false') {
@@ -41,7 +42,7 @@ function fetchActorNews(actorName, actorName2) {
       } else {
         sortedArticles = articles
           .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-          .slice(0, 5);
+          .slice(0, 6);
 
       }
 
@@ -76,7 +77,7 @@ function fetchActorNews(actorName, actorName2) {
           const newsDetails = document.createElement('p');
           newsDetails.classList.add('detalii_stire');
           newsDetails.textContent = article.description;
-
+          console.log("am ajuns si eu aici2");
           const likeButton = document.createElement('div');
           likeButton.classList.add('like_bt');
           likeButton.innerHTML = '<a href="' + article.url + '">See full source</a>';
@@ -101,6 +102,7 @@ function fetchActorNews(actorName, actorName2) {
             newsSection2.remove();
           });
 
+          console.log("am ajuns si eu aici3");
           box.appendChild(dateText);
           boxText.appendChild(newsTitleLeft);
           boxText.appendChild(newsDetails);
