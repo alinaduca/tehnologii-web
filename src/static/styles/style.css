@@ -56,3 +56,6 @@ a.login-overlay:hover {
 	font-size: 24px;
 	font-weight: 600;
 }
+#email11, #email12, #email14 {
+    cursor: pointer;
+}

@@ -1,6 +1,7 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
+const sharp = require('sharp');
 const { handleSaveFavouriteActorRequest,handleExistsFavouriteActorRequest, handleRemoveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
 const { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors } = require('./controllers/myAccountController');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
@@ -105,8 +106,17 @@ const server = http.createServer((req, res) => {
         res.writeHead(404);
         res.end('404 Not Found');
       } else {
-        res.writeHead(200, { 'Content-Type': 'image/png' });
-        res.end(data);
+        sharp(data)
+          .png({ quality: 80 })
+          .toBuffer((err, compressedData) => {
+            if (err) {
+              res.writeHead(500);
+              res.end('Error compressing image');
+            } else {
+              res.writeHead(200, { 'Content-Type': 'image/png' });
+              res.end(compressedData);
+            }
+          });
       }
     });
   } else {
