@@ -4,7 +4,6 @@ let actorData;
 let actorMovies;
 let actorID;
 
-
 function showPage() {
 
     const URL = window.location.href;
@@ -58,7 +57,7 @@ function showPage() {
 
 showPage();
 
-function renderActorBiography() {
+async function renderActorBiography() {
     // Golește secțiunea actorSection
     actorSection.innerHTML = '';
 
@@ -73,77 +72,113 @@ function renderActorBiography() {
 
     // Generare HTML pentru datele din "actorData" în partea dreaptă
     const actorNameHTML = `<h2 class="actor-name">${actorData.name}</h2>`;
-    const saveToFavouritesButtonHTML = `<button class="save-button">&#10084; Save to Favorites</button>`;
-    const birthInfoHTML = actorData.place_of_birth
-        ? `<p class="profile-info">Birthday: ${actorData.birthday} | Place of Birth: ${actorData.place_of_birth}</p>`
-        : `<p class="profile-info">Birthday: ${actorData.birthday}</p>`;
-    const popularityHTML = `<p class="profile-popularity">Popularity: ${actorData.popularity}</p>`;
-    const biographyHTML = `<p class="profile-bio">Biography: ${actorData.biography}</p>`;
+    
+    // verificam daca exista actorul este deja adaugat la favorite pentru a sti ce fel de buton adaugam
+    const actorUrl = '/exists-fav-actor/' + actorID;
+
+    let textSaveButton;
+
+    fetch(actorUrl)
+    .then(response => {
+        if (!response.ok) {
+            console.log('Network response was not ok');
+            throw new Error('Network response was not ok');
+        }
+        return response.text(); // sau response.json() în funcție de tipul de conținut primit
+    })
+    .then(data => {
+        textSaveButton = data;
+
+        let saveToFavouritesButtonHTML;
+        console.log('textSaveButton: ' + textSaveButton);
+        if(textSaveButton === "NU exista in db")
+            saveToFavouritesButtonHTML = `<button class="save-button">&#10084; Save to Favorites</button>`;
+        else if(textSaveButton === "exista in db")
+            saveToFavouritesButtonHTML = `<button class="saved-button">&#10084; Actor saved</button>`;
+
+        console.log('saveToFavouritesButtonHTML: ' + saveToFavouritesButtonHTML);
+        
+        const birthInfoHTML = actorData.place_of_birth
+            ? `<p class="profile-info">Birthday: ${actorData.birthday} | Place of Birth: ${actorData.place_of_birth}</p>`
+            : `<p class="profile-info">Birthday: ${actorData.birthday}</p>`;
+        const popularityHTML = `<p class="profile-popularity">Popularity: ${actorData.popularity}</p>`;
+        const biographyHTML = `<p class="profile-bio">Biography: ${actorData.biography}</p>`;
 
 
-    // Adăugarea HTML-ului generat în secțiunile corespunzătoare
-    leftSection.innerHTML = carouselHTML;
-    rightSection.innerHTML = actorNameHTML + saveToFavouritesButtonHTML + birthInfoHTML + popularityHTML + biographyHTML;
+        // Adăugarea HTML-ului generat în secțiunile corespunzătoare
+        leftSection.innerHTML = carouselHTML;
+        rightSection.innerHTML = actorNameHTML + saveToFavouritesButtonHTML + birthInfoHTML + popularityHTML + biographyHTML;
 
-    const saveButton = rightSection.querySelector('.save-button');
-    if (saveButton) {
-        saveButton.addEventListener('click', () => {
-            saveButtonClicked(actorID);
-        });
-    }
-
-    const moviesSection = document.getElementsByClassName("actor-movies")[0];
-
-    // Adăugarea titlului "Movies:"
-    const moviesTitleElement = document.createElement("div");
-    moviesTitleElement.innerHTML = `<p id="movies-title">&darr; ${actorData.name}'s Movies: &darr;</p>`;
-    moviesSection.insertBefore(moviesTitleElement, moviesSection.firstChild);
-
-    actorMovies.slice(0, 4).forEach((movie, index) => {
-        if (index % 4 === 0) {
-            const rowElement = document.createElement("div");
-            rowElement.classList.add("row");
-            moviesSection.appendChild(rowElement);
+        const saveButton = rightSection.querySelector('.save-button');
+        const savedButton = rightSection.querySelector('.saved-button');
+        if (saveButton) {
+            saveButton.addEventListener('click', () => {
+                saveButtonClicked(actorID);
+            });
         }
 
-        const currentRow = moviesSection.lastElementChild;
+        if (savedButton) {
+            savedButton.addEventListener('click', () => {
+                saveButtonClicked(actorID);
+            });
+        }
 
-        if(movie.poster_path) {
-            const posterUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+        const moviesSection = document.getElementsByClassName("actor-movies")[0];
 
-            const movieElement = document.createElement("div");
-            movieElement.classList.add("movie");
+        // Adăugarea titlului "Movies:"
+        const moviesTitleElement = document.createElement("div");
+        moviesTitleElement.innerHTML = `<p id="movies-title">&darr; ${actorData.name}'s Movies: &darr;</p>`;
+        moviesSection.insertBefore(moviesTitleElement, moviesSection.firstChild);
 
-            if (movie.original_title && movie.character) {
-                movieElement.innerHTML = `
-                <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-                <h3 id="title">${movie.original_title}</h3>
-                <p id="character">Character: ${movie.character}</p>
-                <p id="vote_average">Average vote: ${movie.vote_average}</p>
-                `;
-            } else if (movie.original_title && !movie.character) {
-                movieElement.innerHTML = `
-                <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-                <h3 id="title">${movie.original_title}</h3>
-                <p id="vote_average">Average vote: ${movie.vote_average}</p>
-                `;
-            } else if (!movie.original_title && movie.character) {
-                movieElement.innerHTML = `
-                <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-                <h3 id="title">${movie.original_name}</h3>
-                <p id="character">Character: ${movie.character}</p>
-                <p id="vote_average">Average vote: ${movie.vote_average}</p>
-                `;
-            } else {
-                movieElement.innerHTML = `
-                <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
-                <h3 id="title">${movie.original_name}</h3>
-                <p id="vote_average">Average vote: ${movie.vote_average}</p>
-                `;
+        actorMovies.slice(0, 4).forEach((movie, index) => {
+            if (index % 4 === 0) {
+                const rowElement = document.createElement("div");
+                rowElement.classList.add("row");
+                moviesSection.appendChild(rowElement);
             }
 
-            currentRow.appendChild(movieElement);
-        }
+            const currentRow = moviesSection.lastElementChild;
+
+            if(movie.poster_path) {
+                const posterUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+
+                const movieElement = document.createElement("div");
+                movieElement.classList.add("movie");
+
+                if (movie.original_title && movie.character) {
+                    movieElement.innerHTML = `
+                    <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+                    <h3 id="title">${movie.original_title}</h3>
+                    <p id="character">Character: ${movie.character}</p>
+                    <p id="vote_average">Average vote: ${movie.vote_average}</p>
+                    `;
+                } else if (movie.original_title && !movie.character) {
+                    movieElement.innerHTML = `
+                    <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+                    <h3 id="title">${movie.original_title}</h3>
+                    <p id="vote_average">Average vote: ${movie.vote_average}</p>
+                    `;
+                } else if (!movie.original_title && movie.character) {
+                    movieElement.innerHTML = `
+                    <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+                    <h3 id="title">${movie.original_name}</h3>
+                    <p id="character">Character: ${movie.character}</p>
+                    <p id="vote_average">Average vote: ${movie.vote_average}</p>
+                    `;
+                } else {
+                    movieElement.innerHTML = `
+                    <img id="poster" src="${posterUrl}" alt="Movie Poster" data-movie-id="${movie.id}">
+                    <h3 id="title">${movie.original_name}</h3>
+                    <p id="vote_average">Average vote: ${movie.vote_average}</p>
+                    `;
+                }
+
+                currentRow.appendChild(movieElement);
+            }
+        });
+    })
+    .catch(error => {
+        console.error('A apărut o eroare:', error);
     });
 
     
@@ -156,3 +191,19 @@ function saveButtonClicked(actorID) {
     window.location.href = actorUrl;
   }
   
+// function saveButtonClicked(actorID, saveButton) {
+//     // const saveButton = document.querySelector('.save-button');
+
+//     if (saveButton.textContent === "❤️ Actor saved!") {
+//         saveButton.textContent = "❤️ Save to Favorites";
+//         saveButton.classList.remove("saved");
+//         textSaveButton = '&#10084; Save to Favorites';
+//     } else {
+//         saveButton.textContent = "❤️ Actor saved!";
+//         saveButton.classList.add("saved");
+//         textSaveButton = '&#10084; Actor saved!';
+//     }
+
+//     const actorUrl = '/save-favourite/' + actorID;
+//     window.location.href = actorUrl;
+// }
