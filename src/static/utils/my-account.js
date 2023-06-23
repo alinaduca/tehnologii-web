@@ -61,25 +61,38 @@ async function showPage() {
   showPage();
   
 
-fetch('/get-username')
-    .then(response => response.json())
-    .then(data => {
-        const userField = document.getElementById('username');
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        var userField = document.getElementById('username');
         userField.innerText = data;
-    })
-    .catch(err => console.error('error:' + err));
+      } else {
+        console.error('Error: ' + this.status);
+      }
+    }
+  };
+  xhttp.open('GET', '/get-username', true);
+  xhttp.send();
 
 
-    fetch('/get-history')
-    .then(response => response.json())
-    .then(data => {
-        const historySection = document.getElementById('history');
-        for(var title of data) {
-            var dataDiv = document.createElement("div");
-            dataDiv.classList.add("titlu-diagrama");
-            dataDiv.innerText = title.title;
-            historySection.appendChild(dataDiv);
+  var xhttp1 = new XMLHttpRequest();
+  xhttp1.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        var historySection = document.getElementById('history');
+        for (var title of data) {
+          var dataDiv = document.createElement("div");
+          dataDiv.classList.add("titlu-diagrama");
+          dataDiv.innerText = title.title;
+          historySection.appendChild(dataDiv);
         }
-    })
-    .catch(err => console.error('error:' + err));
-
+      } else {
+        console.error('Error: ' + this.status);
+      }
+    }
+  };
+  xhttp1.open('GET', '/get-history', true);
+  xhttp1.send();
