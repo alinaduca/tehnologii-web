@@ -1,41 +1,36 @@
 * {
-    box-sizing: border-box;
-    transition: ease all 0.5s;
+  box-sizing: border-box;
+  transition: ease all 0.5s;
 }
-
 body {
-    background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
+  background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
 }
-
 .users-section {
-    margin-top: 150px;
-    width: 100%;
+  margin-top: 150px;
+  width: 100%;
 }
-
 .container p {
-    padding: 10px;
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 24px;
-    justify-self: center;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 24px;
+  justify-self: center;
 }
-
 .container {
-    background-color: #d4adc6;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    font-family: 'Raleway', sans-serif;
-    margin-left: 20%;
-    font-size: 16px;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background-color: #d4adc6;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 20%;
+  font-size: 16px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .container img {
-    width: 30px;
-    height: fit-content;
-    margin-right: 10px;
-    cursor: pointer;
+  width: 30px;
+  height: fit-content;
+  margin-right: 10px;
+  cursor: pointer;
 }

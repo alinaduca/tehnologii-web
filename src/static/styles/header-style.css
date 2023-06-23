@@ -3,17 +3,14 @@
   margin-right: auto;
   margin-left: -42px;
 }
-
 .logo a:hover {
   background-color: transparent;
   border-radius: 0px;
   padding: 0px 0px;
 }
-
 .logo a {
   display: block;
 }  
-
 header {
   position: fixed;
   top: 0;
@@ -26,11 +23,9 @@ header {
   align-items: center;
   z-index: 100;
 }
-
 li {
   list-style: none;
 }
-
 .nav-menu a {
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -40,7 +35,6 @@ li {
   display: flex;
   font-size: 20px;
 }
-
 .navbar {
   display: flex;
   width: 100%;
@@ -49,19 +43,16 @@ li {
   justify-content: space-between;
   align-items:center;
 }
-
 .nav-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
 }
-
 .hamburger {
   display: none;
   cursor: pointer;
 }
-
 .bar {
   display: block;
   width: 25px;
@@ -70,7 +61,6 @@ li {
   transition: all 0.3s ease;
   background-color: white;
 }
-
 header a:hover {
     background-color: #441d3e;
     font-weight: bolder;
@@ -79,7 +69,6 @@ header a:hover {
     left: auto;
     right: auto;
 }
-
 header a {
   font-weight: bolder;
   border-radius: 5px;
@@ -87,69 +76,56 @@ header a {
   left: auto;
   right: auto;
 }
-
 .container-header {
   width: 1600px;
   margin: auto;
   z-index: 100;
 }
-
 .subcontainer-header {
   width: 85%;
   margin:auto;
-}
-  
+} 
 .try-now-btn {
-    margin-right: - 55px;
-    margin-left: 12px;
-    background-color: white;
-    color: #8B3C7F;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
+  margin-left: 12px;
+  background-color: white;
+  color: #8B3C7F;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
-
 button.try-now-btn:hover {
   background-color: #3C1A37;
   font-weight: bolder;
   color:#ffffff;
   border-radius: 5px;
 }
-
 a.login {
   color: #8B3C7F;
   padding: 15px 25px;
 }
-
 a.login:hover {
   color: white;
   padding: 15px 25px;
 }
-
 @media screen and (max-width: 1600px) {
   .container-header{
     width: 100%;
   }
 } 
-
 @media screen and (max-width: 800px) {
   .hamburger{
     display:block;
   }
-  
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
-  
   .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -161,18 +137,13 @@ a.login:hover {
     text-align: center;
     transition: 0.3s;
   }
-  
   .nav-item {
     margin: 16px 0;
   }
-  
   .nav-menu.active {
     left: 0;
   }
 }
-
-/* css for header hiding on scroll down & show on scroll up */
-
 #main-header{
   position: fixed;
   top: 0;
@@ -180,23 +151,18 @@ a.login:hover {
   transition: all .3s ease;
   z-index: 100;
 }
-
 #main-header.hide{
   top: -103px;
 }
-
 #main-header.hide:hover{
   top: 0px;
 }
-
 #my-account-button {
   display: none;
 }
-
 #login-button {
   display: none;
 }
-
 #view-users {
   display: none;
 }

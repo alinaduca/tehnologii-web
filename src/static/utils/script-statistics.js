@@ -1,7 +1,7 @@
 function saveGraphicToServer(title) {
-	  fetch(`/save-graphic/${title}`)
-	  .then(response => {});
-  }
+	fetch(`/save-graphic/${title}`)
+	.then(response => {});
+}
 
 function filterResults(year) {
 	fetch(`/bargraphql/${year}`)
@@ -31,12 +31,8 @@ function filterResults(year) {
 				t: 150,
 				b: 20 
 			},
-
-		// plot_bgcolor: "rgba(0, 0, 0, 0)",
-		// paper_bgcolor: "rgba(0, 0, 0, 0)",
 			title: `Number of nominations at SAG Awards (${year})`
 		};
-		
 		Plotly.newPlot('chart', data, layout);
 	});
 }

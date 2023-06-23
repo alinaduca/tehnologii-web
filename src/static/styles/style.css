@@ -2,13 +2,11 @@
 	padding: 0;
 	margin: 0;
 }
-
 body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
-
 .overlay {
     position: fixed;
     top: 0;
@@ -21,12 +19,10 @@ body {
     align-items: center;
     z-index: 2;
 }
-  
 .message {
     text-align: center;
     color: white;
 }
-
 .login-overlay {
     background-color: white;
     color: #8B3C7F;
@@ -36,7 +32,6 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-
 button.login-overlay:hover {
     background-color: #3C1A37;
     font-weight: bolder;
@@ -50,13 +45,11 @@ a.login-overlay {
     font-size: 20px;
     padding: 15px 25px;
 }
-
 a.login-overlay:hover {
     color: white;
     background-color: #3C1A37;
     padding: 15px 25px;
 }
-
 .message > h2 {
 	color: white;
 	padding: 0px;
