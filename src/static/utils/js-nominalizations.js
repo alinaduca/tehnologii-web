@@ -188,11 +188,11 @@ function relevanceSort(sortValue) {
 
       actorsData.forEach((actor, index) => {
 
-        if (index % 4 === 0) {
-          const rowElement = document.createElement("div");
-          rowElement.classList.add("row");
-          actorsSection.appendChild(rowElement);
-        }
+        // if (index % 4 === 0) {
+           const rowElement = document.createElement("div");
+           rowElement.classList.add("row");
+           actorsSection.appendChild(rowElement);
+        // }
   
         const currentRow = actorsSection.lastElementChild;
   
@@ -270,11 +270,11 @@ function searchActorByName(actorName) {
 
         actorsData.forEach((actor, index) => {
 
-          if (index % 4 === 0) {
+          //if (index % 4 === 0) {
             const rowElement = document.createElement("div");
-            rowElement.classList.add("row");
+            rowElement.classList.add("row2");
             actorsSection.appendChild(rowElement);
-          }
+         // }
     
           const currentRow = actorsSection.lastElementChild;
     

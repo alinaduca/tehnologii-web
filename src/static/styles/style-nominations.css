@@ -85,6 +85,19 @@ body {
   align-items: center;
 }
 
+.one-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-gap: 20px; */
+}
+
+.filter-row-with-text
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .filter-field {
   display: flex;
   align-items: center;
@@ -208,12 +221,14 @@ body {
   padding-top: 20px;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
+.row2 {
+  display: grid;
+  /* justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }
 
 .movie {
