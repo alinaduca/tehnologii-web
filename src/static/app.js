@@ -63,13 +63,13 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/save-graphic/') && req.method === 'GET') {
     const title = req.url.substring('/save-graphic/'.length);
     handleDownload(req, res, title);
-  } else if (req.url === '/forgot-password' && req.method === 'POST') {
-    const { email } = req.body;
-    // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei
-    sendResetEmail(email);
-    // Răspuns către client, de exemplu, un mesaj de succes
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('E-mailul de resetare a parolei a fost trimis');
+  // } else if (req.url === '/forgot-password' && req.method === 'POST') {
+  //   const { email } = req.body;
+  //   // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei
+  //   sendResetEmail(email);
+  //   // Răspuns către client, de exemplu, un mesaj de succes
+  //   res.writeHead(200, { 'Content-Type': 'text/plain' });
+  //   res.end('E-mailul de resetare a parolei a fost trimis');
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
   } else if (req.url === '/get-history' && req.method === 'GET') {
