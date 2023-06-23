@@ -8,14 +8,12 @@ footer {
 	justify-content: space-between;
 	padding: 0 30px;
 }
-
 .left-footer {
 	max-width: 30%;
 	font-size: 30px;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	color: #eee;
 }
-
 .center-footer {
 	font-size: 22px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -24,7 +22,6 @@ footer {
 	display: flex;
 	justify-content: space-evenly;
 }
-
 .right-footer {
 	max-width: 30%;
 	font-size: 16px;
@@ -33,35 +30,27 @@ footer {
 	justify-content:right;
 	margin: auto 0;
 }
-
 #about-us {
 	font-size: 20px;
 	color:rgb(255, 255, 255);
 	padding-bottom: 5px;
 }
-
 #nume-echipa {
 	display: inline;
 	font-size: 32px;
-	/* background: -webkit-linear-gradient(#eee, rgb(62, 4, 125));
-	background-clip: text;
-	-webkit-text-fill-color: transparent; */
 }
-
 #copyright {
 	padding-top: 5px;
 	font-size: 16px;
 	color:#b1b1b1;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
 #location {
 	display: flex;
 	align-items: center;
 	padding-bottom: 5px;
 	padding-right: 4vh;
 }
-
 .circle {
 	background-color: #140d2a;
 	border-radius: 20px;
@@ -71,56 +60,43 @@ footer {
 	align-items: center;
 	justify-content: center;
 }
-
 .name {
 	display: flex;
 	align-items: center;
 }
-
 #loc {
 	padding-left: 10px;
 }
-
 #city {
 	font-size: 20px;
 }
-
 .name > p {
 	padding-left: 10px;
 	font-size: 18px;
 }
-
 .center-footer > div {
 	padding: 0 5px;
 }
-
 .center-footer > div > div > div > i, .center-footer > div > div > i {
 	color: white;
 }
-
 .center-footer > div > div > p {
 	color: #c6b6d6;
 }
-
 @media only screen and (max-width: 1050px) {
-
 	.center-footer {
 		display: inline;
 	}
-
 	.right-footer {
 		margin: 10px 0;
 	}
 }
-
 @media only screen and (max-width: 650px) {
-
 	footer {
 		flex-wrap: wrap;
 		display: flex;
 		align-items: center;
 	}
-	
 	.left-footer {
 		max-width: 100%;
 		padding: 0;
@@ -130,13 +106,11 @@ footer {
 		text-align: center;
 		align-content: center;
 	}
-
 	.center-footer {
 		align-items: center;
 		justify-content: center;
 		margin-top: 10px;
-	}
-	
+	}	
 	.right-footer {
 		margin: 0;
 		padding: 0;
@@ -145,15 +119,12 @@ footer {
 		max-width: 50%;
 	} 
 }
-
 @media only screen and (max-width: 450px) {
-
 	footer {
 		flex-wrap: wrap;
 		display: flex;
 		align-items: center;
 	}
-	
 	.left-footer {
 		max-width: 100%;
 		padding: 0;
@@ -163,7 +134,6 @@ footer {
 		text-align: center;
 		align-content: center;
 	}
-
 	.center-footer {
 		max-width: 100%;
 		padding: 10px 0;
@@ -174,7 +144,6 @@ footer {
 		text-align: center;
 		align-content: center;
 	}
-	
 	.right-footer {
 		max-width: 100%;
 		padding: 5px 0 20px 0;
@@ -184,22 +153,16 @@ footer {
 		text-align: center;
 		align-content: center;
 	} 
-
 	#loc {
-		align-items: left;
 		text-align: left;
 	}
 }
-
-	@media only screen and (max-width: 280px) {
-
+@media only screen and (max-width: 280px) {
 	.center-footer {
 		display: inline;
 		text-align: center;
 	}
-
 	#loc {
-		align-items: left;
 		text-align: left;
 	}
 }

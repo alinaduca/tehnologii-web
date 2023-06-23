@@ -15,7 +15,7 @@ const { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors 
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
-const { handleSaveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
+const { handleSaveFavouriteActorRequest,handleExistsFavouriteActorRequest, handleRemoveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
 const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
@@ -63,13 +63,13 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/save-graphic/') && req.method === 'GET') {
     const title = req.url.substring('/save-graphic/'.length);
     handleDownload(req, res, title);
-  } else if (req.url === '/forgot-password' && req.method === 'POST') {
-    const { email } = req.body;
-    // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei
-    sendResetEmail(email);
-    // Răspuns către client, de exemplu, un mesaj de succes
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('E-mailul de resetare a parolei a fost trimis');
+  // } else if (req.url === '/forgot-password' && req.method === 'POST') {
+  //   const { email } = req.body;
+  //   // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei
+  //   sendResetEmail(email);
+  //   // Răspuns către client, de exemplu, un mesaj de succes
+  //   res.writeHead(200, { 'Content-Type': 'text/plain' });
+  //   res.end('E-mailul de resetare a parolei a fost trimis');
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
   } else if (req.url === '/get-history' && req.method === 'GET') {
@@ -85,6 +85,10 @@ const server = http.createServer((req, res) => {
     getStatisticLine(req, res, year);
   } else if (req.url.startsWith('/save-favourite/') && req.method === 'GET') {
     handleSaveFavouriteActorRequest(req, res);
+  } else if ((req.url.startsWith('/exists-fav-actor/') && req.method === 'GET')) {
+    handleExistsFavouriteActorRequest(req, res);
+  } else if ((req.url.startsWith('/remove-fav-actors/') && req.method === 'GET')) {
+    handleRemoveFavouriteActorRequest(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {

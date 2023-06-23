@@ -1,23 +1,20 @@
 #actor-section {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 30px;
 }
-
 .left-section {
   width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 #profile-img img {
   max-width: 500px;
   max-height: 500px;
   border-radius: 5%;
+  border: 2px solid rgb(255, 255, 255);
 }
-
-/* Stilizare secțiunea dreaptă */
 .right-section {
   width: 60%;
   background-color: #c7b7c7;
@@ -25,15 +22,6 @@
   padding-left: 50px;
   padding-right: 30px;
 }
-
-/* @media screen and (max-width: 600px) {
-  .left-section, .right-section {
-    flex: none;
-    width: 100%;
-    min-width: 0;
-  }
-} */
-
 .actor-name {
   font-weight: bold;
   margin-bottom: 10px;
@@ -44,7 +32,6 @@
   text-shadow: 2px 2px 4px #d4adc6;
   animation: glow 2s ease-in-out infinite alternate
 }
-
 @keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #cd0293, 0 0 40px #cd0293, 0 0 50px #cd0293, 0 0 60px #cd0293, 0 0 70px #cd0293;
@@ -53,7 +40,6 @@
     text-shadow: 0 0 20px #fff, 0 0 30px #d355a3, 0 0 40px #d355a3, 0 0 50px #d355a3, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #d355a3;
   }
 }
-
 .save-button {
   background-color: #fff;
   color: #8B3C7F;
@@ -65,109 +51,120 @@
   box-shadow: 0 2px 5px #d4adc6;
   margin-bottom: 30px;
 }
-
+.save-button:hover {
+  background-color: #8B3C7F;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px #d4adc6;
+  margin-bottom: 30px;
+}
+.saved-button {
+  background-color: #e53538d3;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px #d4adc6;
+  margin-bottom: 30px;
+}
+.saved-button:hover {
+  background-color: #fff;
+  color: #e53538d3;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px #d4adc6;
+  margin-bottom: 30px;
+}
 p {
   margin-bottom: 15px;
 }
-
 .profile-info, .profile-popularity, .profile-bio {
   font-size: 20px;
   color: #231942;
   text-shadow: 1px 1px 2px #d4adc6;
 }
-
-.profile-info::before,
-.profile-popularity::before,
-.profile-bio::before {
+.profile-info::before, .profile-popularity::before, .profile-bio::before {
   content: "• ";
 }
-
 .profile-bio {
   margin-top: 10px;
 }
-
-
-
 .row {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }
-
 .movie {
-background-color: #c7b7c7;
-border-radius: 20%;
-padding: 10px;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-text-align: center;
-margin-bottom: 20px;
-
+  background-color: #c7b7c7;
+  border-radius: 20%;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  margin-bottom: 20px;
 }
-
 .movie h3 {
-font-size: 16px;
-margin-top: 10px;
-color: #333;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
 }
-
 @media screen and (max-width: 1200px) {
-.row {
-  grid-template-columns: repeat(3, 1fr);
+  .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-}
-
 @media screen and (max-width: 800px) {
-.row {
-  grid-template-columns: repeat(2, 1fr);
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-}
-
 @media screen and (max-width: 600px) {
-.row {
-  grid-template-columns: 1fr;
+  .row {
+    grid-template-columns: 1fr;
+  }
 }
-}
-
-
 #poster {
-width: 70%;
-height: auto;
-border-radius: 5%;
+  width: 70%;
+  height: auto;
+  border-radius: 5%;
+  border: 2px solid rgb(255, 255, 255);
 }
-
 #movies-title {
-padding-top: 30px;
-font-size: 50px;
-color: #fff;
-text-align: center;
-opacity: 1;
-animation: glow2 2s ease-in-out infinite alternate, fadeOut 2s 3s cubic-bezier(0.2, 0.6, 0.8, 0.4) forwards;
+  padding-top: 30px;
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  opacity: 1;
+  animation: glow2 2s ease-in-out infinite alternate, fadeOut 2s 3s cubic-bezier(0.2, 0.6, 0.8, 0.4) forwards;
 }
-
-
 @keyframes glow2 {
-from {
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ebcfdd, 0 0 40px #ebcfdd, 0 0 50px #ebcfdd, 0 0 60px #ebcfdd, 0 0 70px #ebcfdd;
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ebcfdd, 0 0 40px #ebcfdd, 0 0 50px #ebcfdd, 0 0 60px #ebcfdd, 0 0 70px #ebcfdd;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff, 0 0 80px #ffffff;
+  }
 }
-to {
-  text-shadow: 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff, 0 0 80px #ffffff;
-}
-}
-
 #title {
-font-size: 20px;
+  font-size: 20px;
   color: #231942;
   text-shadow: 1px 1px 2px #b087a1;
 }
-
 #character {
-font-size: 17px;
+  font-size: 17px;
   color: #231942;
   text-shadow: 1px 1px 2px #b087a1;
 }
-
 #vote_average {
-font-size: 17px;
+  font-size: 17px;
   color: #231942;
   text-shadow: 1px 1px 2px #b087a1;
 }

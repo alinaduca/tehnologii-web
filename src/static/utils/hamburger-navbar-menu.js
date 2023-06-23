@@ -42,22 +42,3 @@ fetch('/check-token')
   .catch(error => {
     console.log('Error:', error);
   });
-
-
-
-
-// const tokenCookie = document.cookie;
-// const tokenButton = document.getElementById('my-account-button');
-// const loginButton = document.getElementById('login-button');
-
-// console.log('tokenCookie: ' + tokenCookie);
-
-// if (tokenCookie.includes('token')) {
-//   // "token" cookie exists, show "My Account" button, but hide "Login" button
-//   tokenButton.style.display = 'block';
-//   loginButton.style.display = 'none';
-// } else {
-//   // "token" cookie doesn t exists, show "Login" button, but hide "My Account" button
-//   tokenButton.style.display = 'none';
-//   loginButton.style.display = 'block';
-// }

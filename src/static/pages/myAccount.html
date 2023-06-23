@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title> My Account </title>
         <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
 		<link rel="stylesheet" type="text/css" href="../styles/style.css">
@@ -43,7 +43,7 @@
                             <button id="login-button" class="try-now-btn loginButton" display="block"><a class="login" href="/login">Login</a></button>
                         </li>
                         <li class="nav-item">
-                            <button id="my-account-button" class="try-now-btn loginButton" disply="block"><a class="login" href="#">My Account</a></button>
+                            <button id="my-account-button" class="try-now-btn loginButton" disply="block"><a class="login" href="/my-account">My Account</a></button>
                         </li>
                     </ul>
                     
@@ -57,7 +57,7 @@
         </div> 
     </header>
 
-    <section class="content">
+    <div class="content">
         <h2 id="welcome">Welcome, <span id="username"></span>!</h2>
         <form id="changePasswordForm" action="/my-account/chnage-password" method="POST">
             <h3 id="title-changePasswordForm">Change Password</h3>
@@ -77,12 +77,12 @@
         <div id="history"></div>
 
         <div class="fav-actors">
-            <h2 id="title-fav">Favourite Actors:</h2>
+            <h2 id="title-fav">Favorite Actors:</h2>
             <div class="favourites-actors">
                <!-- Aici vor fi afișate filmele dinamic utilizând JavaScript --> 
             </div>
         </div>
-    </section>
+    </div>
       
     <footer>
         <div class="left-footer">
@@ -132,7 +132,6 @@
         </div>
     </footer>
     <script src="../utils/my-account.js"></script>
-    <script src="../utils/hide-header.js"></script>
     <script src="../utils/hamburger-navbar-menu.js"></script>
     <script src="../utils/view-users-button.js"></script>
     </body>

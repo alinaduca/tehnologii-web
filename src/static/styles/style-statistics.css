@@ -2,11 +2,9 @@
     box-sizing: border-box;
     transition: ease all 0.5s;
 }
-
 body {
     background-image: radial-gradient(ellipse at center bottom, #462760 10%, #e8c4e5 100%);
 }
-
 .year a:hover {
     background-color: #e8c4e5;
     cursor: pointer;
@@ -18,7 +16,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .container {
     width: 100%;
     padding-right: 15px;
@@ -26,31 +23,13 @@ body {
     margin-right: auto;
     margin-left: auto
   }
-
 .content {
     margin-top: 100px;
 }
-
-canvas {
-    max-height: 70%;
-    max-width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e8c4e5;
-    display: block;
-    margin: 20px;
-}
-
-#myChart3 {
-    padding: 5%;
-}
-
 .years {
     display: flex;
     margin-bottom: 20px;
 }
-
 .year {
     cursor: pointer;
     margin: 5px;
@@ -63,12 +42,10 @@ canvas {
     align-items: center;
     justify-content: center;
 }
-
 .content-body {
     margin: 0 10%;
     margin-top: 1%;
 }
-
 .diagrams {
     width: auto;
     display: flex;
@@ -77,21 +54,17 @@ canvas {
     flex-direction: column;
     text-align: left;
 }
-
 h1 {
     font-weight: normal;
 }
-
 .text {
     margin-top: 30px;
     width: 90%;
-    padding: auto;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
     font-size: 20px;
 }
-
 .export {
     display: flex;
     flex-direction: row;
@@ -99,7 +72,6 @@ h1 {
     width: 40%;
     margin-bottom: 70px;
 }
-
 .item {
     cursor: pointer;
     margin: 5px;
@@ -113,13 +85,11 @@ h1 {
     border: 1px solid black;
     justify-content: center;
 }
-
 .active-year {
     background-color: #f6f0f6;
     color: #462760;
     font-weight: bold;
 }
-
 .input-field {
     background-color: #462760;
     border: 1px solid #2a123e;
@@ -127,7 +97,6 @@ h1 {
     font-size: 17px;
     margin: 5px;
 }
-
 #search {
     text-decoration: none;
     border: 2px solid #2a123e;
@@ -137,29 +106,23 @@ h1 {
     font-size: large;
     color: #c6a5c3;
 }
-
 #search:hover {
     background-color: #e8c4e5;
     border: 2px solid #ac8ca9;
     color:#2a123e;
 }
-
 #searchForm {
     justify-content: center;
 }
-
 .form-content {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
 }
-
 #export {
     display: none;
 }
-
 .spacing {
     margin: 20px;
 }
-
