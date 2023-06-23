@@ -254,8 +254,8 @@ const apiKey = '20b2f2eac97828b0328fd08d0039264c'; // înlocuiește cu cheia ta 
 const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMGIyZjJlYWM5NzgyOGIwMzI4ZmQwOGQwMDM5MjY0YyIsInN1YiI6IjY0ODk3Mzk1ZTI3MjYwMDBlOGMzMDlhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MwlA_KvNWITCgQzesL6MSktQoeHTDtHXiRYszXtyBgY'; // înlocuiește cu tokenul tău real de acces
 
 function searchActorByName(actorName) {
-	const searchUrl = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${encodeURIComponent(actorName)}`;
-  
+	const searchUrl =
+`https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${encodeURIComponent(actorName)}`;
 	return fetch(searchUrl, {
 	  headers: {
 		Authorization: `Bearer ${accessToken}`,
@@ -267,7 +267,6 @@ function searchActorByName(actorName) {
 		if (actor) {
 		  const actorId = actor.id;
 		  const actorDetailsUrl = `https://api.themoviedb.org/3/person/${actorId}?api_key=${apiKey}`;
-  
 		  return fetch(actorDetailsUrl, {
 			headers: {
 			  Authorization: `Bearer ${accessToken}`,
