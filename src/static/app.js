@@ -15,7 +15,7 @@ const { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors 
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
 const { connectToDatabase } = require('./database/dbManager');
 const { handleDeleteUserRequest } = require('../api/deleteUserAPI');
-const { handleSaveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
+const { handleSaveFavouriteActorRequest,handleExistsFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
 const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
 const getRights = require('./utils/check-rights');
 const getData = require('../api/allUsersAPI');
@@ -85,6 +85,8 @@ const server = http.createServer((req, res) => {
     getStatisticLine(req, res, year);
   } else if (req.url.startsWith('/save-favourite/') && req.method === 'GET') {
     handleSaveFavouriteActorRequest(req, res);
+  } else if ((req.url.startsWith('/exists-fav-actor/') && req.method === 'GET')) {
+    handleExistsFavouriteActorRequest(req, res);
   } else if (fileExtension === '.css') {
     fs.readFile(filePath, (err, data) => {
       if (err) {
