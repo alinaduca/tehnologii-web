@@ -49,7 +49,7 @@ async function handleChangePasswordSubmit(req, res) {
         }
     
         // Token-ul a fost decodat cu succes
-        console.log('Informații din token:', decodedToken);
+        // console.log('Informații din token:', decodedToken);
         email = decodedToken.email;
 
         console.log('email: ' + email);
@@ -218,7 +218,7 @@ async function getFavouritesActors(req, res) {
       }
   
       // Token-ul a fost decodat cu succes
-      console.log('Informații din token:', decodedToken);
+      // console.log('Informații din token:', decodedToken);
       email = decodedToken.email;
     });
   }
