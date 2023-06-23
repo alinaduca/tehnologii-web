@@ -1,26 +1,23 @@
 const http = require('http');
-const fs = require('fs');
 const path = require('path');
-const jwt = require('jsonwebtoken');
-const cookie = require('cookie');
-const { handleStatisticsRequest } = require('./controllers/statisticsController');
+const fs = require('fs');
+const { handleSaveFavouriteActorRequest,handleExistsFavouriteActorRequest, handleRemoveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
+const { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors } = require('./controllers/myAccountController');
+const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
+const { handleLoginRequest, handleLoginSubmission, getUsername } = require('./controllers/loginController');
+const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
 const { handleNominationsRequest } = require('./controllers/nominationsController');
 const { handleSpecificActorRequest } = require('./controllers/actorPageController');
-const { handleNewsRequest } = require('./controllers/newsController');
-const { handleLoginRequest, handleLoginSubmission, getUsername } = require('./controllers/loginController');
-const { handleLogoutRequest } = require('./controllers/logoutController');
-const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./controllers/createAccountController');
-const sendResetEmail = require('./controllers/forgotPswdController');
-const { handleMyAccountRequest, handleChangePasswordSubmit, getFavouritesActors } = require('./controllers/myAccountController');
+const { handleDownload, getHistory } = require('./controllers/downloadController');
+const { handleStatisticsRequest } = require('./controllers/statisticsController');
 const { handleAllUsersRequest } = require('./controllers/allUsersController'); 
-const { connectToDatabase } = require('./database/dbManager');
+const { handleLogoutRequest } = require('./controllers/logoutController');
+const { handleNewsRequest } = require('./controllers/newsController');
 const { handleDeleteUserRequest } = require('./api/deleteUserAPI');
-const { handleSaveFavouriteActorRequest,handleExistsFavouriteActorRequest, handleRemoveFavouriteActorRequest } = require('./controllers/saveFavouriteActorController');
-const { getStatisticBar, getStatisticPie, getStatisticLine } = require('./api/statisticsAPI');
+const { executeInitialSchema } = require('./database/sqldatabase');
+const { connectToDatabase } = require('./database/dbManager');
 const getRights = require('./utils/check-rights');
 const getData = require('./api/allUsersAPI');
-const { executeInitialSchema } = require('./database/sqldatabase');
-const { handleDownload, getHistory } = require('./controllers/downloadController');
 
 executeInitialSchema();
 connectToDatabase();
@@ -63,13 +60,6 @@ const server = http.createServer((req, res) => {
   } else if (req.url.startsWith('/save-graphic/') && req.method === 'GET') {
     const title = req.url.substring('/save-graphic/'.length);
     handleDownload(req, res, title);
-  // } else if (req.url === '/forgot-password' && req.method === 'POST') {
-  //   const { email } = req.body;
-  //   // Apelul funcției sendResetEmail pentru a trimite e-mailul de resetare a parolei
-  //   sendResetEmail(email);
-  //   // Răspuns către client, de exemplu, un mesaj de succes
-  //   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  //   res.end('E-mailul de resetare a parolei a fost trimis');
   } else if (req.url === '/api/all-users' && req.method === 'GET') {
     getData(req, res);
   } else if (req.url === '/get-history' && req.method === 'GET') {
@@ -130,15 +120,12 @@ const server = http.createServer((req, res) => {
       }
     });
   }
-
   if (req.url === '/check-token' && req.method === 'GET') {
     const tokenCookie = req.headers.cookie;
     const hasToken = tokenCookie && tokenCookie.includes('token');
-
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ hasToken }));
   }
-
 });
 
 const port = 3000;

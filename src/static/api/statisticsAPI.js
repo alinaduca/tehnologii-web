@@ -14,7 +14,6 @@ function getStatisticBar(req, res, year) {
       console.error(err.message);
     } else {
       rows.forEach((row) => {
-        // console.log(`${row.full_name}\t${row.count_actors}`);
         infos.push({"name" : row.full_name, "number_of_nominations" : row.count_actors});
       });
       res.setHeader('Content-Type', 'application/json');
@@ -33,7 +32,6 @@ function getStatisticPie(req, res, year) {
       console.error(err.message);
     } else {
       rows.forEach((row) => {
-        // console.log(`${row.full_name}\t${row.count_actors}`);
         infos.push({"name" : row.full_name, "number_of_nominations" : row.count_actors});
       });
       res.setHeader('Content-Type', 'application/json');
@@ -52,7 +50,6 @@ function getStatisticLine(req, res, year) {
       console.error(err.message);
     } else {
       rows.forEach((row) => {
-        // console.log(`${row.show}\t${row.count_actors}`);
         infos.push({"show" : row.show, "number_of_actors" : row.count_actors});
       });
       res.setHeader('Content-Type', 'application/json');

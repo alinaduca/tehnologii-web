@@ -15,5 +15,4 @@ function handleStatisticsRequest(req, res) {
   });
 }
 
-
 module.exports = { handleStatisticsRequest };

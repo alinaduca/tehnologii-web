@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const { getClient } = require("../database/dbManager");
 const { createAccount } = require('./createAccountService');
 
 function handleCreateAccountRequest(req, res) {
@@ -31,12 +30,8 @@ async function handleCreateAccountSubmit(req, res) {
     const forgotEmail = formData.get('forgotEmail');
     const password = formData.get('password');
     const confirmPassword = formData.get('confirmPassword');
-
-    // console.log(formData);
-
     createAccount(username, forgotEmail, password, confirmPassword, res);
   });
 }
-
 
 module.exports = { handleCreateAccountRequest, handleCreateAccountSubmit };

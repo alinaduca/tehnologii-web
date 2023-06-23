@@ -1,143 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title> News </title>
-      <link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
+		<link rel="icon" href="https://i.ibb.co/VVgyf4k/flame.png">
 		<link rel="stylesheet" type="text/css" href="../styles/style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/header-style.css">
 		<link rel="stylesheet" type="text/css" href="../styles/footer-style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-      <link rel="stylesheet" type="text/css" href="../styles/style-news.css">
-   </head>
-   <body>
-   <header>
-        <div class="container-header">
-            <div class="subcontainer-header">
-              <nav class="navbar">
-                <div class="logo">
-                    <a href="/">
-                      <img class="logo-img" href="/" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                  <li class="nav-item">
-                     <a href="/" class="nav-link">Home</a>
-                  </li>    
-                  <li class="nav-item">
-                     <a href="/statistics" class="nav-link">Statistics</a>
-                  </li>    
-                  <li class="nav-item">
-                     <a href="/actors" class="nav-link">Actors</a>
-                  </li>    
-                  <li class="nav-item">
-                     <a href="/news" class="nav-link">News</a>
-                  </li>   
-                  <li class="nav-item">
-                    <a href="/all-users" class="nav-link" id="view-users">View Users</a>
-                  </li>  
-                  <li class="nav-item">
-                    <button id="login-button" class="try-now-btn loginButton" display="block"><a class="login" href="/login">Login</a></button>
-                  </li>
-                  <li class="nav-item">
-                    <button id="my-account-button" class="try-now-btn loginButton" disply="block"><a class="login" href="/my-account">My Account</a></button>
-                  </li>
-                </ul>
-                
-                <div class="hamburger">
-                  <span class="bar"></span>    
-                  <span class="bar"></span>   
-                  <span class="bar"></span>
-                </div>
-                
-              </nav>
-            </div>
-        </div> 
-     </header>
-
-	<div>
-		<div class="overlay">
-            <div class="message">
-                <h2>Access Restricted</h2>
-                <p>Please log in to view page content.</p>
-                <button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
-            </div>
-        </div>
-		<div id="content-news" class="content-news-class">
-			<h1 id="h1-news">NEWS</h1>
-			<form id="searchForm">
-				<div class="input-text">
-					<input type="text" id="actorName" placeholder="Enter actor1 name" />
+		<link rel="stylesheet" type="text/css" href="../styles/style-news.css">
+	</head>
+	<body>
+		<header>
+			<div class="container-header">
+				<div class="subcontainer-header">
+					<nav class="navbar">
+						<div class="logo">
+							<a href="/">
+								<img class="logo-img" src="https://www.linkpicture.com/q/logo_354.png" alt="" title="Explorează lumea actorilor prin cifre">
+							</a>
+						</div>
+						<ul class="nav-menu">
+							<li class="nav-item">
+								<a href="/" class="nav-link">Home</a>
+							</li>    
+							<li class="nav-item">
+								<a href="/statistics" class="nav-link">Statistics</a>
+							</li>    
+							<li class="nav-item">
+								<a href="/actors" class="nav-link">Actors</a>
+							</li>    
+							<li class="nav-item">
+								<a href="/news" class="nav-link">News</a>
+							</li>   
+							<li class="nav-item">
+								<a href="/all-users" class="nav-link" id="view-users">View Users</a>
+							</li>  
+							<li class="nav-item">
+								<button id="login-button" class="try-now-btn loginButton"><a class="login" href="/login">Login</a></button>
+							</li>
+							<li class="nav-item">
+								<button id="my-account-button" class="try-now-btn loginButton"><a class="login" href="/my-account">My Account</a></button>
+							</li>
+						</ul>
+						
+						<div class="hamburger">
+							<span class="bar"></span>    
+							<span class="bar"></span>   
+							<span class="bar"></span>
+						</div>
+					</nav>
 				</div>
-        <div class="input-text">
-          <input type="text" id="actorName2" placeholder="Enter actor2 name" />
-        </div>
-        <div class="users-section"> 
-			<a href="javascript:showhide('uniquename')" id="a-news">Search</a>
-			<div id="uniquename" style="display:block;">
-        <h1 id="latest-news">Latest News from Hollywood</h1>
-        <h1 id="latest-news">&darr; &darr; &darr;</h1>
-				<div class="news_section" id="articleList"></div>
+			</div> 
+		</header>
+
+		<div>
+			<div class="overlay">
+				<div class="message">
+					<h2>Access Restricted</h2>
+					<p>Please log in to view page content.</p>
+					<button class="login-overlay"><a class="login-overlay" href="/login">Login</a></button>
+				</div>
 			</div>
-			
+
+			<div id="content-news" class="content-news-class">
+				<h1 id="h1-news">NEWS</h1>
+				<form id="searchForm">
+					<div class="input-text">
+						<input type="text" id="actorName" placeholder="Enter actor1 name">
+					</div>
+					<div class="input-text">
+						<input type="text" id="actorName2" placeholder="Enter actor2 name">
+					</div>
+
+					<div class="users-section"> 
+						<a href="javascript:showhide('uniquename')" id="a-news">Search</a>
+						<div id="uniquename" style="display:block;">
+							<h1 id="latest-news">Latest News from Hollywood</h1>
+							<h1 id="latest-news">&darr; &darr; &darr;</h1>
+							<div class="news_section" id="articleList"></div>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
-		
-	</form>
-</div>
-</div>
 
-      <footer>
-        <div class="left-footer">
-            <p>
-                FireStream 
-            </p>
-            <p id="copyright">Copyright &#169; 2023 <strong>FireStream</strong> All rights reserved</strong></p>
-        </div>
+		<footer>
+			<div class="left-footer">
+				<p>
+					FireStream 
+				</p>
+				<p id="copyright">Copyright &#169; 2023 <strong>FireStream</strong> All rights reserved</p>
+			</div>
 
-        <div class="center-footer">
-            <div id="location">
-                <div class="circle">
-                    <i class="fa fa-map-marker-alt fa-lg"></i>
-                </div>
-                <div id="loc">
-                    <p id="city">Iași</p>
-                    <p id="country">România</p>
-                </div>
-            </div>
-            <div id="echipa">
-                <div class="name">
-                    <div class="circle">
-                        <i class="fa fa-envelope fa-sm"></i>
-                    </div>
-                    <p>Chichirău Claudiu</p>
-                </div>
-                <div class="name">
-                    <div class="circle">
-                        <i class="fa fa-envelope fa-sm"></i>
-                    </div>
-                    <p>Duca Alina</p>
-                </div>
-                <div class="name">
-                    <div class="circle">
-                        <i class="fa fa-envelope fa-sm"></i>
-                    </div>
-                    <p>Renghiuc Bianca</p>
-                </div>
-            </div>
-        </div>
+			<div class="center-footer">
+				<div id="location">
+					<div class="circle">
+						<i class="fa fa-map-marker-alt fa-lg"></i>
+					</div>
+					<div id="loc">
+						<p id="city">Iași</p>
+						<p id="country">România</p>
+					</div>
+				</div>
+				<div id="echipa">
+					<div class="name">
+						<div class="circle">
+							<i class="fa fa-envelope fa-sm"></i>
+						</div>
+						<p>Chichirău Claudiu</p>
+					</div>
+					<div class="name">
+						<div class="circle">
+							<i class="fa fa-envelope fa-sm"></i>
+						</div>
+						<p>Duca Alina</p>
+					</div>
+					<div class="name">
+						<div class="circle">
+							<i class="fa fa-envelope fa-sm"></i>
+						</div>
+						<p>Renghiuc Bianca</p>
+					</div>
+				</div>
+			</div>
 
-        <div class="right-footer">
-            <p id="about-us"><strong>About us</strong></p>
-            <p>
-                <strong>FireStream</strong> is a team of three students from the Faculty of Computer Science of the UAIC and this website is our Web Technologies project.
-            </p>
-        </div>
-    </footer>
-    <script src="../utils/hamburger-navbar-menu.js"></script>
-    <script src="../utils/script-news.js"></script>
-    <script src="../utils/add-coverage.js"></script>
-    <script src="../utils/view-users-button.js"></script>
+			<div class="right-footer">
+				<p id="about-us"><strong>About us</strong></p>
+				<p>
+					<strong>FireStream</strong> is a team of three students from the Faculty of Computer Science of the UAIC and this website is our Web Technologies project.
+				</p>
+			</div>
+		</footer>
+		<script src="../utils/hamburger-navbar-menu.js"></script>
+		<script src="../utils/script-news.js"></script>
+		<script src="../utils/add-coverage.js"></script>
+		<script src="../utils/view-users-button.js"></script>
    </body>
 </html>

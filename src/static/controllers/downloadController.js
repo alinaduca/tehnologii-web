@@ -4,7 +4,6 @@ const { getEmail } = require("./loginController");
 async function handleDownload(req, res, inputString) {
     try {
         title = decodeURIComponent(inputString.replace(/%20/g, ' '));
-
         const email = getEmail(); // Înlocuiește cu metoda ta de a obține adresa de email a utilizatorului
 
         // Verifică dacă există deja o înregistrare cu același email și titlu
@@ -12,13 +11,14 @@ async function handleDownload(req, res, inputString) {
         const db = client.db('sagdatabase');
         const downloadsCollection = db.collection('downloads');
         const existingDownload = await downloadsCollection.findOne({ email: email, title: title });
-
         if (existingDownload) {
+
             // Dacă există deja o înregistrare, returnează un răspuns corespunzător
             res.setHeader('Content-Type', 'application/json');
             res.statusCode = 409; // Conflict - codul de stare pentru conflict
             res.end(JSON.stringify({ message: 'Download already exists.' }));
         } else {
+            
             // Nu există o înregistrare existentă, efectuează inserarea
             const downloadData = {
                 email: email,

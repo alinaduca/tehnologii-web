@@ -2,7 +2,6 @@ const MongoClient = require('mongodb').MongoClient;
 
 // Definirea URL-ului de conexiune la MongoDB Atlas
 const uri = 'mongodb+srv://authenticationDB:iAlwqAFcb3usmiMh@cluster0.kn9hbrl.mongodb.net/';
-
 let client;
 
 async function connectToDatabase() {
