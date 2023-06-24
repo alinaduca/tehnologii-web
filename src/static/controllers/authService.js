@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie');
 const { getClient } = require('../database/dbManager');
+let email="";
 
 async function authenticateUser(email, password, res) {
   const client = getClient();
@@ -27,6 +28,7 @@ async function authenticateUser(email, password, res) {
       console.log('Autentificare reușită');
       const secretKey = 'ak1j3bk^jb4986:BKG9h%jG#I7687jhg!';
       const token = jwt.sign({ email }, secretKey);
+      setEmail(email);
 
       // Adăugare token în antetul răspunsului HTTP
       res.setHeader('Authorization', 'Bearer ' + token);
@@ -54,4 +56,12 @@ async function authenticateUser(email, password, res) {
   }
 }
 
-module.exports = { authenticateUser };
+function getEmail() {
+  return email;
+}
+
+function setEmail(user) {
+  email = user;
+}
+
+module.exports = { authenticateUser, getEmail, setEmail };

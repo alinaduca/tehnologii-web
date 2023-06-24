@@ -59,10 +59,10 @@ async function handleChangePasswordSubmit(req, res) {
         const hashedPassword = crypto.createHash(algorithm).update(saltedPassword).digest('hex');   
 
         // verify if the passwords are the same
-        if (hashedPassword != dbPassword) {
+        if (hashedPassword === dbPassword) {
           res.setHeader('Content-Type', 'text/html');
           res.end(`
-            <script>alert('The current password entered is not correct');</script>
+            <script>alert('The current password cannot be the same as the old one');</script>
             <script>window.location.href = "/my-account";</script>
           `);
           return;
@@ -86,7 +86,7 @@ async function handleChangePasswordSubmit(req, res) {
     }
 
     // daca newPassword != confirmNewPassword
-    if (newPassword != confirmPassword) {
+    if (newPassword !== confirmPassword) {
       res.setHeader('Content-Type', 'text/html');
       res.end(`
         <script>alert('Newly entered passwords do not match!');</script>

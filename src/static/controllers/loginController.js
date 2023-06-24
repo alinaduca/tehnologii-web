@@ -3,9 +3,7 @@ const path = require('path');
 const { authenticateUser } = require('./authService');
 
 let username="";
-let email="";
 let userType;
-let connectedEmail;
 function handleLoginRequest(req, res) {
   const filePath = path.join(__dirname, '../pages/login.html');
 
@@ -67,16 +65,8 @@ function getUsername(req, res) {
   res.end(JSON.stringify(username));
 }
 
-function getEmail() {
-  return email;
-}
-
-function setEmail(user) {
-  email = user;
-}
-
 function setUsername(user) {
   username = user;
 }
 
-module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername, setEmail, getEmail };
+module.exports = { handleLoginRequest, handleLoginSubmission, getUserType, getUsername, setUsername };

@@ -1,8 +1,9 @@
 const { getClient } = require("../database/dbManager");
-const { getEmail } = require("./loginController");
+const { getEmail } = require("./authService");
 
 async function handleDownload(req, res, inputString) {
     try {
+        getEmail
         title = decodeURIComponent(inputString.replace(/%20/g, ' '));
         const email = getEmail(); // Înlocuiește cu metoda ta de a obține adresa de email a utilizatorului
 
