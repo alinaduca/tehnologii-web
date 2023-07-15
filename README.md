@@ -1,33 +1,43 @@
-AcVis
+# 📈 TW Project - AcVis (Actors Smart Visualizer)
 
-Nume echipă: FireStream
+# 📚 Team:
 
-Componența echipei:
+* 🔥 FireStream
+
+# 📚 Authors:
+
+* 👨‍💻 Chichirău Claudiu
+
+* 👩‍💻 Duca Alina
+
+* 👩‍💻 Renghiuc Bianca
+
+# 🖥️ Video Presentation:
+
+https://youtu.be/Ti4Spie7-E4.
+
+# 📄 Documentation:
+
+https://docs.google.com/document/d/1h059fxojPpqRnuw-CI-0vYnmXlIt4zp6oQjrAMNZh-A/edit?fbclid=IwAR2w5hUfkTnzLe5sKooFmWggEcTMyBvsewZYjOcaAc7JvBrpRPL8kVE-Ri0&pli=1
+
+# ✨ OpenAPI:
+
+https://app.swaggerhub.com/templates-docs/ALINADUCA/API_Template/1.0.0
+
+# ⚙️ Backend Architecture:
+
+![alt text](https://github.com/alinaduca/tehnologii-web/blob/main/src/view/Architecture.png?raw=true)
+
+# 🔑 Admin accounts:
+
+* Email: alina_duca@yahoo.com
     
-    - Chichirău Claudiu
+    P: Alina123
     
-    - Duca Alina
+* Email: chichirau.claudiu@yahoo.ro
     
-    - Renghiuc Bianca
+   P: Claudiu1234
+  
+* Email: bianca.renghiuc@yahoo.com
 
-Link prezentare: https://youtu.be/Ti4Spie7-E4.
-
-Link documentație: https://docs.google.com/document/d/1h059fxojPpqRnuw-CI-0vYnmXlIt4zp6oQjrAMNZh-A/edit?fbclid=IwAR2w5hUfkTnzLe5sKooFmWggEcTMyBvsewZYjOcaAc7JvBrpRPL8kVE-Ri0&pli=1
-
-OpenAPI: https://app.swaggerhub.com/templates-docs/ALINADUCA/API_Template/1.0.0
-
-Conturi admin:
-
-    - Email: bianca.renghiuc@yahoo.com
-
-          P: Bianca1234
-    
-    - Email: alina_duca1@yahoo.com
-    
-          P: Alina1234
-    
-    - Email: chichirau.claudiu@yahoo.ro
-    
-          P: Claudiu1234
-
-"# FireStream" 
+    P: Bianca1234
