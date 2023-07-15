@@ -1,6 +1,6 @@
 # 📈 TW Project - AcVis (Actors Smart Visualizer)
 
-# 📚 Team:
+# 👥 Team:
 
 * 🔥 FireStream
 
