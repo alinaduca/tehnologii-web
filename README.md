@@ -14,7 +14,7 @@
 
 # 🖥️ Video Presentation:
 
-https://youtu.be/Ti4Spie7-E4.
+https://youtu.be/Ti4Spie7-E4
 
 # 📄 Documentation:
 
