@@ -30,6 +30,10 @@ https://app.swaggerhub.com/templates-docs/ALINADUCA/API_Template/1.0.0
 
 ![alt text](https://github.com/alinaduca/tehnologii-web/blob/main/src/view/Architecture.png?raw=true)
 
+## 📋 Project Requirements
+
+https://fii-tw.notion.site/Lista-proiecte-72c08c2e4d974017bdc43fb6a2a7d5b1#965e6fb505244b18823a5addb998a4c4
+
 ## 🔑 Admin accounts:
 
 * Email: alina_duca@yahoo.com
