@@ -1,10 +1,10 @@
 # 📈 TW Project - AcVis (Actors Smart Visualizer)
 
-# 👥 Team:
+## 👥 Team:
 
 * 🔥 FireStream
 
-# 📚 Authors:
+## 📚 Authors:
 
 * 👨‍💻 Chichirău Claudiu
 
@@ -12,23 +12,23 @@
 
 * 👩‍💻 Renghiuc Bianca
 
-# 🖥️ Video Presentation:
+## 🖥️ Video Presentation:
 
 https://youtu.be/Ti4Spie7-E4
 
-# 📄 Documentation:
+## 📄 Documentation:
 
 https://docs.google.com/document/d/1h059fxojPpqRnuw-CI-0vYnmXlIt4zp6oQjrAMNZh-A/edit?fbclid=IwAR2w5hUfkTnzLe5sKooFmWggEcTMyBvsewZYjOcaAc7JvBrpRPL8kVE-Ri0&pli=1
 
-# ✨ OpenAPI:
+## ✨ OpenAPI:
 
 https://app.swaggerhub.com/templates-docs/ALINADUCA/API_Template/1.0.0
 
-# ⚙️ Backend Architecture:
+## ⚙️ Backend Architecture:
 
 ![alt text](https://github.com/alinaduca/tehnologii-web/blob/main/src/view/Architecture.png?raw=true)
 
-# 🔑 Admin accounts:
+## 🔑 Admin accounts:
 
 * Email: alina_duca@yahoo.com
     
