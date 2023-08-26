@@ -1,5 +1,7 @@
 # 📈 TW Project - AcVis (Actors Smart Visualizer)
 
+The proposed project aims to develop a web tool specialized in the flexible visualization of data related to the nominations of actors at the Screen Actors Guid (SAG) Awards. The goal is to provide users with an intuitive and interactive platform for exploring and analyzing information related to nominations, actors and film productions.
+
 ## 👥 Team:
 
 * 🔥 FireStream
