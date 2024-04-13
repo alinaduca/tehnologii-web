@@ -14,6 +14,10 @@ The proposed project aims to develop a web tool specialized in the flexible visu
 
 * 👩‍💻 Renghiuc Bianca
 
+## 📝 Partial documentation
+
+https://alinaduca.github.io/tehnologii-web/
+
 ## 🖥️ Video Presentation:
 
 https://youtu.be/Ti4Spie7-E4
